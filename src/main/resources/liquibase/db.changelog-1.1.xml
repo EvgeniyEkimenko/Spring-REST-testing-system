@@ -1,0 +1,183 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="1.0.6" author="eugene.ekimenko">
+        <createTable tableName="test_result">
+
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="true"/>
+            </column>
+
+            <column name="test_id" type="BIGINT">
+                <constraints  nullable="true"/>
+            </column>
+
+            <column name="user_id" type="BIGINT">
+                <constraints  nullable="true"/>
+            </column>
+
+            <column name="score" type="DOUBLE">
+                <constraints nullable="true"/>
+            </column>
+
+        </createTable>
+    </changeSet>
+
+    <changeSet id="1.0.7" author="eugene.ekimenko">
+        <createTable tableName="answer_result">
+
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="true"/>
+            </column>
+
+            <column name="test_result_id" type="BIGINT">
+                <constraints  nullable="true"/>
+            </column>
+
+<!--            <column name="user_id" type="BIGINT">
+                <constraints  nullable="true"/>
+            </column>-->
+
+            <column name="score" type="DOUBLE">
+                <constraints nullable="true"/>
+            </column>
+
+        </createTable>
+    </changeSet>
+
+    <changeSet id="1.0.8" author="eugene.ekimenko">
+        <createTable tableName="test">
+
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="true"/>
+            </column>
+
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="requered_score" type="BIGINT">
+                <constraints  nullable="true"/>
+            </column>
+
+            <column name="number_attempts" type="BIGINT">
+                <constraints  nullable="true"/>
+            </column>
+
+        </createTable>
+    </changeSet>
+
+    <changeSet id="1.0.9" author="eugene.ekimenko">
+        <createTable tableName="question">
+
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="true"/>
+            </column>
+
+            <column name="test_id" type="BIGINT">
+                <constraints  nullable="true"/>
+            </column>
+
+            <column name="text" type="TEXT">
+                <constraints  nullable="true"/>
+            </column>
+
+            <column name="score" type="DOUBLE">
+                <constraints  nullable="true"/>
+            </column>
+
+            <column name="position" type="INT">
+                <constraints  nullable="true"/>
+            </column>
+
+            <column name="allowed_particle_answer" type="BOOLEAN">
+                <constraints  nullable="true"/>
+            </column>
+
+        </createTable>
+    </changeSet>
+
+    <changeSet id="1.0.10" author="eugene.ekimenko">
+        <createTable tableName="answer_variant">
+
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="true"/>
+            </column>
+
+            <column name="question_id" type="BIGINT">
+                <constraints  nullable="true"/>
+            </column>
+
+            <column name="text" type="TEXT">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="correct" type="BOOLEAN">
+                <constraints  nullable="true"/>
+            </column>
+
+        </createTable>
+    </changeSet>
+
+    <changeSet id="1.0.11" author="eugene.ekimenko">
+        <addForeignKeyConstraint baseColumnNames="test_id"
+                                 baseTableName="test_result"
+                                 constraintName="fk_test_result_test"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="test"/>
+
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="test_result"
+                                 constraintName="fk_test_result_user"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="users"/>
+    </changeSet>
+
+    <changeSet id="1.0.12" author="eugene.ekimenko">
+        <addForeignKeyConstraint baseColumnNames="test_result_id"
+                                 baseTableName="answer_result"
+                                 constraintName="fk_answer_result_test_result"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="test_result"/>
+
+<!--        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="answer_result"
+                                 constraintName="fk_answer_result_id"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="users"/>-->
+    </changeSet>
+
+    <changeSet id="1.0.13" author="eugene.ekimenko">
+        <addForeignKeyConstraint baseColumnNames="test_id"
+                                 baseTableName="question"
+                                 constraintName="fk_question_id"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="test"/>
+
+    </changeSet>
+
+    <changeSet id="1.0.14" author="eugene.ekimenko">
+        <addForeignKeyConstraint baseColumnNames="question_id"
+                                 baseTableName="answer_variant"
+                                 constraintName="fk_answer_variant_question_id"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="question"/>
+
+    </changeSet>
+
+
+</databaseChangeLog>
