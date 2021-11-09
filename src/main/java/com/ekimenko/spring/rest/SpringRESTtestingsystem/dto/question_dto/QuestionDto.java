@@ -22,7 +22,6 @@ public class QuestionDto {
         question.setPosition(position);
         question.setAllowedParticleAnswer(allowedParticleAnswer);
         //FIXME question.setTest()
-        //test
 
         return question;
     }

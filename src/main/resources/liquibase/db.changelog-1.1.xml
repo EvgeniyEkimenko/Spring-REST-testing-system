@@ -14,9 +14,9 @@
                 <constraints  nullable="true"/>
             </column>
 
-            <column name="user_id" type="BIGINT">
+<!--            <column name="user_id" type="BIGINT">
                 <constraints  nullable="true"/>
-            </column>
+            </column>-->
 
             <column name="score" type="DOUBLE">
                 <constraints nullable="true"/>
@@ -130,13 +130,13 @@
                                  referencedColumnNames="id"
                                  referencedTableName="test"/>
 
-        <addForeignKeyConstraint baseColumnNames="user_id"
+<!--        <addForeignKeyConstraint baseColumnNames="user_id"
                                  baseTableName="test_result"
                                  constraintName="fk_test_result_user"
                                  onDelete="CASCADE"
                                  onUpdate="RESTRICT"
                                  referencedColumnNames="id"
-                                 referencedTableName="users"/>
+                                 referencedTableName="users"/>-->
     </changeSet>
 
     <changeSet id="1.0.12" author="eugene.ekimenko">

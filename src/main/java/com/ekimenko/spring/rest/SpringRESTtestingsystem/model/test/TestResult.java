@@ -23,10 +23,6 @@ public class TestResult {
     @JoinColumn(name = "test_id")
     private Test testId;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private User userId;
-
     @Column(name = "score")
     private Double score;
 
