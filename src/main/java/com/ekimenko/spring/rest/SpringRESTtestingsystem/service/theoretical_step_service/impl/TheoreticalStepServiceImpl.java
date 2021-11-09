@@ -1,15 +1,15 @@
-package com.ekimenko.spring.rest.SpringRESTtestingsystem.service;
+package com.ekimenko.spring.rest.SpringRESTtestingsystem.service.theoretical_step_service.impl;
 
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.Lesson;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.TheoreticalStep;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.repository.TheoreticalStepRepository;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.theoretical_step_service.TheoreticalStepService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class TheoreticalStepServiceImpl implements TheoreticalStepService{
+public class TheoreticalStepServiceImpl implements TheoreticalStepService {
 
     private final TheoreticalStepRepository theoreticalStepRepository;
 

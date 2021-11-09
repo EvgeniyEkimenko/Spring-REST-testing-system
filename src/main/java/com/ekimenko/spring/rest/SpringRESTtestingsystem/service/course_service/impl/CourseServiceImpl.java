@@ -1,14 +1,15 @@
-package com.ekimenko.spring.rest.SpringRESTtestingsystem.service;
+package com.ekimenko.spring.rest.SpringRESTtestingsystem.service.course_service.impl;
 
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.Course;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.repository.CourseRepository;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.course_service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class CourseServiceImpl implements CourseService{
+public class CourseServiceImpl implements CourseService {
 
     private final CourseRepository courseRepository;
 

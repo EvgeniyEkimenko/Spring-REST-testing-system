@@ -1,4 +1,4 @@
-package com.ekimenko.spring.rest.SpringRESTtestingsystem.service;
+package com.ekimenko.spring.rest.SpringRESTtestingsystem.service.theoretical_step_service;
 
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.TheoreticalStep;
 

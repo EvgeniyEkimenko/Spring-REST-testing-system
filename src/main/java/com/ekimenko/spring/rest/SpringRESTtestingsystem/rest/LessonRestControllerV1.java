@@ -2,7 +2,7 @@ package com.ekimenko.spring.rest.SpringRESTtestingsystem.rest;
 
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.LessonDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.Lesson;
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.LessonService;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.lesson_service.LessonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package com.ekimenko.spring.rest.SpringRESTtestingsystem.service;
+package com.ekimenko.spring.rest.SpringRESTtestingsystem.service.course_service;
 
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.Course;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.TestResult;
