@@ -3,12 +3,14 @@ package com.ekimenko.spring.rest.SpringRESTtestingsystem.service.question_servic
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.question.Question;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.repository.question_repos.QuestionRepository;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.question_service.QuestionService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 
 @Service
+@Slf4j
 public class QuestionServiceImpl implements QuestionService {
 
     private final QuestionRepository questionRepository;
@@ -21,31 +23,37 @@ public class QuestionServiceImpl implements QuestionService {
     public List<Question> getAllQuestions() {
         List<Question> questions = questionRepository.findAll();
 
-        //TODO add log info
+        log.info("IN getAllQuestions - {} Questions found", questions.size());
         return questions;
     }
 
     @Override
     public void addNewQuestion(Question question) {
+        //TODO add log info
         questionRepository.save(question);
     }
 
     @Override
     public void updateQuestion(Question question) {
+        //TODO add log info
         questionRepository.save(question);
     }
 
 
     @Override
     public Question getQuestionById(Long id) {
-        Question question = questionRepository.getById(id);
-        //TODO add log info
+        Question question = questionRepository.findById(id).orElse(null);
+        if (question == null) {
+            log.warn("IN getQuestionById - no questions found by id: {}", id);
+            return null;
+        }
+        log.info("IN getQuestionById  - question: {} found by id: {}", question, id);
         return question;
     }
 
     @Override
     public void deleteQuestionById(Long id) {
         questionRepository.deleteById(id);
-        //TODO add log info
+        log.info("IN deleteQuestionById - Question with id: {} successfully deleted", id);
     }
 }
