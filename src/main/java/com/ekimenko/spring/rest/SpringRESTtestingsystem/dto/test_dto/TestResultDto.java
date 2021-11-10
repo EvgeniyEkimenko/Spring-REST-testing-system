@@ -11,7 +11,6 @@ import lombok.Data;
 public class TestResultDto {
     private Long id;
     private Double score;
-    private Long userId;
     private Long testId;
 
     public TestResult toTestResult(){
@@ -19,7 +18,6 @@ public class TestResultDto {
         testResult.setId(id);
         testResult.setScore(score);
         //FIXME testResult.setTestId(testId);
-        //FIXME testResult.setUserId(userId);
 
         return testResult;
     }
@@ -29,7 +27,6 @@ public class TestResultDto {
         testResultDto.setId(testResult.getId());
         testResultDto.setScore(testResult.getScore());
 
-        testResultDto.setUserId(testResult.getUserId().getId());
         testResultDto.setTestId(testResult.getTestId().getId());
 
         return testResultDto;

@@ -3,6 +3,7 @@ package com.ekimenko.spring.rest.SpringRESTtestingsystem.service.test_service.im
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.TestResult;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.repository.test_repos.TestResultRepository;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.test_service.TestResultService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@Slf4j
 public class TestResultServiceImpl implements TestResultService {
 
     private final TestResultRepository testResultRepository;
@@ -23,7 +25,7 @@ public class TestResultServiceImpl implements TestResultService {
     @Override
     public List<TestResult> getAllTestResults() {
         List<TestResult> testRes = testResultRepository.findAll();
-        //TODO add log info
+        log.info("IN getAllTestResults - {} TestResults found", testRes.size());
         return testRes;
     }
 
@@ -41,17 +43,19 @@ public class TestResultServiceImpl implements TestResultService {
     @Override
     public TestResult getTestResultById(Long id) {
 
-        Optional<TestResult> result = testResultRepository.findById(id);
-
-        if (result.isPresent()) return result.get();
-        //FIXME
-        else throw new NullPointerException();
+        TestResult result = testResultRepository.findById(id).orElse(null);
+        if (result == null) {
+            log.warn("IN getTestResultById - no results found by id: {}", id);
+            return null;
+        }
+        log.info("IN getTestResultById  - result: {} found by id: {}", result, id);
+        return result;
     }
 
     @Override
     public void deleteTestResultById(Long id) {
         testResultRepository.deleteById(id);
-        //TODO add log info
+        log.info("IN deleteTestResultById - TestResult with id: {} successfully deleted", id);
     }
 
     @Override

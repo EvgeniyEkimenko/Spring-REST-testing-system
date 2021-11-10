@@ -1,0 +1,233 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="1.0.15" author="eugene.ekimenko">
+        <createTable tableName="theoretical_step">
+
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="true"/>
+            </column>
+
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="description" type="TEXT">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="lesson_id" type="BIGINT">
+                <constraints  nullable="true"/>
+            </column>
+
+            <column name="useful_text" type="TEXT">
+                <constraints  nullable="true"/>
+            </column>
+
+        </createTable>
+    </changeSet>
+
+    <changeSet id="1.0.16" author="eugene.ekimenko">
+        <createTable tableName="lesson">
+
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="true"/>
+            </column>
+
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="description" type="TEXT">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="course_id" type="BIGINT">
+                <constraints  nullable="true"/>
+            </column>
+
+            <column name="test_id" type="BIGINT">
+                <constraints  nullable="true"/>
+            </column>
+
+            <column name="complete" type="BOOLEAN">
+                <constraints  nullable="true"/>
+            </column>
+
+        </createTable>
+    </changeSet>
+
+    <changeSet id="1.0.17" author="eugene.ekimenko">
+        <createTable tableName="course">
+
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="true"/>
+            </column>
+
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="description" type="TEXT">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="complete" type="BOOLEAN">
+                <constraints  nullable="true"/>
+            </column>
+
+<!--            <column name="students_number" type="INT">
+                <constraints  nullable="true"/>
+            </column>
+
+            <column name="percent_completing" type="INT">
+                <constraints  nullable="true"/>
+            </column>-->
+
+        </createTable>
+    </changeSet>
+
+    <changeSet id="1.0.18" author="eugene.ekimenko">
+        <createTable tableName="course_user">
+
+            <column name="user_id" type="BIGINT">
+            </column>
+
+            <column name="course_id" type="BIGINT">
+            </column>
+
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="1.0.19" author="eugene.ekimenko">
+        <addForeignKeyConstraint baseColumnNames="lesson_id"
+                                 baseTableName="theoretical_step"
+                                 constraintName="fk_theoretical_lesson"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="lesson"/>
+    </changeSet>
+
+
+
+    <changeSet id="1.0.20" author="eugene.ekimenko">
+        <addForeignKeyConstraint baseColumnNames="course_id"
+                                 baseTableName="lesson"
+                                 constraintName="fk_lesson_course_id"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="course"/>
+    </changeSet>
+
+    <changeSet id="1.0.21" author="eugene.ekimenko">
+        <addForeignKeyConstraint baseColumnNames="test_id"
+                                 baseTableName="lesson"
+                                 constraintName="fk_lesson_test_id"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="test"/>
+    </changeSet>
+
+
+
+    <changeSet id="1.0.22" author="eugene.ekimenko">
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="course_user"
+                                 constraintName="fk_course_user_id"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="users"/>
+    </changeSet>
+
+    <changeSet id="1.0.23" author="eugene.ekimenko">
+        <addForeignKeyConstraint baseColumnNames="course_id"
+                                 baseTableName="course_user"
+                                 constraintName="fk_course_course_id"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="course"/>
+    </changeSet>
+
+    <changeSet id="1.0.24" author="eugene.ekimenko">
+        <addForeignKeyConstraint baseColumnNames="question_id"
+                                 baseTableName="answer_result"
+                                 constraintName="fk_question_ans"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="question"/>
+    </changeSet>
+
+<!--    <changeSet id="1.0.25" author="eugene.ekimenko">
+        <addForeignKeyConstraint baseColumnNames="question_id"
+                                 baseTableName="answer_result"
+                                 constraintName="fk_ques"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="question"/>
+    </changeSet>-->
+
+
+    <changeSet id="1.0.26" author="eugene.ekimenko">
+        <createTable tableName="lesson_step">
+
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="true"/>
+            </column>
+
+            <column name="position_in_lesson" type="INTEGER">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="lesson_id" type="BIGINT">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="theoretical_step_id" type="BIGINT">
+                <constraints  nullable="true"/>
+            </column>
+
+            <column name="test_id" type="BIGINT">
+                <constraints  nullable="true"/>
+            </column>
+
+        </createTable>
+    </changeSet>
+
+    <changeSet id="1.0.27" author="eugene.ekimenko">
+        <addForeignKeyConstraint baseColumnNames="lesson_id"
+                                 baseTableName="lesson_step"
+                                 constraintName="fk_lesson_id_lesson1"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="lesson"/>
+
+        <addForeignKeyConstraint baseColumnNames="theoretical_step_id"
+                                 baseTableName="lesson_step"
+                                 constraintName="fk_lesson_step_lesson1"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="theoretical_step"/>
+
+        <addForeignKeyConstraint baseColumnNames="test_id"
+                                 baseTableName="lesson_step"
+                                 constraintName="fk_test_id_test1"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="test"/>
+    </changeSet>
+
+
+</databaseChangeLog>

@@ -44,6 +44,10 @@
                 <constraints nullable="true"/>
             </column>
 
+            <column name="question_id" type="BIGINT">
+                <constraints nullable="true"/>
+            </column>
+
         </createTable>
     </changeSet>
 

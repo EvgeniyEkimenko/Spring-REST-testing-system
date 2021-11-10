@@ -1,5 +1,6 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.model.question;
 
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer.AnswerResult;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer.AnswerVariant;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.Test;
 import lombok.Data;
@@ -36,5 +37,9 @@ public class Question {
     @OneToMany(fetch = FetchType.LAZY)
     @Column(name = "question_id")
     private List<AnswerVariant> answerVariants;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @Column(name = "question_id")
+    private List<AnswerResult> answerResults;
 
 }

@@ -23,15 +23,14 @@ public class TestResult {
     @JoinColumn(name = "test_id")
     private Test testId;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private User userId;
-
     @Column(name = "score")
     private Double score;
 
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "test_result_id")
     private List<AnswerResult> answerResults;
+
+    @ManyToOne
+    private User user;
 
 }
