@@ -1,6 +1,8 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.model.user;
 
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.Course;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer.AnswerResult;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.TestResult;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -33,6 +35,10 @@ public class User extends BaseEntity {
             joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")})
     private List<Role> roles;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private List<TestResult> testResults;
 
     @ManyToMany(mappedBy = "users", fetch = FetchType.LAZY)
     private List<Course> course;

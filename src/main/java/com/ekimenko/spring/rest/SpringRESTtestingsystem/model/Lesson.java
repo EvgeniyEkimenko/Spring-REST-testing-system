@@ -27,12 +27,9 @@ public class Lesson {
     private Boolean complete;
 
     @OneToMany(fetch = FetchType.LAZY)
-    @Column(name = "lesson_id")
-    private List<TheoreticalStep> theoreticalStep;
+    @Column(name = "lesson_step_id")
+    private List<LessonStep> lessonSteps;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "test_id")
-    private Test testId;
 
     @ManyToOne
     private Course course;

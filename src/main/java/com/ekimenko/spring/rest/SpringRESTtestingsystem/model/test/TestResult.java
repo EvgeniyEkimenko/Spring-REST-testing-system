@@ -30,4 +30,7 @@ public class TestResult {
     @JoinColumn(name = "test_result_id")
     private List<AnswerResult> answerResults;
 
+    @ManyToOne
+    private User user;
+
 }
