@@ -1,6 +1,5 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.model;
 
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.Test;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
