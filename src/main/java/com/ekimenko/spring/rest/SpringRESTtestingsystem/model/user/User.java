@@ -5,6 +5,7 @@ import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer.AnswerResul
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.TestResult;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
@@ -30,16 +31,19 @@ public class User extends BaseEntity {
     @Column(name = "password")
     private String password;
 
+    @ToString.Exclude
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_roles",
             joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")})
     private List<Role> roles;
 
+    @ToString.Exclude
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private List<TestResult> testResults;
 
+    @ToString.Exclude
     @ManyToMany(mappedBy = "users", fetch = FetchType.LAZY)
     private List<Course> course;
 }

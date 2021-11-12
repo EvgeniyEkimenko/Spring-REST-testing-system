@@ -3,6 +3,7 @@ package com.ekimenko.spring.rest.SpringRESTtestingsystem.model;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.user.User;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
@@ -26,6 +27,7 @@ public class Course {
     @Column(name = "complete")
     private Boolean complete;
 
+    @ToString.Exclude
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "course_user",
             joinColumns = {@JoinColumn(name = "course_id", referencedColumnName = "id")},

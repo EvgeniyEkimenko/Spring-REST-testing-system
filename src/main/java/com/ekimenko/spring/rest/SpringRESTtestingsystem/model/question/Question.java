@@ -5,6 +5,7 @@ import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer.AnswerVaria
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.Test;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
@@ -31,13 +32,16 @@ public class Question {
     @Column(name = "allowed_particle_answer")
     private Boolean allowedParticleAnswer;
 
+    @ToString.Exclude
     @ManyToOne()   //тестовое
     private Test test;
 
+    @ToString.Exclude
     @OneToMany(fetch = FetchType.LAZY)
     @Column(name = "question_id")
     private List<AnswerVariant> answerVariants;
 
+    @ToString.Exclude
     @OneToMany(fetch = FetchType.LAZY)
     @Column(name = "question_id")
     private List<AnswerResult> answerResults;

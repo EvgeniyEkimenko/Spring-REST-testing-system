@@ -2,6 +2,7 @@ package com.ekimenko.spring.rest.SpringRESTtestingsystem.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
@@ -25,10 +26,12 @@ public class Lesson {
     @Column(name = "complete")
     private Boolean complete;
 
+    @ToString.Exclude
     @OneToMany(fetch = FetchType.LAZY)
     @Column(name = "lesson_step_id")
     private List<LessonStep> lessonSteps;
 
+    @ToString.Exclude
     @ManyToOne
     private Course course;
 

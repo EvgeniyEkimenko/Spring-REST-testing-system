@@ -3,6 +3,7 @@ package com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.question.Question;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
@@ -26,8 +27,7 @@ public class Test {
     @Column(name = "number_attempts")
     private Long numberAttempts;
 
-
-
+    @ToString.Exclude
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "test_id")
     private List<Question> questions;

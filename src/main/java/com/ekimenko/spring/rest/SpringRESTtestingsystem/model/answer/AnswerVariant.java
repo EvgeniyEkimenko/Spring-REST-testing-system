@@ -3,6 +3,7 @@ package com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.question.Question;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -19,6 +20,7 @@ public class AnswerVariant {
     @Column(name = "text")
     private String text;
 
+    @ToString.Exclude
     @ManyToOne
     private Question question;
 
