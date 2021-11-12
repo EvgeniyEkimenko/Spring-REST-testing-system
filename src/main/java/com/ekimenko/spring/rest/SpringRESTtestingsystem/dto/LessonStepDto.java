@@ -9,6 +9,10 @@ import lombok.Data;
 public class LessonStepDto {
     private Long id;
     private Integer positionInLesson;
+    private Long theoreticalStepId;
+    private Long testId;
+    private Long lessonId;
+
 
     public LessonStep toLessonStep(){
         LessonStep lessonStep = new LessonStep();

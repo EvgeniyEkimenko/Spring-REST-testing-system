@@ -18,9 +18,9 @@
                 <constraints nullable="true"/>
             </column>
 
-            <column name="lesson_id" type="BIGINT">
+<!--            <column name="lesson_id" type="BIGINT">
                 <constraints  nullable="true"/>
-            </column>
+            </column>-->
 
             <column name="useful_text" type="TEXT">
                 <constraints  nullable="true"/>
@@ -48,9 +48,9 @@
                 <constraints  nullable="true"/>
             </column>
 
-            <column name="test_id" type="BIGINT">
+<!--            <column name="test_id" type="BIGINT">
                 <constraints  nullable="true"/>
-            </column>
+            </column>-->
 
             <column name="complete" type="BOOLEAN">
                 <constraints  nullable="true"/>
@@ -102,7 +102,7 @@
     </changeSet>
 
 
-    <changeSet id="1.0.19" author="eugene.ekimenko">
+<!--    <changeSet id="1.0.19" author="eugene.ekimenko">
         <addForeignKeyConstraint baseColumnNames="lesson_id"
                                  baseTableName="theoretical_step"
                                  constraintName="fk_theoretical_lesson"
@@ -110,7 +110,7 @@
                                  onUpdate="RESTRICT"
                                  referencedColumnNames="id"
                                  referencedTableName="lesson"/>
-    </changeSet>
+    </changeSet>-->
 
 
 
@@ -124,7 +124,7 @@
                                  referencedTableName="course"/>
     </changeSet>
 
-    <changeSet id="1.0.21" author="eugene.ekimenko">
+<!--    <changeSet id="1.0.21" author="eugene.ekimenko">
         <addForeignKeyConstraint baseColumnNames="test_id"
                                  baseTableName="lesson"
                                  constraintName="fk_lesson_test_id"
@@ -132,7 +132,7 @@
                                  onUpdate="RESTRICT"
                                  referencedColumnNames="id"
                                  referencedTableName="test"/>
-    </changeSet>
+    </changeSet>-->
 
 
 

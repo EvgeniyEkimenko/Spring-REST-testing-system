@@ -29,7 +29,6 @@ public class Lesson {
     @Column(name = "lesson_step_id")
     private List<LessonStep> lessonSteps;
 
-
     @ManyToOne
     private Course course;
 

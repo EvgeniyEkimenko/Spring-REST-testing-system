@@ -24,6 +24,4 @@ public class TheoreticalStep {
     @Column(name = "useful_text")
     private String usefulText;
 
-    @ManyToOne
-    private Lesson lesson;
 }
