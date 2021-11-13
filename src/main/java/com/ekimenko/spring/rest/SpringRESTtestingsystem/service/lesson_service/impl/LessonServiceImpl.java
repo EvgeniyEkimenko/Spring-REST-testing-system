@@ -3,6 +3,7 @@ package com.ekimenko.spring.rest.SpringRESTtestingsystem.service.lesson_service.
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.Lesson;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.repository.LessonRepository;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.lesson_service.LessonService;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.lesson_service.lesson_step_util.LessonStepUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,10 +15,12 @@ import java.util.List;
 public class LessonServiceImpl implements LessonService {
 
     private final LessonRepository lessonRepository;
+    private final LessonStepUtil lessonStepUtil;
 
     @Autowired
-    public LessonServiceImpl(LessonRepository lessonRepository) {
+    public LessonServiceImpl(LessonRepository lessonRepository , LessonStepUtil lessonStepUtil) {
         this.lessonRepository = lessonRepository;
+        this.lessonStepUtil = lessonStepUtil;
     }
 
     @Override

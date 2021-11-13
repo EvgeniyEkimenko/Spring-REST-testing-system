@@ -12,7 +12,6 @@ public class LessonDto {
     private String description;
     private Boolean complete;
 
-
     public Lesson toLesson(){
         Lesson lesson = new Lesson();
         lesson.setId(id);
@@ -29,7 +28,6 @@ public class LessonDto {
         lessonDto.setName(lesson.getName());
         lessonDto.setDescription(lesson.getDescription());
         lessonDto.setComplete(lesson.getComplete());
-
 
         return lessonDto;
     }

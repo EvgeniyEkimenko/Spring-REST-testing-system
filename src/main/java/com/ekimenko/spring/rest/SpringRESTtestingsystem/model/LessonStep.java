@@ -1,10 +1,10 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.model;
 
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.Test;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
+import org.springframework.lang.Nullable;
 
+import javax.management.ConstructorParameters;
 import javax.persistence.*;
 
 
@@ -27,11 +27,12 @@ public class LessonStep {
 
     @ToString.Exclude
     @OneToOne
+    @JoinColumn(name = "theoretical_step_id")
     private TheoreticalStep theoreticalStep;
 
     @ToString.Exclude
     @OneToOne
+    @JoinColumn(name = "test_id")
     private Test test;
-
 
 }

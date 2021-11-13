@@ -12,9 +12,8 @@ public class LessonStepDto {
     private Long id;
     private Integer positionInLesson;
 
-
-    private TheoreticalStep theoreticalStep;
-    private TestDto test;
+    private Long theoreticalStep;
+    private Long test;
     private Long lessonId;
 
 
@@ -22,6 +21,8 @@ public class LessonStepDto {
         LessonStep lessonStep = new LessonStep();
         lessonStep.setId(id);
         lessonStep.setPositionInLesson(positionInLesson);
+
+        //TODO add code
 
         return lessonStep;
     }
@@ -31,8 +32,9 @@ public class LessonStepDto {
         lessonStepDto.setId(lessonStep.getId());
         lessonStepDto.setPositionInLesson(lessonStep.getPositionInLesson());
 
-        lessonStepDto.theoreticalStep = lessonStep.getTheoreticalStep();
-        lessonStepDto.test = TestDto.fromTest(lessonStep.getTest());
+        //FIXME
+        if (lessonStep.getLesson()!=null) lessonStepDto.theoreticalStep = lessonStep.getTheoreticalStep().getId();
+        if (lessonStep.getTest()!=null) lessonStepDto.test = TestDto.fromTest(lessonStep.getTest()).getId();
         lessonStepDto.lessonId = lessonStep.getLesson().getId();
 
         return lessonStepDto;

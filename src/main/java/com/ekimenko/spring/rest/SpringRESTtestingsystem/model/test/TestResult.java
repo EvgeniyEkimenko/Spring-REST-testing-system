@@ -20,11 +20,6 @@ public class TestResult {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ToString.Exclude
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "test_id")
-    private Test testId;
-
     @Column(name = "score")
     private Double score;
 
@@ -36,5 +31,9 @@ public class TestResult {
     @ToString.Exclude
     @ManyToOne
     private User user;
+
+    @ToString.Exclude
+    @ManyToOne
+    private Test test;
 
 }

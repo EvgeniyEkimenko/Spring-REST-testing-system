@@ -43,8 +43,12 @@ public class LessonStepRestControllerV1 {
     }
 
     @PostMapping(value = "")
-    public void addNewLessonStep(@RequestBody LessonStepDto lessonStepDto) {
-        //TODO solve the problem of implementing the save and update methods
+    public ResponseEntity<LessonStepDto> addNewLessonStep(@RequestBody LessonStepDto lessonStepDto) {
+
+        LessonStep lessonStep = lessonStepService.addNewLessonStep(lessonStepDto.toLessonStep());
+        LessonStepDto lessonStepDtoNew = LessonStepDto.fromLessonStep(lessonStep);
+
+        return new ResponseEntity<>(lessonStepDtoNew , HttpStatus.OK);
     }
 
     @PutMapping(value = "")

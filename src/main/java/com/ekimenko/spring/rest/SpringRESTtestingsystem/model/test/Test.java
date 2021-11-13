@@ -1,5 +1,6 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test;
 
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.LessonStep;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.question.Question;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -31,5 +32,14 @@ public class Test {
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "test_id")
     private List<Question> questions;
+
+    @ToString.Exclude
+    @OneToOne(mappedBy = "test")
+    private LessonStep lessonStep;
+
+    @ToString.Exclude
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "test_id")
+    private List<TestResult> testResults;
 
 }

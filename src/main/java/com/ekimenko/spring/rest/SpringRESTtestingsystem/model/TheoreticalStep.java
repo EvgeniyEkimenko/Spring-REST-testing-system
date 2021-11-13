@@ -2,6 +2,7 @@ package com.ekimenko.spring.rest.SpringRESTtestingsystem.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -23,5 +24,10 @@ public class TheoreticalStep {
 
     @Column(name = "useful_text")
     private String usefulText;
+
+    @ToString.Exclude
+    @OneToOne(mappedBy = "theoreticalStep")
+    private LessonStep lessonStep;
+
 
 }

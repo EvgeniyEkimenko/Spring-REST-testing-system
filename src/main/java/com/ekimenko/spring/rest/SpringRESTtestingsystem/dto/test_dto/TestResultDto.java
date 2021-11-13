@@ -27,7 +27,7 @@ public class TestResultDto {
         testResultDto.setId(testResult.getId());
         testResultDto.setScore(testResult.getScore());
 
-        testResultDto.setTestId(testResult.getTestId().getId());
+        testResultDto.setTestId(testResult.getTest().getId());
 
         return testResultDto;
     }
