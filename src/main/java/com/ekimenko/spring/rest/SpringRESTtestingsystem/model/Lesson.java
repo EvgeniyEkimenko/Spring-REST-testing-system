@@ -27,8 +27,8 @@ public class Lesson {
     private Boolean complete;
 
     @ToString.Exclude
-    @OneToMany(fetch = FetchType.LAZY)
-    @Column(name = "lesson_step_id")
+    @OneToMany(fetch = FetchType.LAZY  , mappedBy = "lesson")
+    @Column(name = "lesson_id")
     private List<LessonStep> lessonSteps;
 
     @ToString.Exclude

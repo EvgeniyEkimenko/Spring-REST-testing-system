@@ -22,7 +22,7 @@ public class LessonStep {
     private Integer positionInLesson;
 
     @ToString.Exclude
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "lesson_id")
     private Lesson lesson;
 
