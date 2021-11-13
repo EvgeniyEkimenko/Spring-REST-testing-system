@@ -28,10 +28,15 @@ public class Course {
     private Boolean complete;
 
     @ToString.Exclude
-    @ManyToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.LAZY  , mappedBy = "course")
+    @Column(name = "course_id")
+    private List<Lesson> lessons;
+
+    @ToString.Exclude
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "course_user",
             joinColumns = {@JoinColumn(name = "course_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")})
+            inverseJoinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id") })
     private List<User> users;
 
 

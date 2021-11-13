@@ -27,10 +27,10 @@ public class TheoreticalStepDto {
 
     public static TheoreticalStepDto fromTheoreticalStep(TheoreticalStep theoreticalStep) {
         TheoreticalStepDto theoreticalStepDto = new TheoreticalStepDto();
-        theoreticalStepDto.setId(theoreticalStepDto.getId());
-        theoreticalStepDto.setName(theoreticalStepDto.getName());
-        theoreticalStepDto.setDescription(theoreticalStepDto.getDescription());
-        theoreticalStepDto.setUsefulText(theoreticalStepDto.getUsefulText());
+        theoreticalStepDto.setId(theoreticalStep.getId());
+        theoreticalStepDto.setName(theoreticalStep.getName());
+        theoreticalStepDto.setDescription(theoreticalStep.getDescription());
+        theoreticalStepDto.setUsefulText(theoreticalStep.getUsefulText());
 
         return theoreticalStepDto;
     }
