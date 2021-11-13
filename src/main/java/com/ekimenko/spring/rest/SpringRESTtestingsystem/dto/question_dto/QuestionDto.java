@@ -1,9 +1,6 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.question_dto;
 
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer.AnswerResult;
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer.AnswerVariant;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.question.Question;
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.Test;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.answer_service.AnswerServiceUtil.AnswerResultServiceUtil;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.answer_service.AnswerServiceUtil.AnswerVariantServiceUtil;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

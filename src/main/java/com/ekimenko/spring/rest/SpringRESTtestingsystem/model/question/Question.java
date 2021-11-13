@@ -34,6 +34,7 @@ public class Question {
 
     @ToString.Exclude
     @ManyToOne()
+    @JoinColumn(name = "test_id")
     private Test test;
 
     @ToString.Exclude
