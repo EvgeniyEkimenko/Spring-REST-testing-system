@@ -1,8 +1,11 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.question_dto;
 
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer.AnswerResult;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer.AnswerVariant;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.question.Question;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.Test;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.answer_service.AnswerServiceUtil.AnswerResultServiceUtil;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.answer_service.AnswerServiceUtil.AnswerVariantServiceUtil;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
@@ -18,8 +21,8 @@ public class QuestionDto {
     private Boolean allowedParticleAnswer;
     private Long testId;
 
-    private Test test;
-    private List<AnswerVariant> answerVariants;
+    private List<Long> answerVariantsId;
+    private List<Long> answerResultsId;
 
     public Question toQuestion(){
         Question question = new Question();
@@ -28,7 +31,7 @@ public class QuestionDto {
         question.setScore(score);
         question.setPosition(position);
         question.setAllowedParticleAnswer(allowedParticleAnswer);
-        //FIXME question.setTest()
+        //TODO
 
         return question;
     }
@@ -40,8 +43,12 @@ public class QuestionDto {
         questionDto.setText(question.getText());
         questionDto.setPosition(question.getPosition());
         questionDto.setAllowedParticleAnswer(question.getAllowedParticleAnswer());
-
         questionDto.setTestId(question.getTest().getId());
+
+        questionDto.setAnswerVariantsId(AnswerVariantServiceUtil.
+                getAllIdFromAnswerVariantList(question.getAnswerVariants()));
+        questionDto.setAnswerResultsId(AnswerResultServiceUtil.
+                getAllIdFromAnswerResultList(question.getAnswerResults()));
 
         return questionDto;
     }

@@ -33,16 +33,16 @@ public class Question {
     private Boolean allowedParticleAnswer;
 
     @ToString.Exclude
-    @ManyToOne()   //тестовое
+    @ManyToOne()
     private Test test;
 
     @ToString.Exclude
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY , mappedBy = "question")
     @Column(name = "question_id")
     private List<AnswerVariant> answerVariants;
 
     @ToString.Exclude
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY , mappedBy = "question")
     @Column(name = "question_id")
     private List<AnswerResult> answerResults;
 

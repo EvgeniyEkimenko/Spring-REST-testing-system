@@ -33,6 +33,7 @@ public class Lesson {
 
     @ToString.Exclude
     @ManyToOne
+    @JoinColumn(name = "course_id")
     private Course course;
 
 }

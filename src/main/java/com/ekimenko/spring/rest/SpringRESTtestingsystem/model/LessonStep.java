@@ -23,6 +23,7 @@ public class LessonStep {
 
     @ToString.Exclude
     @ManyToOne
+    @JoinColumn(name = "lesson_id")
     private Lesson lesson;
 
     @ToString.Exclude

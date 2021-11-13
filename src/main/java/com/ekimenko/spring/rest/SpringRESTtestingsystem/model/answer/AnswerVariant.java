@@ -22,6 +22,7 @@ public class AnswerVariant {
 
     @ToString.Exclude
     @ManyToOne
+    @JoinColumn(name = "question_id")
     private Question question;
 
     @Column(name = "correct")

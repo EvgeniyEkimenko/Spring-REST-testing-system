@@ -30,10 +30,12 @@ public class TestResult {
 
     @ToString.Exclude
     @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
     @ToString.Exclude
     @ManyToOne
+    @JoinColumn(name = "test_id")
     private Test test;
 
 }

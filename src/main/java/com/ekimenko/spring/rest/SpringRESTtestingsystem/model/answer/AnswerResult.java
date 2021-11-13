@@ -21,10 +21,12 @@ public class AnswerResult {
 
     @ToString.Exclude
     @ManyToOne
+    @JoinColumn(name = "test_result_id")
     private TestResult testResult;
 
     @ToString.Exclude
     @ManyToOne
+    @JoinColumn(name = "question_id")
     private Question question;
 
     @Column(name = "score")
