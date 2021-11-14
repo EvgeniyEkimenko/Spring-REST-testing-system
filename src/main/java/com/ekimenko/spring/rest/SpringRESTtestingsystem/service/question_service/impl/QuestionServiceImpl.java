@@ -1,5 +1,6 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.service.question_service.impl;
 
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer.AnswerResult;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer.AnswerVariant;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.question.Question;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.repository.question_repos.QuestionRepository;
@@ -61,20 +62,23 @@ public class QuestionServiceImpl implements QuestionService {
 
     //TODO new functional (Получаем лист с инициализированным id и листом answer_variant у которых только id)
     @Override
-    public void CalculateTheNumberOfPointsForTheAnswer(Question question) {
+    public List<AnswerResult> CalculateTheNumberOfPointsForTheAnswer(Question question) {
         List<AnswerVariant> answerVariantList = question.getAnswerVariants();
         int countOfCorrectAnswer = QuestionServiceUtil.getCountOfCorrectAnswer(question.getId());
-
+        QuestionServiceUtil.setCompleteTrueInQuestion(question.getId());
         for (AnswerVariant answerVariant : answerVariantList) {
             if (QuestionServiceUtil.getCorrect(answerVariant.getId())) {
-                double score = 0;
-                score+= (1/(double)countOfCorrectAnswer);
+                double score =  question.getScore();
+                score= (score/(double)countOfCorrectAnswer);
                 QuestionServiceUtil.createNewAnswerResult(question.getId(), score);
             }
             else {
                 QuestionServiceUtil.createNewAnswerResult(question.getId(), (double)0);
             }
         }
+        List<AnswerResult> answerResultList = getQuestionById(question.getId()).getAnswerResults();
+        QuestionServiceUtil.checkCompletedTest(question.getId());
+        return answerResultList;
     }
 
 }

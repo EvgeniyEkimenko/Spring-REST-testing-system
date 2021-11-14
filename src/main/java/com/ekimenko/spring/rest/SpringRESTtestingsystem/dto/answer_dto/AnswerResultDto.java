@@ -28,7 +28,7 @@ public class AnswerResultDto {
         result.setId(answerResult.getId());
         result.setScore(answerResult.getScore());
 
-        result.setTestResultId(answerResult.getTestResult().getId());
+        //result.setTestResultId(answerResult.getTestResult().getId());
 
         return result;
     }

@@ -1,6 +1,8 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.rest.question_rest;
 
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.answer_dto.AnswerResultDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.question_dto.QuestionDto;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer.AnswerResult;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer.AnswerVariant;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.question.Question;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.question_service.QuestionService;
@@ -70,7 +72,7 @@ public class QuestionRestControllerV1 {
 
     //FIXME The endpoint location may be incorrect
     @PostMapping(value = "/calc")
-    public void answerTheQuestion() {
+    public ResponseEntity<List<AnswerResultDto>> answerTheQuestion() {
         Question question = new Question();
         question.setId(1L);
         AnswerVariant answerVariant1 = new AnswerVariant();
@@ -89,8 +91,18 @@ public class QuestionRestControllerV1 {
         answerVariantList.add(answerVariant3);
         answerVariantList.add(answerVariant4);
         question.setAnswerVariants(answerVariantList);
+        question.setScore(15D);
+        List<AnswerResult> answerResultList = questionService.CalculateTheNumberOfPointsForTheAnswer(question);
 
-        questionService.CalculateTheNumberOfPointsForTheAnswer(question);
+        List<AnswerResultDto> answerResultsDto = new ArrayList<>();
+
+        for (AnswerResult answerResult : answerResultList) {
+            answerResultsDto.add(AnswerResultDto.fromAnswerResult(answerResult));
+        }
+
+        return new ResponseEntity<>(answerResultsDto, HttpStatus.OK);
+
+
 
     }
 
