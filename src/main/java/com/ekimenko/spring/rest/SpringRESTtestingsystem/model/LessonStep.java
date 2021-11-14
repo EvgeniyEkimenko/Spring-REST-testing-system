@@ -21,6 +21,9 @@ public class LessonStep {
     @Column(name = "position_in_lesson")
     private Integer positionInLesson;
 
+    @Column(name = "complete")
+    private boolean complete;
+
     @ToString.Exclude
     @ManyToOne()
     @JoinColumn(name = "lesson_id")
@@ -35,5 +38,7 @@ public class LessonStep {
     @OneToOne
     @JoinColumn(name = "test_id")
     private Test test;
+
+
 
 }

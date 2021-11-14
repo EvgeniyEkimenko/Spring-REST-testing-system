@@ -96,7 +96,11 @@
                 <constraints  nullable="true"/>
             </column>
 
-            <column name="allowed_particle_answer" type="BOOLEAN">
+<!--            <column name="allowed_particle_answer" type="BOOLEAN">
+                <constraints  nullable="true"/>
+            </column>-->
+
+            <column name="complete" type="BOOLEAN">
                 <constraints  nullable="true"/>
             </column>
 

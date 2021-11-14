@@ -11,6 +11,7 @@ import lombok.Data;
 public class LessonStepDto {
     private Long id;
     private Integer positionInLesson;
+    private Boolean complete;
 
     private Long theoreticalStep;
     private Long test;
@@ -31,6 +32,7 @@ public class LessonStepDto {
         LessonStepDto lessonStepDto = new LessonStepDto();
         lessonStepDto.setId(lessonStep.getId());
         lessonStepDto.setPositionInLesson(lessonStep.getPositionInLesson());
+        lessonStepDto.setComplete(lessonStep.isComplete());
 
         //FIXME
         if (lessonStep.getLesson()!=null) lessonStepDto.theoreticalStep = lessonStep.getTheoreticalStep().getId();
