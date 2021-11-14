@@ -57,4 +57,5 @@ public class AnswerVariantImpl implements AnswerVariantService {
         answerVariantRepository.deleteById(id);
         log.info("IN deleteAnswerVariantById - AnswerVariant with id: {} successfully deleted", id);
     }
+
 }

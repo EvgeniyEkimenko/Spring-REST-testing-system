@@ -1,6 +1,7 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.rest.question_rest;
 
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.question_dto.QuestionDto;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer.AnswerVariant;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.question.Question;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.question_service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,6 +63,34 @@ public class QuestionRestControllerV1 {
     public void deleteQuestionByID(@PathVariable long id) {
 
         questionService.deleteQuestionById(id);
+
+    }
+
+
+
+    //FIXME The endpoint location may be incorrect
+    @PostMapping(value = "/calc")
+    public void answerTheQuestion() {
+        Question question = new Question();
+        question.setId(1L);
+        AnswerVariant answerVariant1 = new AnswerVariant();
+        AnswerVariant answerVariant2 = new AnswerVariant();
+        AnswerVariant answerVariant3 = new AnswerVariant();
+        AnswerVariant answerVariant4 = new AnswerVariant();
+        answerVariant1.setId(1L);
+        answerVariant2.setId(2L);
+        answerVariant3.setId(3L);
+        answerVariant4.setId(4L);
+        answerVariant1.setCorrect(true);
+        answerVariant2.setCorrect(false);
+        answerVariant3.setCorrect(true);
+        answerVariant4.setCorrect(false);
+        List<AnswerVariant> answerVariantList = new ArrayList<>();
+        answerVariantList.add(answerVariant3);
+        answerVariantList.add(answerVariant4);
+        question.setAnswerVariants(answerVariantList);
+
+        questionService.CalculateTheNumberOfPointsForTheAnswer(question);
 
     }
 
