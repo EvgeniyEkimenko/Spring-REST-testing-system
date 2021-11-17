@@ -29,8 +29,8 @@ public class Question {
     @Column(name = "position")
     private Integer position;
 
-    @Column(name = "complete")
-    private boolean complete;
+    @Column(name = "allowed_particle_answer")
+    private boolean allowedParticleAnswer;
 
     @ToString.Exclude
     @ManyToOne()

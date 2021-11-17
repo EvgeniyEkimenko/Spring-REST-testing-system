@@ -233,5 +233,16 @@
                                  referencedTableName="test"/>
     </changeSet>
 
+    <changeSet id="1.0.28" author="eugene.ekimenko">
+        <addForeignKeyConstraint baseColumnNames="answer_result_id"
+                                 baseTableName="answer_variant"
+                                 constraintName="fk_answer_variant_result"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="answer_result"/>
+
+    </changeSet>
+
 
 </databaseChangeLog>

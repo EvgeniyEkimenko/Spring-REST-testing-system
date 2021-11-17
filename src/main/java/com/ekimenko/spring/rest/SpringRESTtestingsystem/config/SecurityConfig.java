@@ -11,13 +11,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 
-/**
- * Security configuration class for JWT based Spring Security application.
- *
- * @author Eugene Suleimanov
- * @version 1.0
- */
-
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -41,7 +34,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }
 
-    //FIXME https://www.youtube.com/watch?v=7uxROJ1nduk&ab_channel=EugeneSuleimanov
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http

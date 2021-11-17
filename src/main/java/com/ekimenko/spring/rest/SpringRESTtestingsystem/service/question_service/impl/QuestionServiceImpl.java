@@ -60,7 +60,7 @@ public class QuestionServiceImpl implements QuestionService {
         log.info("IN deleteQuestionById - Question with id: {} successfully deleted", id);
     }
 
-    //TODO new functional (Получаем лист с инициализированным id и листом answer_variant у которых только id)
+/*    //TODO new functional (Получаем лист с инициализированным id и листом answer_variant у которых только id)
     @Override
     public List<AnswerResult> CalculateTheNumberOfPointsForTheAnswer(Question question) {
         List<AnswerVariant> answerVariantList = question.getAnswerVariants();
@@ -79,6 +79,6 @@ public class QuestionServiceImpl implements QuestionService {
         List<AnswerResult> answerResultList = getQuestionById(question.getId()).getAnswerResults();
         QuestionServiceUtil.checkCompletedTest(question.getId());
         return answerResultList;
-    }
+    }*/
 
 }

@@ -19,7 +19,7 @@ public interface QuestionService {
 
     void deleteQuestionById(Long id);
 
-    //TODO new functional
-    List<AnswerResult> CalculateTheNumberOfPointsForTheAnswer(Question question);
+   /* //TODO new functional
+    List<AnswerResult> CalculateTheNumberOfPointsForTheAnswer(Question question);*/
 
 }

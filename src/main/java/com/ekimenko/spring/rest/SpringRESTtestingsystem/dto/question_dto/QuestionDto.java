@@ -17,7 +17,6 @@ public class QuestionDto {
     private Integer position;
     private Boolean allowedParticleAnswer;
     private Long testId;
-    private Boolean complete;
 
     private List<Long> answerVariantsId;
     private List<Long> answerResultsId;
@@ -28,7 +27,6 @@ public class QuestionDto {
         question.setText(text);
         question.setScore(score);
         question.setPosition(position);
-        question.setComplete(complete);
         //TODO
 
         return question;
@@ -40,7 +38,6 @@ public class QuestionDto {
         questionDto.setScore(question.getScore());
         questionDto.setText(question.getText());
         questionDto.setPosition(question.getPosition());
-        questionDto.setComplete(question.isComplete());
         questionDto.setTestId(question.getTest().getId());
 
         questionDto.setAnswerVariantsId(AnswerVariantServiceUtil.

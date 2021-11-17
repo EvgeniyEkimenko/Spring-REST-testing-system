@@ -28,4 +28,9 @@ public class AnswerVariant {
     @Column(name = "correct")
     private Boolean correct;
 
+    @ToString.Exclude
+    @ManyToOne
+    @JoinColumn(name = "answer_result_id")
+    private AnswerResult answerResult;
+
 }

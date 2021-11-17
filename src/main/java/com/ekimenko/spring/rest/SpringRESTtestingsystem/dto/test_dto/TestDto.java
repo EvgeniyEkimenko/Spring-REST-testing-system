@@ -40,7 +40,7 @@ public class TestDto {
 
         testDto.setLessonStepId(test.getLessonStep().getId());
         testDto.setTestResultId(TestResultServiceUtil.getAllIdFromTestResultList(test.getTestResults()));
-        testDto.setQuestionId(QuestionServiceUtil.getAllIdFromQuestionList(test.getQuestions()));
+        //testDto.setQuestionId(QuestionServiceUtil.getAllIdFromQuestionList(test.getQuestions()));
 
         return testDto;
     }

@@ -22,6 +22,10 @@
                 <constraints nullable="true"/>
             </column>
 
+            <column name="complete" type="BOOLEAN">
+                <constraints nullable="true"/>
+            </column>
+
         </createTable>
     </changeSet>
 
@@ -96,13 +100,13 @@
                 <constraints  nullable="true"/>
             </column>
 
-<!--            <column name="allowed_particle_answer" type="BOOLEAN">
-                <constraints  nullable="true"/>
-            </column>-->
-
-            <column name="complete" type="BOOLEAN">
+            <column name="allowed_particle_answer" type="BOOLEAN">
                 <constraints  nullable="true"/>
             </column>
+
+<!--            <column name="complete" type="BOOLEAN">
+                <constraints  nullable="true"/>
+            </column>-->
 
         </createTable>
     </changeSet>
@@ -125,6 +129,11 @@
             <column name="correct" type="BOOLEAN">
                 <constraints  nullable="true"/>
             </column>
+
+            <column name="answer_result_id" type="BIGINT">
+                <constraints  nullable="true"/>
+            </column>
+
 
         </createTable>
     </changeSet>

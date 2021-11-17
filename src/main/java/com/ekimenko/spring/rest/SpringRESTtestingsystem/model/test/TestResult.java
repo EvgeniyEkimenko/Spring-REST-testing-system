@@ -23,6 +23,9 @@ public class TestResult {
     @Column(name = "score")
     private Double score;
 
+    @Column(name = "complete")
+    private Boolean complete;
+
     @ToString.Exclude
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "test_result_id")
@@ -37,5 +40,7 @@ public class TestResult {
     @ManyToOne
     @JoinColumn(name = "test_id")
     private Test test;
+
+
 
 }

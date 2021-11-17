@@ -69,41 +69,4 @@ public class QuestionRestControllerV1 {
     }
 
 
-
-    //FIXME The endpoint location may be incorrect
-    @PostMapping(value = "/calc")
-    public ResponseEntity<List<AnswerResultDto>> answerTheQuestion() {
-        Question question = new Question();
-        question.setId(1L);
-        AnswerVariant answerVariant1 = new AnswerVariant();
-        AnswerVariant answerVariant2 = new AnswerVariant();
-        AnswerVariant answerVariant3 = new AnswerVariant();
-        AnswerVariant answerVariant4 = new AnswerVariant();
-        answerVariant1.setId(1L);
-        answerVariant2.setId(2L);
-        answerVariant3.setId(3L);
-        answerVariant4.setId(4L);
-        answerVariant1.setCorrect(true);
-        answerVariant2.setCorrect(false);
-        answerVariant3.setCorrect(true);
-        answerVariant4.setCorrect(false);
-        List<AnswerVariant> answerVariantList = new ArrayList<>();
-        answerVariantList.add(answerVariant3);
-        answerVariantList.add(answerVariant4);
-        question.setAnswerVariants(answerVariantList);
-        question.setScore(15D);
-        List<AnswerResult> answerResultList = questionService.CalculateTheNumberOfPointsForTheAnswer(question);
-
-        List<AnswerResultDto> answerResultsDto = new ArrayList<>();
-
-        for (AnswerResult answerResult : answerResultList) {
-            answerResultsDto.add(AnswerResultDto.fromAnswerResult(answerResult));
-        }
-
-        return new ResponseEntity<>(answerResultsDto, HttpStatus.OK);
-
-
-
-    }
-
 }

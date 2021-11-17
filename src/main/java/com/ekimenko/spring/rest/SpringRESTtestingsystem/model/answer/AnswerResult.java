@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -31,5 +32,10 @@ public class AnswerResult {
 
     @Column(name = "score")
     private Double score;
+
+    @ToString.Exclude
+    @OneToMany(fetch = FetchType.LAZY , mappedBy = "answerResult")
+    @Column(name = "answer_result_id")
+    private List<AnswerVariant> answerVariants;
 
 }

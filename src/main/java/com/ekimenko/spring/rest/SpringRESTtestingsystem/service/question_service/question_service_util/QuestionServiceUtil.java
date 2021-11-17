@@ -39,7 +39,7 @@ public class QuestionServiceUtil {
     }
 
 
-    public static List<Long> getAllIdFromQuestionList(List<Question> questionList) {
+/*    public static List<Long> getAllIdFromQuestionList(List<Question> questionList) {
         List<Long> listId = new ArrayList<>();
 
         for (Question t : questionList) {
@@ -84,12 +84,12 @@ public class QuestionServiceUtil {
         List<Question> questionList = test.getQuestions();
 
         for (Question tempQuestion : questionList) {
-            if (!tempQuestion.isComplete()) return;
+           // if (!tempQuestion.isComplete()) return;
         }
 
         LessonStep lessonStep = lessonStepService.getLessonStepById(test.getLessonStep().getId());
         lessonStep.setComplete(true);
         lessonStepService.updateLessonStep(lessonStep);
-    }
+    }*/
 
 }
