@@ -34,28 +34,3 @@ public class AnswerResultDto {
     }
 }
 
-
-
-
-/*@Data
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class AnswerResultDto {
-    private Long id;
-    private Double score;
-
-    public AnswerResult toAnswerResult(){
-        AnswerResult answerResult = new AnswerResult();
-        answerResult.setId(id);
-        answerResult.setScore(score);
-
-        return answerResult;
-    }
-
-    public static AnswerResultDto fromAnswerResult(AnswerResult answerResult) {
-        AnswerResultDto result = new AnswerResultDto();
-        result.setId(answerResult.getId());
-        result.setScore(answerResult.getScore());
-
-        return result;
-    }
-}*/

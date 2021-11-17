@@ -1,7 +1,6 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.test_dto;
 
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.TestResult;
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.answer_service.AnswerServiceUtil.AnswerResultServiceUtil;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
@@ -33,7 +32,7 @@ public class TestResultDto {
         testResultDto.setScore(testResult.getScore());
         testResultDto.setTestId(testResult.getTest().getId());
         testResultDto.setUserId(testResult.getUser().getId());
-        testResultDto.setAnswerResultsId(AnswerResultServiceUtil.getAllIdFromAnswerResultList(testResult.getAnswerResults()));
+        //testResultDto.setAnswerResultsId(AnswerResultServiceUtil.getAllIdFromAnswerResultList(testResult.getAnswerResults()));
 
         return testResultDto;
     }

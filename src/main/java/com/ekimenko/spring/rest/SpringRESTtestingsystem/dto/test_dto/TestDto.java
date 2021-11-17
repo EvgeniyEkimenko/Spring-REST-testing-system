@@ -1,8 +1,6 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.test_dto;
 
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.Test;
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.question_service.question_service_util.QuestionServiceUtil;
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.test_service.test_result_service_util.TestResultServiceUtil;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
@@ -39,7 +37,7 @@ public class TestDto {
         testDto.setNumberAttempt(test.getNumberAttempts());
 
         testDto.setLessonStepId(test.getLessonStep().getId());
-        testDto.setTestResultId(TestResultServiceUtil.getAllIdFromTestResultList(test.getTestResults()));
+        //testDto.setTestResultId(TestResultServiceUtil.getAllIdFromTestResultList(test.getTestResults()));
         //testDto.setQuestionId(QuestionServiceUtil.getAllIdFromQuestionList(test.getQuestions()));
 
         return testDto;
