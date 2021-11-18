@@ -11,10 +11,10 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AnswerResultDto {
     private Long id;
-    private Long testResult;
-    private Long question;
+    private Long testResultId;
+    private Long questionId;
     private Double score;
-    private List<Long> answerVariants;
+    private List<Long> answerVariantsId;
 
     public AnswerResult toAnswerResult() {
         AnswerResult answerResult = new AnswerResult();

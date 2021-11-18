@@ -37,16 +37,16 @@ public class AnswerResultRestControllerV1 {
         return new ResponseEntity<>(answerResultDtoList, HttpStatus.OK);
     }
 
-    @PostMapping(value = "")
+/*    @PostMapping(value = "")
     public void addNewAnswerResult(@RequestBody AnswerResultDto answerResultDto) {
 
         AnswerResult answerResult = answerResultDto.toAnswerResult();
 
         resultService.addNewAnswerResult(answerResult);
 
-    }
+    }*/
 
-    @PutMapping(value = "")
+    @PostMapping(value = "")
     public void updateAnswerResult(@RequestBody AnswerResultDto answerResultDto) {
 
         AnswerResult answerResult = answerResultDto.toAnswerResult();
@@ -58,6 +58,12 @@ public class AnswerResultRestControllerV1 {
     public void deleteAnswerResultByID(@PathVariable long id) {
 
         resultService.deleteById(id);
+    }
+
+    @PostMapping(value = "/{id}")
+    public AnswerResultDto setPointsForTheAnswer(@RequestBody AnswerResultDto answerResultDto) {
+
+        return resultService.setPoints(answerResultDto);
     }
 
 }
