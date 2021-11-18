@@ -23,16 +23,15 @@ public class UserRestControllerV1 {
         this.userService = userService;
     }
 
-/*    @GetMapping(value = "{id}")
+    @GetMapping(value = "{id}")
     public ResponseEntity<UserDto> getUserById(@PathVariable(name = "id") Long id){
-        User user = userService.findById(id);
 
-        if(user == null){
+        UserDto result = userService.getUserDtoById(id);
+
+        if(result == null){
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
 
-        UserDto result = UserDto.fromUser(user);
-
         return new ResponseEntity<>(result, HttpStatus.OK);
-    }*/
+    }
 }

@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -22,24 +21,20 @@ public class AnswerResultRestControllerV1 {
         this.resultService = resultService;
     }
 
-/*    @GetMapping(value = "/{id}")
-    public ResponseEntity<AnswerResultDto> getAnswerResultById(@PathVariable long id){
-        AnswerResultDto result = resultService.getAnswerResultById(id);
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<AnswerResultDto> getAnswerResultById(@PathVariable long id) {
 
-        //AnswerResultDto resultDto = AnswerResultDto.fromAnswerResult(result);
+        AnswerResultDto answerResultDto = resultService.getAnswerResultDtoById(id);
 
-        return new ResponseEntity<>(result , HttpStatus.OK);
+        return new ResponseEntity<>(answerResultDto, HttpStatus.OK);
     }
 
     @GetMapping(value = "")
     public ResponseEntity<List<AnswerResultDto>> getAllAnswerResult() {
-        List<AnswerResult> answerResultList = resultService.getAllAnwserResult();
 
-        List<AnswerResultDto> answerResultListDto = new ArrayList<>();
-        for (AnswerResult result : answerResultList) {
-            answerResultListDto.add(AnswerResultDto.fromAnswerResult(result));
-        }
-        return new ResponseEntity<>(answerResultListDto , HttpStatus.OK);
+        List<AnswerResultDto> answerResultDtoList = resultService.getAllAnswerResultDto();
+
+        return new ResponseEntity<>(answerResultDtoList, HttpStatus.OK);
     }
 
     @PostMapping(value = "")
@@ -57,14 +52,12 @@ public class AnswerResultRestControllerV1 {
         AnswerResult answerResult = answerResultDto.toAnswerResult();
 
         resultService.updateAnswerResult(answerResult);
-
     }
 
     @DeleteMapping(value = "/{id}")
     public void deleteAnswerResultByID(@PathVariable long id) {
 
         resultService.deleteById(id);
-
-    }*/
+    }
 
 }

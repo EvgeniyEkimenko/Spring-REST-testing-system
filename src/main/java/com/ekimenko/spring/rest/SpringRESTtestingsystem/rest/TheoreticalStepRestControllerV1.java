@@ -23,38 +23,34 @@ public class TheoreticalStepRestControllerV1 {
     }
 
 
-  /*  @GetMapping(value = "/{id}")
+    @GetMapping(value = "/{id}")
     public ResponseEntity<TheoreticalStepDto> getTheoreticalStepById(@PathVariable long id) {
-        TheoreticalStep theoreticalStep = theoreticalStepService.getTheoreticalStepById(id);
 
-        TheoreticalStepDto theoreticalStepDto = TheoreticalStepDto.fromTheoreticalStep(theoreticalStep);
+        TheoreticalStepDto theoreticalStepDto = theoreticalStepService.getTheoreticalStepDtoById(id);
 
         return new ResponseEntity<>(theoreticalStepDto, HttpStatus.OK);
     }
 
     @GetMapping(value = "")
     public ResponseEntity<List<TheoreticalStepDto>> getAllTheoreticalSteps() {
-        List<TheoreticalStep> theoreticalStepList = theoreticalStepService.getAllTheoreticalSteps();
 
-        List<TheoreticalStepDto> theoreticalStepDtoList = new ArrayList<>();
-        for (TheoreticalStep theoreticalStep : theoreticalStepList) {
-            theoreticalStepDtoList.add(TheoreticalStepDto.fromTheoreticalStep(theoreticalStep));
-        }
+        List<TheoreticalStepDto> theoreticalStepDtoList = theoreticalStepService.getAllTheoreticalStepsDto();
+
         return new ResponseEntity<>(theoreticalStepDtoList, HttpStatus.OK);
     }
 
     @PostMapping(value = "")
     public void addNewTheoreticalStep(@RequestBody TheoreticalStepDto theoreticalStepDto) {
 
-        //TODO solve the problem of implementing the save and update methods
-
+        TheoreticalStep theoreticalStep = theoreticalStepDto.toTheoreticalStep();
+        theoreticalStepService.addNewTheoreticalStep(theoreticalStep);
     }
 
     @PutMapping(value = "")
     public void updateTheoreticalStep(@RequestBody TheoreticalStepDto theoreticalStepDto) {
 
-        //TODO solve the problem of implementing the save and update methods
-
+        TheoreticalStep theoreticalStep = theoreticalStepDto.toTheoreticalStep();
+        theoreticalStepService.updateTheoreticalStep(theoreticalStep);
     }
 
     @DeleteMapping(value = "/{id}")
@@ -62,5 +58,5 @@ public class TheoreticalStepRestControllerV1 {
 
         theoreticalStepService.deleteTheoreticalStepById(id);
 
-    }*/
+    }
 }

@@ -24,44 +24,39 @@ public class CourseRestControllerV1 {
     }
 
 
- /*   @GetMapping(value = "/{id}")
+    @GetMapping(value = "/{id}")
     public ResponseEntity<CourseDto> getCourseById(@PathVariable long id) {
-        Course course = courseService.getCourseById(id);
 
-        CourseDto courseDto = CourseDto.fromCourse(course);
+        CourseDto courseDto = courseService.getCourseDtoById(id);
 
         return new ResponseEntity<>(courseDto, HttpStatus.OK);
     }
 
     @GetMapping(value = "")
     public ResponseEntity<List<CourseDto>> getAllCourses() {
-        List<Course> courseList = courseService.getAllCourses();
 
-        List<CourseDto> courseDtoList = new ArrayList<>();
-        for (Course course : courseList) {
-            courseDtoList.add(CourseDto.fromCourse(course));
-        }
+        List<CourseDto> courseDtoList = courseService.getAllCoursesDto();
+
         return new ResponseEntity<>(courseDtoList, HttpStatus.OK);
     }
 
     @PostMapping(value = "")
     public void addNewCourse(@RequestBody CourseDto courseDto) {
 
-        //TODO solve the problem of implementing the save and update methods
-
+        Course course = courseDto.toCourse();
+        courseService.addNewCourse(course);
     }
 
     @PutMapping(value = "")
     public void updateCourse(@RequestBody CourseDto courseDto) {
 
-        //TODO solve the problem of implementing the save and update methods
-
+        Course course = courseDto.toCourse();
+        courseService.updateCourse(course);
     }
 
     @DeleteMapping(value = "/{id}")
     public void deleteCourseByID(@PathVariable long id) {
 
         courseService.deleteCourseById(id);
-
-    }*/
+    }
 }

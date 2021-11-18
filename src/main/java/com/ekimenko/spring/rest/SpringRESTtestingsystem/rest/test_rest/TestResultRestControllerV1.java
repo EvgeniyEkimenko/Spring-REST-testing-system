@@ -24,54 +24,41 @@ public class TestResultRestControllerV1 {
     }
 
 
- /*   @GetMapping(value = "/{id}")
+    @GetMapping(value = "/{id}")
     public ResponseEntity<TestResultDto> getTestResultById(@PathVariable long id){
-        TestResult result = testResultService.getTestResultById(id);
-        TestResultDto resultDto = TestResultDto.fromTestResult(result);
+
+        TestResultDto resultDto = testResultService.getTestResultDtoById(id);
+
         return new ResponseEntity<>(resultDto, HttpStatus.OK);
     }
 
     @GetMapping(value = "")
     public ResponseEntity<List<TestResultDto>> getAllTestResults() {
-        List<TestResult> testResultList = testResultService.getAllTestResults();
 
-        List<TestResultDto> testResultDtoLists = new ArrayList<>();
-        for (TestResult result : testResultList) {
-            testResultDtoLists.add(TestResultDto.fromTestResult(result));
-        }
+        List<TestResultDto> testResultDtoLists = testResultService.getAllTestResultsDto();
+
         return new ResponseEntity<>(testResultDtoLists , HttpStatus.OK);
     }
 
     @PostMapping(value = "")
     public void addNewTestResult(@RequestBody TestResultDto testResultDto) {
 
-        //TODO solve the problem of implementing the save and update methods
+       TestResult testResult = testResultDto.toTestResult();
+       testResultService.addNewTestResult(testResult);
     }
 
     @PutMapping(value = "")
     public void updateTestResult(@RequestBody TestResultDto testResultDto) {
 
-        //TODO solve the problem of implementing the save and update methods
-
+        TestResult testResult = testResultDto.toTestResult();
+        testResultService.updateTestResult(testResult);
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<HttpStatus> deleteTestResultById(@PathVariable long id) {    //доделать
+    public void deleteTestResultById(@PathVariable long id) {    //доделать
 
-        testResultService.deleteTestResultById(id);  //должна возвращать подтверждение операции или исключение
+        testResultService.deleteTestResultById(id);
 
-        return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @GetMapping(value = "/all/{score}")
-    public ResponseEntity<List<TestResultDto>> findAllTestResultByScore(@PathVariable double score) {
-        List<TestResult> testResultList = testResultService.findAllTestResultByScore(score);
-
-        List<TestResultDto> testResultDtoLists = new ArrayList<>();
-        for (TestResult result : testResultList) {
-            testResultDtoLists.add(TestResultDto.fromTestResult(result));
-        }
-        return new ResponseEntity<>(testResultDtoLists , HttpStatus.OK);
-    }
-*/
 }

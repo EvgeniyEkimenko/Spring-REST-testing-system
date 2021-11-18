@@ -23,36 +23,35 @@ public class TestRestControllerV1 {
     }
 
 
-/*    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/{id}")
     public ResponseEntity<TestDto> getTestById(@PathVariable long id) {
-        Test test = testService.getTestById(id);
 
-        TestDto testDto = TestDto.fromTest(test);
+        TestDto testDto = testService.getTestDtoById(id);
 
         return new ResponseEntity<>(testDto, HttpStatus.OK);
     }
 
     @GetMapping(value = "")
     public ResponseEntity<List<TestDto>> getAllTests() {
-        List<Test> testList = testService.getAllTests();
 
-        List<TestDto> testDtoList = new ArrayList<>();
-        for (Test test : testList) {
-            testDtoList.add(TestDto.fromTest(test));
-        }
+        List<TestDto> testDtoList = testService.getAllTestsDto();
+
         return new ResponseEntity<>(testDtoList, HttpStatus.OK);
     }
 
     @PostMapping(value = "")
-    public void addNewTest(@RequestBody TestDto answerResultDto) {
+    public void addNewTest(@RequestBody TestDto testDto) {
 
-        //TODO solve the problem of implementing the save and update methods
+        Test test = testDto.toTestResult();
+        testService.addNewTest(test);
+
     }
 
     @PutMapping(value = "")
-    public void updateTest(@RequestBody TestDto answerResultDto) {
+    public void updateTest(@RequestBody TestDto testDto) {
 
-        //TODO solve the problem of implementing the save and update methods
+        Test test = testDto.toTestResult();
+        testService.updateTest(test);
 
     }
 
@@ -61,6 +60,6 @@ public class TestRestControllerV1 {
 
         testService.deleteTestById(id);
 
-    }*/
+    }
 
 }

@@ -24,7 +24,6 @@ public class AdminRestControllerV1 {
         this.userService = userService;
     }
 
-    //Отдаем не сам объект , а DTO
     @GetMapping(value = "users/{id}")
     private ResponseEntity<AdminUserDto> getUserById(@PathVariable(name = "id") Long id) {
         User user = userService.findById(id);

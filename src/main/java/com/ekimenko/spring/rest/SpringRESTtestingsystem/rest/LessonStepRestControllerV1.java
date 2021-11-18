@@ -22,42 +22,38 @@ public class LessonStepRestControllerV1 {
         this.lessonStepService = lessonStepService;
     }
 
- /*   @GetMapping(value = "/{id}")
+    @GetMapping(value = "/{id}")
     public ResponseEntity<LessonStepDto> getLessonStepById(@PathVariable long id) {
-        LessonStep lessonStep = lessonStepService.getLessonStepById(id);
 
-        LessonStepDto lessonStepDto = LessonStepDto.fromLessonStep(lessonStep);
+        LessonStepDto lessonStepDto = lessonStepService.getLessonStepDtoById(id);
 
         return new ResponseEntity<>(lessonStepDto, HttpStatus.OK);
     }
 
     @GetMapping(value = "")
     public ResponseEntity<List<LessonStepDto>> getAllLessonSteps() {
-        List<LessonStep> lessonStepList = lessonStepService.getAllLessonSteps();
 
-        List<LessonStepDto> lessonStepDtoList = new ArrayList<>();
-        for (LessonStep lessonStep : lessonStepList) {
-            lessonStepDtoList.add(LessonStepDto.fromLessonStep(lessonStep));
-        }
+        List<LessonStepDto> lessonStepDtoList = lessonStepService.getAllLessonStepsDto();
+
         return new ResponseEntity<>(lessonStepDtoList, HttpStatus.OK);
     }
 
     @PostMapping(value = "")
-    public ResponseEntity<LessonStepDto> addNewLessonStep(@RequestBody LessonStepDto lessonStepDto) {
+    public void addNewLessonStep(@RequestBody LessonStepDto lessonStepDto) {
 
-        LessonStep lessonStep = lessonStepService.addNewLessonStep(lessonStepDto.toLessonStep());
-        LessonStepDto lessonStepDtoNew = LessonStepDto.fromLessonStep(lessonStep);
-
-        return new ResponseEntity<>(lessonStepDtoNew , HttpStatus.OK);
+        LessonStep lessonStep = lessonStepDto.toLessonStep();
+        lessonStepService.addNewLessonStep(lessonStep);
     }
 
     @PutMapping(value = "")
     public void updateLessonStep(@RequestBody LessonStepDto lessonStepDto) {
-        //TODO solve the problem of implementing the save and update methods
+
+        LessonStep lessonStep = lessonStepDto.toLessonStep();
+        lessonStepService.updateLessonStep(lessonStep);
     }
 
     @DeleteMapping(value = "/{id}")
     public void deleteLessonStepByID(@PathVariable long id) {
         lessonStepService.deleteLessonStepById(id);
-    }*/
+    }
 }

@@ -59,15 +59,15 @@ public class LessonStepServiceImpl implements LessonStepService {
     }
 
     @Override
-    public LessonStep addNewLessonStep(LessonStep lessonStep) {
+    public void addNewLessonStep(LessonStep lessonStep) {
         //TODO add log info
-        return lessonStepRepository.save(lessonStep);
+        lessonStepRepository.save(lessonStep);
     }
 
     @Override
-    public LessonStep updateLessonStep(LessonStep lessonStep) {
+    public void updateLessonStep(LessonStep lessonStep) {
         //TODO add log info
-        return lessonStepRepository.save(lessonStep);
+        lessonStepRepository.save(lessonStep);
     }
 
     @Override

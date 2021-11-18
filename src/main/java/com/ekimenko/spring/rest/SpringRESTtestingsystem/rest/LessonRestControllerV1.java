@@ -23,37 +23,35 @@ public class LessonRestControllerV1 {
         this.lessonService = lessonService;
     }
 
-/*    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/{id}")
     public ResponseEntity<LessonDto> getLessonById(@PathVariable long id) {
-        Lesson lesson = lessonService.getLessonById(id);
 
-        LessonDto lessonDto = LessonDto.fromLesson(lesson);
+        LessonDto lessonDto = lessonService.getLessonDtoById(id);
 
         return new ResponseEntity<>(lessonDto, HttpStatus.OK);
     }
 
     @GetMapping(value = "")
     public ResponseEntity<List<LessonDto>> getAllLessons() {
-        List<Lesson> lessonList = lessonService.getAllLessons();
 
-        List<LessonDto> lessonDtos = new ArrayList<>();
-        for (Lesson lesson : lessonList) {
-            lessonDtos.add(LessonDto.fromLesson(lesson));
-        }
-        return new ResponseEntity<>(lessonDtos, HttpStatus.OK);
+        List<LessonDto> lessonDtoList = lessonService.getAllLessonsDto();
+
+        return new ResponseEntity<>(lessonDtoList, HttpStatus.OK);
     }
 
     @PostMapping(value = "")
     public void addNewLesson(@RequestBody LessonDto lessonDto) {
 
-        //TODO solve the problem of implementing the save and update methods
+        Lesson lesson = lessonDto.toLesson();
+        lessonService.addNewLesson(lesson);
 
     }
 
     @PutMapping(value = "")
     public void updateLesson(@RequestBody LessonDto lessonDto) {
 
-        //TODO solve the problem of implementing the save and update methods
+        Lesson lesson = lessonDto.toLesson();
+        lessonService.updateLesson(lesson);
 
     }
 
@@ -62,5 +60,5 @@ public class LessonRestControllerV1 {
 
         lessonService.deleteLessonById(id);
 
-    }*/
+    }
 }

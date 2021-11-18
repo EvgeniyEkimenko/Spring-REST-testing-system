@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -23,23 +22,18 @@ public class AnswerVariantRestControllerV1 {
     }
 
 
-  /*  @GetMapping(value = "/{id}")
+    @GetMapping(value = "/{id}")
     public ResponseEntity<AnswerVariantDto> getAnswerVariantById(@PathVariable long id) {
-        AnswerVariant answerVariant = answerVariantService.getAnswerVariantById(id);
 
-        AnswerVariantDto answerVariantDto = AnswerVariantDto.fromAnswerVariant(answerVariant);
+        AnswerVariantDto answerVariantDto = answerVariantService.getAnswerVariantDtoById(id);
 
         return new ResponseEntity<>(answerVariantDto, HttpStatus.OK);
     }
 
     @GetMapping(value = "")
     public ResponseEntity<List<AnswerVariantDto>> getAllAnswerVariants() {
-        List<AnswerVariant> answerVariantList = answerVariantService.getAllAnswerVariants();
 
-        List<AnswerVariantDto> answerVariantsDto = new ArrayList<>();
-        for (AnswerVariant answerVariant : answerVariantList) {
-            answerVariantsDto.add(AnswerVariantDto.fromAnswerVariant(answerVariant));
-        }
+        List<AnswerVariantDto> answerVariantsDto = answerVariantService.getAllAnswerVariantsDto();
 
         return new ResponseEntity<>(answerVariantsDto, HttpStatus.OK);
     }
@@ -47,13 +41,16 @@ public class AnswerVariantRestControllerV1 {
     @PostMapping(value = "")
     public void addNewAnswerVariant(@RequestBody AnswerVariantDto answerVariantDto) {
 
-        //TODO solve the problem of implementing the save and update methods
+        AnswerVariant answerVariant = answerVariantDto.toAnswerVariant();
+        answerVariantService.addNewAnswerVariant(answerVariant);
+
     }
 
     @PutMapping(value = "")
     public void updateAnswerVariant(@RequestBody AnswerVariantDto answerVariantDto) {
 
-        //TODO solve the problem of implementing the save and update methods
+        AnswerVariant answerVariant = answerVariantDto.toAnswerVariant();
+        answerVariantService.updateAnswerVariant(answerVariant);
 
     }
 
@@ -63,6 +60,5 @@ public class AnswerVariantRestControllerV1 {
         answerVariantService.deleteAnswerVariantById(id);
 
     }
-*/
 
 }
