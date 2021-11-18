@@ -4,6 +4,7 @@ import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.LessonDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.Lesson;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.repository.LessonRepository;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.lesson_service.LessonService;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.service_util.ServiceUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,7 +33,7 @@ public class LessonServiceImpl implements LessonService {
         lessonDto.setDescription(lesson.getDescription());
         lessonDto.setComplete(lesson.getComplete());
         lessonDto.setCourseId(lesson.getCourse().getId());
-        //FIXME lessonDto.setLessonStepsId(ServiceUtil.getIds(lesson.getLessonSteps()));
+        lessonDto.setLessonStepsId(ServiceUtil.getIds(lesson.getLessonSteps()));
 
         return lessonDto;
     }

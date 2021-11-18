@@ -1,6 +1,7 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.model;
 
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.Test;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.service_util.EntityWithLongId;
 import lombok.*;
 import org.springframework.lang.Nullable;
 
@@ -12,7 +13,7 @@ import javax.persistence.*;
 @Table(name = "lesson_step")
 @NoArgsConstructor
 @Data
-public class LessonStep {
+public class LessonStep implements EntityWithLongId {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

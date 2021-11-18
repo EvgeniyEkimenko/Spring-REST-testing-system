@@ -3,6 +3,7 @@ package com.ekimenko.spring.rest.SpringRESTtestingsystem.model.user;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.Course;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer.AnswerResult;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.TestResult;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.service_util.EntityWithLongId;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -14,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @Table(name = "users")
 @Data
-public class User extends BaseEntity {
+public class User extends BaseEntity implements EntityWithLongId {
 
     @Column(name = "username")
     private String username;

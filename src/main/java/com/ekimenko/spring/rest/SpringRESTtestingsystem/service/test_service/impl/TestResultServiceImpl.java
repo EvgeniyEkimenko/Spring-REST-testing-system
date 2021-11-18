@@ -3,6 +3,7 @@ package com.ekimenko.spring.rest.SpringRESTtestingsystem.service.test_service.im
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.test_dto.TestResultDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.TestResult;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.repository.test_repos.TestResultRepository;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.service_util.ServiceUtil;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.test_service.TestResultService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,7 @@ public class TestResultServiceImpl implements TestResultService {
         testResultDto.setScore(testResult.getScore());
         testResultDto.setTestId(testResult.getTest().getId());
         testResultDto.setUserId(testResult.getUser().getId());
-        //FIXME testResultDto.setAnswerResultsId(ServiceUtil.getIds(testResult.getAnswerResults()));
+        testResultDto.setAnswerResultsId(ServiceUtil.getIds(testResult.getAnswerResults()));
 
         return testResultDto;
     }

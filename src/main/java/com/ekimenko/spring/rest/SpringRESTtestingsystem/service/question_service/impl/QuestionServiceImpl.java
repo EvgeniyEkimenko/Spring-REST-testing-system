@@ -4,6 +4,7 @@ import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.question_dto.Questio
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.question.Question;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.repository.question_repos.QuestionRepository;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.question_service.QuestionService;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.service_util.ServiceUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -31,8 +32,8 @@ public class QuestionServiceImpl implements QuestionService {
         questionDto.setPosition(question.getPosition());
         questionDto.setAllowedParticleAnswer(question.isAllowedParticleAnswer());
         questionDto.setTestId(question.getTest().getId());
-        //FIXME questionDto.setAnswerResultsId(ServiceUtil.getIds(question.getAnswerResults()));
-        //FIXME questionDto.setAnswerVariantsId(ServiceUtil.getIds(question.getAnswerVariants()));
+        questionDto.setAnswerResultsId(ServiceUtil.getIds(question.getAnswerResults()));
+        questionDto.setAnswerVariantsId(ServiceUtil.getIds(question.getAnswerVariants()));
 
         return questionDto;
     }

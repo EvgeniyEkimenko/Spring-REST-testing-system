@@ -18,7 +18,7 @@ public class QuestionDto {
     private List<Long> answerVariantsId;
     private List<Long> answerResultsId;
 
-    public Question toQuestion(){
+    public Question toQuestion() {
         Question question = new Question();
         question.setId(id);
         //TODO add code

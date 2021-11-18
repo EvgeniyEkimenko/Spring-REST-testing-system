@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -25,7 +24,7 @@ public class TestResultRestControllerV1 {
 
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<TestResultDto> getTestResultById(@PathVariable long id){
+    public ResponseEntity<TestResultDto> getTestResultById(@PathVariable long id) {
 
         TestResultDto resultDto = testResultService.getTestResultDtoById(id);
 
@@ -37,14 +36,14 @@ public class TestResultRestControllerV1 {
 
         List<TestResultDto> testResultDtoLists = testResultService.getAllTestResultsDto();
 
-        return new ResponseEntity<>(testResultDtoLists , HttpStatus.OK);
+        return new ResponseEntity<>(testResultDtoLists, HttpStatus.OK);
     }
 
     @PostMapping(value = "")
     public void addNewTestResult(@RequestBody TestResultDto testResultDto) {
 
-       TestResult testResult = testResultDto.toTestResult();
-       testResultService.addNewTestResult(testResult);
+        TestResult testResult = testResultDto.toTestResult();
+        testResultService.addNewTestResult(testResult);
     }
 
     @PutMapping(value = "")

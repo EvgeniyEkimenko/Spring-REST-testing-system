@@ -17,13 +17,12 @@ public class TestDto {
     private List<Long> testResultId;
     private Long lessonStepId;
 
-    public Test toTestResult(){
+    public Test toTestResult() {
         Test test = new Test();
         test.setId(id);
         //TODO add code
         return test;
     }
-
 
 
 }

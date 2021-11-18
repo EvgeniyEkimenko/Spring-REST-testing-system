@@ -74,7 +74,7 @@ public class LessonStepServiceImpl implements LessonStepService {
     public LessonStep getLessonStepById(Long id) {
 
         LessonStep lessonStep = lessonStepRepository.findById(id).orElse(null);
-        if (lessonStep==null) {
+        if (lessonStep == null) {
             log.warn("IN getLessonStepById - no lessonStep found by id: {}", id);
             return null;
         }

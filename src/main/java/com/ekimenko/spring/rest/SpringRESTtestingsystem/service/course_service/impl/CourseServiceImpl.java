@@ -1,9 +1,7 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.service.course_service.impl;
 
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.CourseDto;
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.answer_dto.AnswerVariantDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.Course;
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer.AnswerVariant;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.repository.CourseRepository;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.course_service.CourseService;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.service_util.ServiceUtil;
@@ -32,8 +30,8 @@ public class CourseServiceImpl implements CourseService {
         courseDto.setName(course.getName());
         courseDto.setDescription(course.getDescription());
         courseDto.setComplete(course.getComplete());
-        //FIXME courseDto.setLessonsId(ServiceUtil.getIds(course.getLessons());
-        //FIXME courseDto.setUsersId(course.getUsers());
+        courseDto.setLessonsId(ServiceUtil.getIds(course.getLessons()));
+        courseDto.setUsersId(ServiceUtil.getIds(course.getUsers()));
 
         return courseDto;
     }

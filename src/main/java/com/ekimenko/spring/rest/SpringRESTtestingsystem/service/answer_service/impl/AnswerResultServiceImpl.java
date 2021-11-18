@@ -2,8 +2,10 @@ package com.ekimenko.spring.rest.SpringRESTtestingsystem.service.answer_service.
 
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.answer_dto.AnswerResultDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer.AnswerResult;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer.AnswerVariant;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.repository.answer_repos.AnswerResultRepository;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.answer_service.AnswerResultService;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.service_util.ServiceUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,7 +32,7 @@ public class AnswerResultServiceImpl implements AnswerResultService {
         result.setTestResult(answerResult.getTestResult().getId());
         result.setQuestion(answerResult.getQuestion().getId());
         result.setScore(answerResult.getScore());
-        //FIXME result.setAnswerVariants(ServiceUtil.getIds(answerResult.getAnswerVariants()));
+        result.setAnswerVariants(ServiceUtil.getIds(answerResult.getAnswerVariants()));
         return result;
     }
 
@@ -51,7 +53,6 @@ public class AnswerResultServiceImpl implements AnswerResultService {
     public AnswerResultDto getAnswerResultDtoById(long id) {
         return fromAnswerResult(getAnswerResultById(id));
     }
-
 
 
     @Override

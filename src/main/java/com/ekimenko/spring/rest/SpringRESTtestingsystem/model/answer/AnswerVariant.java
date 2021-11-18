@@ -1,17 +1,20 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer;
 
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.question.Question;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.service_util.EntityWithLongId;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.Collection;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
 @Table(name = "answer_variant")
 @Data
-public class AnswerVariant {
+public class AnswerVariant implements EntityWithLongId {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

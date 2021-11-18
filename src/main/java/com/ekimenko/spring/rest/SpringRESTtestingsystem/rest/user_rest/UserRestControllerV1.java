@@ -2,7 +2,6 @@ package com.ekimenko.spring.rest.SpringRESTtestingsystem.rest.user_rest;
 
 
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.user_dto.UserDto;
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.user.User;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.user_service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,11 +23,11 @@ public class UserRestControllerV1 {
     }
 
     @GetMapping(value = "{id}")
-    public ResponseEntity<UserDto> getUserById(@PathVariable(name = "id") Long id){
+    public ResponseEntity<UserDto> getUserById(@PathVariable(name = "id") Long id) {
 
         UserDto result = userService.getUserDtoById(id);
 
-        if(result == null){
+        if (result == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
 

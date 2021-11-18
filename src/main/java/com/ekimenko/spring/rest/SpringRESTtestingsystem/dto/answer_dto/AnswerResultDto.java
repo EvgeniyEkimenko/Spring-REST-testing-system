@@ -1,14 +1,9 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.answer_dto;
 
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer.AnswerResult;
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer.AnswerVariant;
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.question.Question;
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.TestResult;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
-import lombok.ToString;
 
-import javax.persistence.*;
 import java.util.List;
 
 

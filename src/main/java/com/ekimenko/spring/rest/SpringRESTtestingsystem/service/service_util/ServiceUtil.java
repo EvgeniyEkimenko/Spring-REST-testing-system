@@ -1,8 +1,9 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.service.service_util;
 
-import org.springframework.stereotype.Service;
-
-import java.util.*;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class ServiceUtil {
@@ -25,8 +26,7 @@ public class ServiceUtil {
 
         try {
             return (Long) entity.getId();
-        }
-        catch (Exception ignore) {
+        } catch (Exception ignore) {
             return null;
         }
     }

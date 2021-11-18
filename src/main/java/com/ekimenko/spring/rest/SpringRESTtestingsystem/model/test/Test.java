@@ -2,6 +2,7 @@ package com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test;
 
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.LessonStep;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.question.Question;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.service_util.EntityWithLongId;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -13,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @Table(name = "test")
 @Data
-public class Test {
+public class Test implements EntityWithLongId {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
