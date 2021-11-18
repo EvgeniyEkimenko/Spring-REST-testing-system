@@ -22,13 +22,13 @@ public class AnswerResultRestControllerV1 {
         this.resultService = resultService;
     }
 
-    @GetMapping(value = "/{id}")
+/*    @GetMapping(value = "/{id}")
     public ResponseEntity<AnswerResultDto> getAnswerResultById(@PathVariable long id){
-        AnswerResult result = resultService.getAnswerResultById(id);
+        AnswerResultDto result = resultService.getAnswerResultById(id);
 
-        AnswerResultDto resultDto = AnswerResultDto.fromAnswerResult(result);
+        //AnswerResultDto resultDto = AnswerResultDto.fromAnswerResult(result);
 
-        return new ResponseEntity<>(resultDto , HttpStatus.OK);
+        return new ResponseEntity<>(result , HttpStatus.OK);
     }
 
     @GetMapping(value = "")
@@ -65,6 +65,6 @@ public class AnswerResultRestControllerV1 {
 
         resultService.deleteById(id);
 
-    }
+    }*/
 
 }

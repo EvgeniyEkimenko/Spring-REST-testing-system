@@ -1,5 +1,6 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.service.test_service.impl;
 
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.test_dto.TestResultDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.TestResult;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.repository.test_repos.TestResultRepository;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.test_service.TestResultService;
@@ -7,8 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Slf4j
@@ -21,6 +22,34 @@ public class TestResultServiceImpl implements TestResultService {
         this.testResultRepository = testResultRepository;
     }
 
+
+    @Override
+    public TestResultDto fromTestResult(TestResult testResult) {
+        TestResultDto testResultDto = new TestResultDto();
+        testResultDto.setId(testResult.getId());
+        testResultDto.setScore(testResult.getScore());
+        testResultDto.setTestId(testResult.getTest().getId());
+        testResultDto.setUserId(testResult.getUser().getId());
+        //FIXME testResultDto.setAnswerResultsId(ServiceUtil.getIds(testResult.getAnswerResults()));
+
+        return testResultDto;
+    }
+
+    @Override
+    public List<TestResultDto> getAllTestResultsDto() {
+        List<TestResult> results = getAllTestResults();
+
+        List<TestResultDto> testResultDtoList = new ArrayList<>();
+        for (TestResult result : results) {
+            testResultDtoList.add(fromTestResult(result));
+        }
+        return testResultDtoList;
+    }
+
+    @Override
+    public TestResultDto getTestResultDtoById(long id) {
+        return fromTestResult(getTestResultById(id));
+    }
 
     @Override
     public List<TestResult> getAllTestResults() {

@@ -22,7 +22,7 @@ public class LessonStepRestControllerV1 {
         this.lessonStepService = lessonStepService;
     }
 
-    @GetMapping(value = "/{id}")
+ /*   @GetMapping(value = "/{id}")
     public ResponseEntity<LessonStepDto> getLessonStepById(@PathVariable long id) {
         LessonStep lessonStep = lessonStepService.getLessonStepById(id);
 
@@ -59,5 +59,5 @@ public class LessonStepRestControllerV1 {
     @DeleteMapping(value = "/{id}")
     public void deleteLessonStepByID(@PathVariable long id) {
         lessonStepService.deleteLessonStepById(id);
-    }
+    }*/
 }

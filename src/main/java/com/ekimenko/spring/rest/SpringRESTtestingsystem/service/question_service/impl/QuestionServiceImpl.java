@@ -1,14 +1,13 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.service.question_service.impl;
 
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer.AnswerResult;
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer.AnswerVariant;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.question_dto.QuestionDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.question.Question;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.repository.question_repos.QuestionRepository;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.question_service.QuestionService;
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.question_service.question_service_util.QuestionServiceUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -20,6 +19,38 @@ public class QuestionServiceImpl implements QuestionService {
 
     public QuestionServiceImpl(QuestionRepository questionRepository) {
         this.questionRepository = questionRepository;
+    }
+
+
+    @Override
+    public QuestionDto fromQuestion(Question question) {
+        QuestionDto questionDto = new QuestionDto();
+        questionDto.setId(question.getId());
+        questionDto.setScore(question.getScore());
+        questionDto.setText(question.getText());
+        questionDto.setPosition(question.getPosition());
+        questionDto.setAllowedParticleAnswer(question.isAllowedParticleAnswer());
+        questionDto.setTestId(question.getTest().getId());
+        //FIXME questionDto.setAnswerResultsId(ServiceUtil.getIds(question.getAnswerResults()));
+        //FIXME questionDto.setAnswerVariantsId(ServiceUtil.getIds(question.getAnswerVariants()));
+
+        return questionDto;
+    }
+
+    @Override
+    public List<QuestionDto> getAllQuestionsDto() {
+        List<Question> results = getAllQuestions();
+
+        List<QuestionDto> questionDtoList = new ArrayList<>();
+        for (Question result : results) {
+            questionDtoList.add(fromQuestion(result));
+        }
+        return questionDtoList;
+    }
+
+    @Override
+    public QuestionDto getQuestionDtoById(long id) {
+        return fromQuestion(getQuestionById(id));
     }
 
     @Override
@@ -59,26 +90,5 @@ public class QuestionServiceImpl implements QuestionService {
         questionRepository.deleteById(id);
         log.info("IN deleteQuestionById - Question with id: {} successfully deleted", id);
     }
-
-/*    //TODO new functional (Получаем лист с инициализированным id и листом answer_variant у которых только id)
-    @Override
-    public List<AnswerResult> CalculateTheNumberOfPointsForTheAnswer(Question question) {
-        List<AnswerVariant> answerVariantList = question.getAnswerVariants();
-        int countOfCorrectAnswer = QuestionServiceUtil.getCountOfCorrectAnswer(question.getId());
-        QuestionServiceUtil.setCompleteTrueInQuestion(question.getId());
-        for (AnswerVariant answerVariant : answerVariantList) {
-            if (QuestionServiceUtil.getCorrect(answerVariant.getId())) {
-                double score =  question.getScore();
-                score= (score/(double)countOfCorrectAnswer);
-                QuestionServiceUtil.createNewAnswerResult(question.getId(), score);
-            }
-            else {
-                QuestionServiceUtil.createNewAnswerResult(question.getId(), (double)0);
-            }
-        }
-        List<AnswerResult> answerResultList = getQuestionById(question.getId()).getAnswerResults();
-        QuestionServiceUtil.checkCompletedTest(question.getId());
-        return answerResultList;
-    }*/
 
 }

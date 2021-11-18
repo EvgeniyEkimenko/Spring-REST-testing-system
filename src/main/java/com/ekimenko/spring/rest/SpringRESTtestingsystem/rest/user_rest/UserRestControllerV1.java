@@ -23,7 +23,7 @@ public class UserRestControllerV1 {
         this.userService = userService;
     }
 
-    @GetMapping(value = "{id}")
+/*    @GetMapping(value = "{id}")
     public ResponseEntity<UserDto> getUserById(@PathVariable(name = "id") Long id){
         User user = userService.findById(id);
 
@@ -34,5 +34,5 @@ public class UserRestControllerV1 {
         UserDto result = UserDto.fromUser(user);
 
         return new ResponseEntity<>(result, HttpStatus.OK);
-    }
+    }*/
 }

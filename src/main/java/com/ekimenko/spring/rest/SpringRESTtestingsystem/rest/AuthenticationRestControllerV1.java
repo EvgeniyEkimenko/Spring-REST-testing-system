@@ -38,7 +38,7 @@ public class AuthenticationRestControllerV1 {
         this.userService = userService;
     }
 
-    @PostMapping("login")
+ /*   @PostMapping("login")
     public ResponseEntity login(@RequestBody AuthenticationRequestDto requestDto) {
         try {
             String username = requestDto.getUsername();
@@ -73,5 +73,5 @@ public class AuthenticationRestControllerV1 {
         //UserDto userDtoResult = UserDto.fromUser(registeredUser);
 
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }
+    }*/
 }

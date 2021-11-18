@@ -23,7 +23,7 @@ public class LessonRestControllerV1 {
         this.lessonService = lessonService;
     }
 
-    @GetMapping(value = "/{id}")
+/*    @GetMapping(value = "/{id}")
     public ResponseEntity<LessonDto> getLessonById(@PathVariable long id) {
         Lesson lesson = lessonService.getLessonById(id);
 
@@ -62,5 +62,5 @@ public class LessonRestControllerV1 {
 
         lessonService.deleteLessonById(id);
 
-    }
+    }*/
 }

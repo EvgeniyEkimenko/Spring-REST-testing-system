@@ -2,6 +2,7 @@ package com.ekimenko.spring.rest.SpringRESTtestingsystem.dto;
 
 
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.Course;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.user.User;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
@@ -15,26 +16,13 @@ public class CourseDto {
     private String description;
     private Boolean complete;
     private List<Long> lessonsId;
+    private List<Long> usersId;
 
 
     public Course toCourse(){
         Course course = new Course();
-        course.setId(id);
-        course.setName(name);
-        course.setDescription(description);
-        course.setComplete(complete);
-
+        //TODO add code
         return course;
     }
 
-    public static CourseDto fromCourse(Course course) {
-        CourseDto courseDto = new CourseDto();
-        courseDto.setId(course.getId());
-        courseDto.setName(course.getName());
-        courseDto.setDescription(course.getDescription());
-        courseDto.setComplete(course.getComplete());
-        //courseDto.setLessonsId(LessonServiceUtil.getAllIdFromLessonList(course.getLessons()));
-
-        return courseDto;
-    }
 }

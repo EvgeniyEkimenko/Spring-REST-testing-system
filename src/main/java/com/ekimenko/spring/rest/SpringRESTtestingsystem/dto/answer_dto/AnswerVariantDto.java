@@ -11,27 +11,12 @@ public class AnswerVariantDto {
     private String text;
     private Boolean correct;
     private Long questionId;
+    private Long answerResultId;
 
     public AnswerVariant toAnswerVariant() {
         AnswerVariant answerVariant = new AnswerVariant();
-        answerVariant.setId(id);
-        answerVariant.setText(text);
-        answerVariant.setCorrect(correct);
-
-
-        //FIXME answerVariant.setQuestion();
-
+        //TODO add code
         return answerVariant;
     }
 
-    public static AnswerVariantDto fromAnswerVariant(AnswerVariant answerVariant) {
-        AnswerVariantDto answerVariantDto = new AnswerVariantDto();
-        answerVariantDto.setId(answerVariant.getId());
-        answerVariantDto.setText(answerVariant.getText());
-        answerVariantDto.setCorrect(answerVariant.getCorrect());
-
-        answerVariantDto.setQuestionId(answerVariant.getQuestion().getId());
-
-        return answerVariantDto;
-    }
 }

@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Table(name = "theoretical_step")
 @NoArgsConstructor
 @Data
-public class TheoreticalStep {
+public class TheoreticalStep  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

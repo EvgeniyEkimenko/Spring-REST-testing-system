@@ -24,7 +24,7 @@ public class TestResultRestControllerV1 {
     }
 
 
-    @GetMapping(value = "/{id}")
+ /*   @GetMapping(value = "/{id}")
     public ResponseEntity<TestResultDto> getTestResultById(@PathVariable long id){
         TestResult result = testResultService.getTestResultById(id);
         TestResultDto resultDto = TestResultDto.fromTestResult(result);
@@ -73,5 +73,5 @@ public class TestResultRestControllerV1 {
         }
         return new ResponseEntity<>(testResultDtoLists , HttpStatus.OK);
     }
-
+*/
 }

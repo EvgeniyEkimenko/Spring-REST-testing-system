@@ -12,25 +12,13 @@ public class TheoreticalStepDto {
     private String name;
     private String description;
     private String usefulText;
-
+    private Long lessonStepId;
 
     public TheoreticalStep toTheoreticalStep(){
         TheoreticalStep theoreticalStep = new TheoreticalStep();
         theoreticalStep.setId(id);
-        theoreticalStep.setName(name);
-        theoreticalStep.setDescription(description);
-        theoreticalStep.setUsefulText(usefulText);
-
+        //TODO add code
         return theoreticalStep;
     }
 
-    public static TheoreticalStepDto fromTheoreticalStep(TheoreticalStep theoreticalStep) {
-        TheoreticalStepDto theoreticalStepDto = new TheoreticalStepDto();
-        theoreticalStepDto.setId(theoreticalStep.getId());
-        theoreticalStepDto.setName(theoreticalStep.getName());
-        theoreticalStepDto.setDescription(theoreticalStep.getDescription());
-        theoreticalStepDto.setUsefulText(theoreticalStep.getUsefulText());
-
-        return theoreticalStepDto;
-    }
 }

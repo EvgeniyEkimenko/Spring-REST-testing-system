@@ -1,5 +1,6 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.service.theoretical_step_service.impl;
 
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.TheoreticalStepDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.TheoreticalStep;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.repository.TheoreticalStepRepository;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.theoretical_step_service.TheoreticalStepService;
@@ -7,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -18,6 +20,34 @@ public class TheoreticalStepServiceImpl implements TheoreticalStepService {
     @Autowired
     public TheoreticalStepServiceImpl(TheoreticalStepRepository theoreticalStepRepository) {
         this.theoreticalStepRepository = theoreticalStepRepository;
+    }
+
+    @Override
+    public TheoreticalStepDto fromTheoreticalStep(TheoreticalStep theoreticalStep) {
+        TheoreticalStepDto theoreticalStepDto = new TheoreticalStepDto();
+        theoreticalStepDto.setId(theoreticalStep.getId());
+        theoreticalStepDto.setName(theoreticalStep.getName());
+        theoreticalStepDto.setDescription(theoreticalStep.getDescription());
+        theoreticalStepDto.setUsefulText(theoreticalStep.getUsefulText());
+        theoreticalStepDto.setLessonStepId(theoreticalStep.getLessonStep().getId());
+
+        return theoreticalStepDto;
+    }
+
+    @Override
+    public List<TheoreticalStepDto> getAllTheoreticalStepsDto() {
+        List<TheoreticalStep> results = getAllTheoreticalSteps();
+
+        List<TheoreticalStepDto> theoreticalStepDtoList = new ArrayList<>();
+        for (TheoreticalStep result : results) {
+            theoreticalStepDtoList.add(fromTheoreticalStep(result));
+        }
+        return theoreticalStepDtoList;
+    }
+
+    @Override
+    public TheoreticalStepDto getTheoreticalStepDtoById(long id) {
+        return fromTheoreticalStep(getTheoreticalStepById(id));
     }
 
     @Override

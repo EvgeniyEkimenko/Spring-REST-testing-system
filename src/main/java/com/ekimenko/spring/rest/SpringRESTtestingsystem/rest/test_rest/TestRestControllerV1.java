@@ -23,7 +23,7 @@ public class TestRestControllerV1 {
     }
 
 
-    @GetMapping(value = "/{id}")
+/*    @GetMapping(value = "/{id}")
     public ResponseEntity<TestDto> getTestById(@PathVariable long id) {
         Test test = testService.getTestById(id);
 
@@ -61,6 +61,6 @@ public class TestRestControllerV1 {
 
         testService.deleteTestById(id);
 
-    }
+    }*/
 
 }

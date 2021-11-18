@@ -23,7 +23,7 @@ public class TheoreticalStepRestControllerV1 {
     }
 
 
-    @GetMapping(value = "/{id}")
+  /*  @GetMapping(value = "/{id}")
     public ResponseEntity<TheoreticalStepDto> getTheoreticalStepById(@PathVariable long id) {
         TheoreticalStep theoreticalStep = theoreticalStepService.getTheoreticalStepById(id);
 
@@ -62,5 +62,5 @@ public class TheoreticalStepRestControllerV1 {
 
         theoreticalStepService.deleteTheoreticalStepById(id);
 
-    }
+    }*/
 }

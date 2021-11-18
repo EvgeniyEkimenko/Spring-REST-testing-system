@@ -1,5 +1,6 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.service.user_service.impl;
 
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.user_dto.UserDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.user.Role;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.user.Status;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.user.User;
@@ -33,13 +34,40 @@ public class UserServiceImpl implements UserService {
     }
 
 
+    @Override
+    public UserDto fromUser(User user) {
+        UserDto userDto = new UserDto();
+        userDto.setId(user.getId());
+        userDto.setUsername(user.getUsername());
+        userDto.setFirstName(user.getFirstName());
+        userDto.setLastName(user.getLastName());
+        userDto.setEmail(user.getEmail());
+
+        return userDto;
+    }
+
+    @Override
+    public List<UserDto> getAllUsersDto() {
+        List<User> results = getAll();
+
+        List<UserDto> userDtoList = new ArrayList<>();
+        for (User result : results) {
+            userDtoList.add(fromUser(result));
+        }
+        return userDtoList;
+    }
+
+    @Override
+    public UserDto getUserDtoById(long id) {
+        return fromUser(findById(id));
+    }
+
     //TODO implement api for registration
     @Override
     public User register(User user) {
         Role roleUser = roleRepository.findByName("ROLE_USER");
         List<Role> userRoles = new ArrayList<>();
         userRoles.add(roleUser);
-
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRoles(userRoles);

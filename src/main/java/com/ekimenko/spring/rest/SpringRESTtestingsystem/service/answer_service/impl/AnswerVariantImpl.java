@@ -1,5 +1,8 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.service.answer_service.impl;
 
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.answer_dto.AnswerResultDto;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.answer_dto.AnswerVariantDto;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer.AnswerResult;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer.AnswerVariant;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.repository.answer_repos.AnswerVariantRepository;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.answer_service.AnswerVariantService;
@@ -7,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -18,6 +22,34 @@ public class AnswerVariantImpl implements AnswerVariantService {
     @Autowired
     public AnswerVariantImpl(AnswerVariantRepository answerVariantRepository) {
         this.answerVariantRepository = answerVariantRepository;
+    }
+
+    @Override
+    public AnswerVariantDto fromAnswerVariant(AnswerVariant answerVariant) {
+        AnswerVariantDto answerVariantDto = new AnswerVariantDto();
+        answerVariantDto.setId(answerVariant.getId());
+        answerVariantDto.setText(answerVariant.getText());
+        answerVariantDto.setCorrect(answerVariant.getCorrect());
+        answerVariantDto.setQuestionId(answerVariant.getQuestion().getId());
+        answerVariantDto.setAnswerResultId(answerVariant.getAnswerResult().getId());
+
+        return answerVariantDto;
+    }
+
+    @Override
+    public List<AnswerVariantDto> getAllAnswerVariantsDto() {
+        List<AnswerVariant> results = getAllAnswerVariants();
+
+        List<AnswerVariantDto> answerVariantDtoList = new ArrayList<>();
+        for (AnswerVariant result : results) {
+            answerVariantDtoList.add(fromAnswerVariant(result));
+        }
+        return answerVariantDtoList;
+    }
+
+    @Override
+    public AnswerVariantDto getAnswerVariantDtoById(long id) {
+        return fromAnswerVariant(getAnswerVariantById(id));
     }
 
     @Override

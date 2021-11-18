@@ -24,7 +24,7 @@ public class CourseRestControllerV1 {
     }
 
 
-    @GetMapping(value = "/{id}")
+ /*   @GetMapping(value = "/{id}")
     public ResponseEntity<CourseDto> getCourseById(@PathVariable long id) {
         Course course = courseService.getCourseById(id);
 
@@ -63,5 +63,5 @@ public class CourseRestControllerV1 {
 
         courseService.deleteCourseById(id);
 
-    }
+    }*/
 }

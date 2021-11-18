@@ -6,7 +6,7 @@ import lombok.Data;
 
 import java.util.List;
 
-//FIXME new fields have been added (userId , testId)
+
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -15,25 +15,14 @@ public class TestResultDto {
     private Double score;
     private Long testId;
     private Long userId;
+    private boolean complete;
     private List<Long> answerResultsId;
 
     public TestResult toTestResult(){
         TestResult testResult = new TestResult();
         testResult.setId(id);
-        testResult.setScore(score);
-        //TODO
-
+        //TODO add code
         return testResult;
     }
 
-    public static TestResultDto fromTestResult(TestResult testResult) {
-        TestResultDto testResultDto = new TestResultDto();
-        testResultDto.setId(testResult.getId());
-        testResultDto.setScore(testResult.getScore());
-        testResultDto.setTestId(testResult.getTest().getId());
-        testResultDto.setUserId(testResult.getUser().getId());
-        //testResultDto.setAnswerResultsId(AnswerResultServiceUtil.getAllIdFromAnswerResultList(testResult.getAnswerResults()));
-
-        return testResultDto;
-    }
 }

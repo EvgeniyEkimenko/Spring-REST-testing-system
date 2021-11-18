@@ -23,7 +23,7 @@ public class AnswerVariantRestControllerV1 {
     }
 
 
-    @GetMapping(value = "/{id}")
+  /*  @GetMapping(value = "/{id}")
     public ResponseEntity<AnswerVariantDto> getAnswerVariantById(@PathVariable long id) {
         AnswerVariant answerVariant = answerVariantService.getAnswerVariantById(id);
 
@@ -63,6 +63,6 @@ public class AnswerVariantRestControllerV1 {
         answerVariantService.deleteAnswerVariantById(id);
 
     }
-
+*/
 
 }

@@ -26,7 +26,7 @@ public class QuestionRestControllerV1 {
     }
 
 
-    @GetMapping(value = "/{id}")
+/*    @GetMapping(value = "/{id}")
     public ResponseEntity<QuestionDto> getQuestionById(@PathVariable long id) {
         Question question = questionService.getQuestionById(id);
 
@@ -66,7 +66,7 @@ public class QuestionRestControllerV1 {
 
         questionService.deleteQuestionById(id);
 
-    }
+    }*/
 
 
 }

@@ -1,5 +1,6 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.service.lesson_service.impl;
 
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.LessonStepDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.LessonStep;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.repository.LessonStepRepository;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.lesson_service.LessonStepService;
@@ -7,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -18,6 +20,35 @@ public class LessonStepServiceImpl implements LessonStepService {
     @Autowired
     public LessonStepServiceImpl(LessonStepRepository lessonStepRepository) {
         this.lessonStepRepository = lessonStepRepository;
+    }
+
+    @Override
+    public LessonStepDto fromLessonStep(LessonStep lessonStep) {
+        LessonStepDto lessonStepDto = new LessonStepDto();
+        lessonStepDto.setId(lessonStep.getId());
+        lessonStepDto.setPositionInLesson(lessonStep.getPositionInLesson());
+        lessonStepDto.setComplete(lessonStep.isComplete());
+        lessonStepDto.setTheoreticalStepId(lessonStep.getTheoreticalStep().getId());
+        lessonStepDto.setLessonId(lessonStep.getLesson().getId());
+        lessonStepDto.setTestId(lessonStep.getTest().getId());
+
+        return lessonStepDto;
+    }
+
+    @Override
+    public List<LessonStepDto> getAllLessonStepsDto() {
+        List<LessonStep> results = getAllLessonSteps();
+
+        List<LessonStepDto> lessonStepDtoList = new ArrayList<>();
+        for (LessonStep result : results) {
+            lessonStepDtoList.add(fromLessonStep(result));
+        }
+        return lessonStepDtoList;
+    }
+
+    @Override
+    public LessonStepDto getLessonStepDtoById(long id) {
+        return fromLessonStep(getLessonStepById(id));
     }
 
     @Override

@@ -1,36 +1,32 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.answer_dto;
 
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer.AnswerResult;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer.AnswerVariant;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.question.Question;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.TestResult;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
+import lombok.ToString;
+
+import javax.persistence.*;
+import java.util.List;
 
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AnswerResultDto {
     private Long id;
+    private Long testResult;
+    private Long question;
     private Double score;
+    private List<Long> answerVariants;
 
-    private Long testResultId;
-
-    public AnswerResult toAnswerResult(){
+    public AnswerResult toAnswerResult() {
         AnswerResult answerResult = new AnswerResult();
         answerResult.setId(id);
-        answerResult.setScore(score);
-
-        //FIXME answerResult.setTestResult();
-
+        //TODO add code
         return answerResult;
     }
 
-    public static AnswerResultDto fromAnswerResult(AnswerResult answerResult) {
-        AnswerResultDto result = new AnswerResultDto();
-        result.setId(answerResult.getId());
-        result.setScore(answerResult.getScore());
-
-        //result.setTestResultId(answerResult.getTestResult().getId());
-
-        return result;
-    }
 }
 

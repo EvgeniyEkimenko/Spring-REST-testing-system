@@ -15,34 +15,14 @@ public class QuestionDto {
     private Integer position;
     private Boolean allowedParticleAnswer;
     private Long testId;
-
     private List<Long> answerVariantsId;
     private List<Long> answerResultsId;
 
     public Question toQuestion(){
         Question question = new Question();
         question.setId(id);
-        question.setText(text);
-        question.setScore(score);
-        question.setPosition(position);
-        //TODO
-
+        //TODO add code
         return question;
     }
 
-    public static QuestionDto fromQuestion(Question question) {
-        QuestionDto questionDto = new QuestionDto();
-        questionDto.setId(question.getId());
-        questionDto.setScore(question.getScore());
-        questionDto.setText(question.getText());
-        questionDto.setPosition(question.getPosition());
-        questionDto.setTestId(question.getTest().getId());
-
-       //questionDto.setAnswerVariantsId(AnswerVariantServiceUtil.
-       //        getAllIdFromAnswerVariantList(question.getAnswerVariants()));
-       //questionDto.setAnswerResultsId(AnswerResultServiceUtil.
-       //        getAllIdFromAnswerResultList(question.getAnswerResults()));
-
-        return questionDto;
-    }
 }

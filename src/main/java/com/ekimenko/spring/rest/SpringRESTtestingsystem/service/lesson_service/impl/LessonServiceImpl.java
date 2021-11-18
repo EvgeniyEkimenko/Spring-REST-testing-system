@@ -1,13 +1,14 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.service.lesson_service.impl;
 
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.LessonDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.Lesson;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.repository.LessonRepository;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.lesson_service.LessonService;
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.lesson_service.lesson_util.LessonStepServiceUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -15,12 +16,41 @@ import java.util.List;
 public class LessonServiceImpl implements LessonService {
 
     private final LessonRepository lessonRepository;
-    private final LessonStepServiceUtil lessonStepUtil;
+
 
     @Autowired
-    public LessonServiceImpl(LessonRepository lessonRepository , LessonStepServiceUtil lessonStepUtil) {
+    public LessonServiceImpl(LessonRepository lessonRepository) {
         this.lessonRepository = lessonRepository;
-        this.lessonStepUtil = lessonStepUtil;
+
+    }
+
+    @Override
+    public LessonDto fromLesson(Lesson lesson) {
+        LessonDto lessonDto = new LessonDto();
+        lessonDto.setId(lesson.getId());
+        lessonDto.setName(lesson.getName());
+        lessonDto.setDescription(lesson.getDescription());
+        lessonDto.setComplete(lesson.getComplete());
+        lessonDto.setCourseId(lesson.getCourse().getId());
+        //FIXME lessonDto.setLessonStepsId(ServiceUtil.getIds(lesson.getLessonSteps()));
+
+        return lessonDto;
+    }
+
+    @Override
+    public List<LessonDto> getAllLessonsDto() {
+        List<Lesson> results = getAllLessons();
+
+        List<LessonDto> lessonDtoList = new ArrayList<>();
+        for (Lesson result : results) {
+            lessonDtoList.add(fromLesson(result));
+        }
+        return lessonDtoList;
+    }
+
+    @Override
+    public LessonDto getLessonDtoById(long id) {
+        return fromLesson(getLessonById(id));
     }
 
     @Override
