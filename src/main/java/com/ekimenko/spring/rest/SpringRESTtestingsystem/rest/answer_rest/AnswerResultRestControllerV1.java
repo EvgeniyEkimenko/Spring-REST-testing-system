@@ -49,7 +49,7 @@ public class AnswerResultRestControllerV1 {
     @PostMapping(value = "")
     public void updateAnswerResult(@RequestBody AnswerResultDto answerResultDto) {
 
-        AnswerResult answerResult = answerResultDto.toAnswerResult();
+        AnswerResult answerResult = resultService.toAnswerResult(answerResultDto);
 
         resultService.updateAnswerResult(answerResult);
     }

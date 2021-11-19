@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface AnswerResultService {
 
+    AnswerResult toAnswerResult(AnswerResultDto answerResultDto);
+
     AnswerResultDto setPoints(AnswerResultDto answerResultDto);
 
     AnswerResultDto fromAnswerResult(AnswerResult answerResult);

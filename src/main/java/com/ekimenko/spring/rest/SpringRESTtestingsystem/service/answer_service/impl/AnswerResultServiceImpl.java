@@ -9,6 +9,7 @@ import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.answer_service.A
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.answer_service.AnswerVariantService;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.question_service.QuestionService;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.service_util.ServiceUtil;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.test_service.TestResultService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,12 +24,17 @@ public class AnswerResultServiceImpl implements AnswerResultService {
     private final AnswerResultRepository resultRepository;
     private final QuestionService questionService;
     private final AnswerVariantService answerVariantService;
+    private final TestResultService testResultService;
 
     @Autowired
-    public AnswerResultServiceImpl(AnswerResultRepository resultRepository, QuestionService questionService, AnswerVariantService answerVariantService) {
+    public AnswerResultServiceImpl(AnswerResultRepository resultRepository
+            , QuestionService questionService
+            , AnswerVariantService answerVariantService
+            , TestResultService testResultService) {
         this.resultRepository = resultRepository;
         this.questionService = questionService;
         this.answerVariantService = answerVariantService;
+        this.testResultService = testResultService;
     }
 
     @Override
@@ -43,6 +49,16 @@ public class AnswerResultServiceImpl implements AnswerResultService {
                 , answerResultDto.getAnswerVariantsId());
 
         answerResultDto.setScore(score);
+        //Если ответ существует до его получения от студента , то ок. Если нет , то добавлять answerResult
+
+        //FIXME into a separate method
+        AnswerResult answerResult = toAnswerResult(answerResultDto);
+        double scoreTestRes = answerResult.getTestResult().getScore();
+        scoreTestRes += score;
+        answerResult.getTestResult().setScore(scoreTestRes);
+
+        addNewAnswerResult(toAnswerResult(answerResultDto));
+
         return answerResultDto;
     }
 
@@ -52,7 +68,7 @@ public class AnswerResultServiceImpl implements AnswerResultService {
         return false;
     }*/
 
-    public double calculatePointsWithAllowedParticleAnswer(Question question  , List<Long> answerVariantsId) {
+    public double calculatePointsWithAllowedParticleAnswer(Question question, List<Long> answerVariantsId) {
         double count = 0;
         List<Long> correctnessAnswerVariantListId = new ArrayList<>();
         for (AnswerVariant correctAnswer : question.getAnswerVariants()) {
@@ -62,13 +78,13 @@ public class AnswerResultServiceImpl implements AnswerResultService {
         for (Long correct : answerVariantsId) {
             if (correctnessAnswerVariantListId.contains(correct)) count++;
             else {
-                if ((count--)>=0) {
-                }
-                else count=0;
+                count--;
+                if ((count) >= 0) {
+                } else count = 0;
             }
         }
         int countOfTrueAnswer = correctnessAnswerVariantListId.size();
-        return question.getScore()*(count/countOfTrueAnswer);
+        return question.getScore() * (count / countOfTrueAnswer);
 
     }
 
@@ -79,11 +95,29 @@ public class AnswerResultServiceImpl implements AnswerResultService {
         return 0;
     }
 
+    public AnswerResult toAnswerResult(AnswerResultDto answerResultDto) {
+        AnswerResult answerResult = new AnswerResult();
+        answerResult.setId(answerResultDto.getId());
+        answerResult.setScore(answerResultDto.getScore());
+        answerResult.setQuestion(questionService.getQuestionById(answerResultDto.getQuestionId()));
+        answerResult.setAnswerVariants(getAnswerVariantListForResult(answerResultDto.getAnswerVariantsId()));
+        answerResult.setTestResult(testResultService.getTestResultById(answerResultDto.getTestResultId()));
+        return answerResult;
+    }
+
+    public List<AnswerVariant> getAnswerVariantListForResult(List<Long> answers) {
+        List<AnswerVariant> answerVariantList = new ArrayList<>();
+        for (int i = 0; i < answers.size(); i++) {
+            answerVariantList.add(answerVariantService.getAnswerVariantById(answers.get(i)));
+        }
+        return answerVariantList;
+    }
+
     @Override
     public AnswerResultDto fromAnswerResult(AnswerResult answerResult) {
         AnswerResultDto result = new AnswerResultDto();
         result.setId(answerResult.getId());
-        //TODO fill table for using result.setTestResultId(answerResult.getTestResult().getId());
+        result.setTestResultId(answerResult.getTestResult().getId());
         result.setQuestionId(answerResult.getQuestion().getId());
         result.setScore(answerResult.getScore());
         result.setAnswerVariantsId(ServiceUtil.getIds(answerResult.getAnswerVariants()));
