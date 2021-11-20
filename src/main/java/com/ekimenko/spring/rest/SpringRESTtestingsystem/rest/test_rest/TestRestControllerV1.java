@@ -41,16 +41,16 @@ public class TestRestControllerV1 {
     @PostMapping(value = "")
     public void addNewTest(@RequestBody TestDto testDto) {
 
-        Test test = testDto.toTestResult();
-        testService.addNewTest(test);
+/*        Test test = testDto.toTestResult();
+        testService.addNewTest(test);*/
 
     }
 
     @PutMapping(value = "")
     public void updateTest(@RequestBody TestDto testDto) {
 
-        Test test = testDto.toTestResult();
-        testService.updateTest(test);
+/*        Test test = testDto.toTestResult();
+        testService.updateTest(test);*/
 
     }
 

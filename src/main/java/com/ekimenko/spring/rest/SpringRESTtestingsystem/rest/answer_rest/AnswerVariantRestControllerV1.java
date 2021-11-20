@@ -41,16 +41,16 @@ public class AnswerVariantRestControllerV1 {
     @PostMapping(value = "")
     public void addNewAnswerVariant(@RequestBody AnswerVariantDto answerVariantDto) {
 
-        AnswerVariant answerVariant = answerVariantDto.toAnswerVariant();
-        answerVariantService.addNewAnswerVariant(answerVariant);
+/*        AnswerVariant answerVariant = answerVariantDto.toAnswerVariant();
+        answerVariantService.addNewAnswerVariant(answerVariant);*/
 
     }
 
     @PutMapping(value = "")
     public void updateAnswerVariant(@RequestBody AnswerVariantDto answerVariantDto) {
 
-        AnswerVariant answerVariant = answerVariantDto.toAnswerVariant();
-        answerVariantService.updateAnswerVariant(answerVariant);
+/*        AnswerVariant answerVariant = answerVariantDto.toAnswerVariant();
+        answerVariantService.updateAnswerVariant(answerVariant);*/
 
     }
 

@@ -1,6 +1,5 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.question_dto;
 
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.question.Question;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
@@ -16,7 +15,7 @@ public class QuestionDto {
     private Boolean allowedParticleAnswer;
     private Long testId;
     private List<Long> answerVariantsId;
-    //private List<Long> answerResultsId;
+    private List<Long> answerResultsId;
 
 
 }

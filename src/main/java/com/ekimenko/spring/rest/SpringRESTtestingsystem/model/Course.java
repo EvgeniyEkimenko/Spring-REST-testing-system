@@ -29,7 +29,7 @@ public class Course implements EntityWithLongId {
     private Boolean complete;
 
     @ToString.Exclude
-    @OneToMany(fetch = FetchType.LAZY  , mappedBy = "course")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "course")
     @Column(name = "course_id")
     private List<Lesson> lessons;
 
@@ -37,7 +37,7 @@ public class Course implements EntityWithLongId {
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "course_user",
             joinColumns = {@JoinColumn(name = "course_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id") })
+            inverseJoinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")})
     private List<User> users;
 
 }

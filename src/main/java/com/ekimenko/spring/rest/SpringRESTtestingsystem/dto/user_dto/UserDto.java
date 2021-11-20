@@ -4,8 +4,6 @@ import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.user.User;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
-import java.util.List;
-
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UserDto {
@@ -15,8 +13,15 @@ public class UserDto {
     private String lastName;
     private String email;
 
-    private List<Long> testResultsId;
+    public User toUser(){
+        User user = new User();
+        user.setId(id);
+        user.setUsername(username);
+        user.setFirstName(firstName);
+        user.setLastName(lastName);
+        user.setEmail(email);
 
-
+        return user;
+    }
 
 }

@@ -1,7 +1,6 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.model.user;
 
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.Course;
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer.AnswerResult;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.TestResult;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.service_util.EntityWithLongId;
 import lombok.Data;

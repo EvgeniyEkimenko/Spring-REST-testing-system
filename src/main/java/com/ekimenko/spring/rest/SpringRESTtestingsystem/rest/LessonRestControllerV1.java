@@ -41,16 +41,16 @@ public class LessonRestControllerV1 {
     @PostMapping(value = "")
     public void addNewLesson(@RequestBody LessonDto lessonDto) {
 
-        Lesson lesson = lessonDto.toLesson();
-        lessonService.addNewLesson(lesson);
+/*        Lesson lesson = lessonDto.toLesson();
+        lessonService.addNewLesson(lesson);*/
 
     }
 
     @PutMapping(value = "")
     public void updateLesson(@RequestBody LessonDto lessonDto) {
 
-        Lesson lesson = lessonDto.toLesson();
-        lessonService.updateLesson(lesson);
+/*        Lesson lesson = lessonDto.toLesson();
+        lessonService.updateLesson(lesson);*/
 
     }
 

@@ -46,5 +46,4 @@ public class TestResult implements EntityWithLongId {
     private Boolean testScore;
 
 
-
 }

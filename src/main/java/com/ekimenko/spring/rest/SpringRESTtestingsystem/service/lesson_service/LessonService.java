@@ -1,10 +1,9 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.service.lesson_service;
 
 
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.CourseDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.LessonDto;
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.Course;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.Lesson;
+
 import java.util.List;
 
 public interface LessonService {

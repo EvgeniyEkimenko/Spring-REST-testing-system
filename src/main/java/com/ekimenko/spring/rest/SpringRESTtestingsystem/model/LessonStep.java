@@ -2,10 +2,10 @@ package com.ekimenko.spring.rest.SpringRESTtestingsystem.model;
 
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.Test;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.service_util.EntityWithLongId;
-import lombok.*;
-import org.springframework.lang.Nullable;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
-import javax.management.ConstructorParameters;
 import javax.persistence.*;
 
 
@@ -39,7 +39,6 @@ public class LessonStep implements EntityWithLongId {
     @OneToOne
     @JoinColumn(name = "test_id")
     private Test test;
-
 
 
 }

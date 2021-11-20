@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
-public class  JwtUserDetailsService implements UserDetailsService {
+public class JwtUserDetailsService implements UserDetailsService {
 
     private final UserService userService;
 
@@ -31,7 +31,7 @@ public class  JwtUserDetailsService implements UserDetailsService {
         }
 
         JwtUser jwtUser = JwtUserFactory.create(user);
-        log.info("IN loadByUserName - user with username: {} successfully loaded" , username);
+        log.info("IN loadByUserName - user with username: {} successfully loaded", username);
 
         return jwtUser;
     }

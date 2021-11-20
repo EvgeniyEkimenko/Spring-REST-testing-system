@@ -39,12 +39,12 @@ public class Question implements EntityWithLongId {
     private Test test;
 
     @ToString.Exclude
-    @OneToMany(fetch = FetchType.LAZY , mappedBy = "question")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "question")
     @Column(name = "question_id")
     private List<AnswerVariant> answerVariants;
 
     @ToString.Exclude
-    @OneToMany(fetch = FetchType.LAZY , mappedBy = "question")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "question")
     @Column(name = "question_id")
     private List<AnswerResult> answerResults;
 

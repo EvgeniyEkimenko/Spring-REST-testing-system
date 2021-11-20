@@ -1,6 +1,5 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.test_dto;
 
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.Test;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 

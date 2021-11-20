@@ -42,15 +42,15 @@ public class TestResultRestControllerV1 {
     @PostMapping(value = "")
     public void addNewTestResult(@RequestBody TestResultDto testResultDto) {
 
-        TestResult testResult = testResultDto.toTestResult();
-        testResultService.addNewTestResult(testResult);
+/*        TestResult testResult = testResultDto.toTestResult();
+        testResultService.addNewTestResult(testResult);*/
     }
 
     @PutMapping(value = "")
     public void updateTestResult(@RequestBody TestResultDto testResultDto) {
 
-        TestResult testResult = testResultDto.toTestResult();
-        testResultService.updateTestResult(testResult);
+/*        TestResult testResult = testResultDto.toTestResult();
+        testResultService.updateTestResult(testResult);*/
     }
 
     @DeleteMapping(value = "/{id}")
@@ -62,14 +62,14 @@ public class TestResultRestControllerV1 {
 
     @PostMapping(value = "/start/{id}")
     public ResponseEntity<TestResultDto> start(@PathVariable Long id) {
-       TestResultDto testResultDto = testResultService.startTest(id);
-       return new ResponseEntity<>(testResultDto , HttpStatus.OK);
+        TestResultDto testResultDto = testResultService.startTest(id);
+        return new ResponseEntity<>(testResultDto, HttpStatus.OK);
     }
 
     @PostMapping(value = "/finish/{id}")
     public ResponseEntity<TestResultDto> finish(@PathVariable Long id) {
         TestResultDto testResultDto = testResultService.finishTest(id);
-        return new ResponseEntity<>(testResultDto , HttpStatus.OK);
+        return new ResponseEntity<>(testResultDto, HttpStatus.OK);
     }
 
 }

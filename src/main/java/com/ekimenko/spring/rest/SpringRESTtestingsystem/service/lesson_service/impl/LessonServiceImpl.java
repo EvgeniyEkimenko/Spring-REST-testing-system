@@ -54,7 +54,6 @@ public class LessonServiceImpl implements LessonService {
     }
 
 
-
     @Override
     public LessonDto fromLesson(Lesson lesson) {
         LessonDto lessonDto = new LessonDto();

@@ -42,15 +42,15 @@ public class CourseRestControllerV1 {
     @PostMapping(value = "")
     public void addNewCourse(@RequestBody CourseDto courseDto) {
 
-        Course course = courseDto.toCourse();
-        courseService.addNewCourse(course);
+/*        Course course = courseDto.toCourse();
+        courseService.addNewCourse(course);*/
     }
 
     @PutMapping(value = "")
     public void updateCourse(@RequestBody CourseDto courseDto) {
 
-        Course course = courseDto.toCourse();
-        courseService.updateCourse(course);
+/*        Course course = courseDto.toCourse();
+        courseService.updateCourse(course);*/
     }
 
     @DeleteMapping(value = "/{id}")

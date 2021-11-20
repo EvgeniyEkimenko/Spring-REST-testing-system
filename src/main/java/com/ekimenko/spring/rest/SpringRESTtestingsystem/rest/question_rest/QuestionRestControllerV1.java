@@ -41,15 +41,15 @@ public class QuestionRestControllerV1 {
     @PostMapping(value = "")
     public void addNewQuestion(@RequestBody QuestionDto questionDto) {
 
-        Question question = questionDto.toQuestion();
-        questionService.addNewQuestion(question);
+/*        Question question = questionDto.toQuestion();
+        questionService.addNewQuestion(question);*/
     }
 
     @PutMapping(value = "")
     public void updateQuestion(@RequestBody QuestionDto questionDto) {
 
-        Question question = questionDto.toQuestion();
-        questionService.updateQuestion(question);
+/*        Question question = questionDto.toQuestion();
+        questionService.updateQuestion(question);*/
     }
 
     @DeleteMapping(value = "/{id}")

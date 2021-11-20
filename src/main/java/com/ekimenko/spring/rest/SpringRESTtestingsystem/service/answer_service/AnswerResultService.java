@@ -31,5 +31,4 @@ public interface AnswerResultService {
     void deleteById(long id);
 
 
-
 }

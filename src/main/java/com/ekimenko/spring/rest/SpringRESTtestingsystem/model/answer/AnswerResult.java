@@ -2,7 +2,6 @@ package com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer;
 
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.question.Question;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.TestResult;
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.user.User;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.service_util.EntityWithLongId;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -35,7 +34,7 @@ public class AnswerResult implements EntityWithLongId {
     private Double score;
 
     @ToString.Exclude
-    @OneToMany(fetch = FetchType.LAZY , mappedBy = "answerResult")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "answerResult")
     @Column(name = "answer_result_id")
     private List<AnswerVariant> answerVariants;
 

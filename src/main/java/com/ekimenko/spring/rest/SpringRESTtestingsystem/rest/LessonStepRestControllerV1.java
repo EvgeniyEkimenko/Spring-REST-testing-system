@@ -40,15 +40,15 @@ public class LessonStepRestControllerV1 {
     @PostMapping(value = "")
     public void addNewLessonStep(@RequestBody LessonStepDto lessonStepDto) {
 
-        LessonStep lessonStep = lessonStepDto.toLessonStep();
-        lessonStepService.addNewLessonStep(lessonStep);
+/*        LessonStep lessonStep = lessonStepDto.toLessonStep();
+        lessonStepService.addNewLessonStep(lessonStep);*/
     }
 
     @PutMapping(value = "")
     public void updateLessonStep(@RequestBody LessonStepDto lessonStepDto) {
 
-        LessonStep lessonStep = lessonStepDto.toLessonStep();
-        lessonStepService.updateLessonStep(lessonStep);
+/*        LessonStep lessonStep = lessonStepDto.toLessonStep();
+        lessonStepService.updateLessonStep(lessonStep);*/
     }
 
     @DeleteMapping(value = "/{id}")
