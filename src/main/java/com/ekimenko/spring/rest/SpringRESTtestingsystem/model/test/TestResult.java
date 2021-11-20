@@ -42,6 +42,9 @@ public class TestResult implements EntityWithLongId {
     @JoinColumn(name = "test_id")
     private Test test;
 
+    @Column(name = "test_score")
+    private Boolean testScore;
+
 
 
 }

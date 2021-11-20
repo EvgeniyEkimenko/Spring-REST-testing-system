@@ -10,9 +10,10 @@ import java.util.List;
 public interface TestResultService {
 
 
-    void startTest(Long id);
 
-    void finishTest(Long id);
+    TestResultDto startTest(Long id);
+
+    TestResultDto finishTest(Long id);
 
     TestResultDto fromTestResult(TestResult testResult);
 

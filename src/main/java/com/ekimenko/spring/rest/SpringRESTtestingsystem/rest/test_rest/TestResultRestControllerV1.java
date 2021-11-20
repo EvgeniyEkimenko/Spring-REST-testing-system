@@ -61,12 +61,13 @@ public class TestResultRestControllerV1 {
     }
 
     @PostMapping(value = "/start/{id}")
-    public void start(@PathVariable Long id) {
-        testResultService.startTest(id);
+    public ResponseEntity<TestResultDto> start(@PathVariable Long id) {
+       TestResultDto testResultDto = testResultService.startTest(id);
+       return new ResponseEntity<>(testResultDto , HttpStatus.OK);
     }
 
     @PostMapping(value = "/finish/{id}")
-    public void finish(@PathVariable Long id) {
+    public ResponseEntity<TestResultDto> finish(@PathVariable Long id) {
         testResultService.finishTest(id);
     }
 

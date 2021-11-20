@@ -2,6 +2,7 @@ package com.ekimenko.spring.rest.SpringRESTtestingsystem.service.test_service.im
 
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.test_dto.TestResultDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.TestResult;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.user.User;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.repository.test_repos.TestResultRepository;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.service_util.ServiceUtil;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.test_service.TestResultService;
@@ -27,18 +28,28 @@ public class TestResultServiceImpl implements TestResultService {
     }
 
     @Override
-    public void startTest(Long id) {
+    public TestResultDto startTest(Long id) {
         TestResult testResult = new TestResult();
         testResult.setTest(testService.getTestById(id));
-        testResult.setScore(0D);
-        testResult.setComplete(false);
+        testResult.setUser(getUserByTestId(id));  //FIXME
         addNewTestResult(testResult);
+        return fromTestResult(testResult);
+    }
+
+    public User getUserByTestId(Long id) {
+        //FIXME User user = testService.getTestById(id).getLessonStep().getLesson().getCourse()....
+        //FIXME Temp functional
+        User user = new User();
+        user.setFirstName("TEMP_NAME");
+        return user;
     }
 
     @Override
-    public void finishTest(Long id) {
+    public TestResultDto finishTest(Long id) {
         TestResult testResult = getTestResultById(id);
-        if (testResult.getScore() >= testResult.getTest().getRequeredScore()) testResult.setComplete(true);
+        if (testResult.getScore() >= testResult.getTest().getRequeredScore()) testResult.setTestScore(true);
+        testResult.setComplete(true);
+        return fromTestResult(testResult);
     }
 
     @Override

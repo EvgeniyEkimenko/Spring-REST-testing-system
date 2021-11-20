@@ -52,7 +52,7 @@
                 <constraints  nullable="true"/>
             </column>-->
 
-            <column name="complete" type="BOOLEAN">
+            <column name="complete" type="BOOLEAN" defaultValue="false">
                 <constraints  nullable="true"/>
             </column>
 
@@ -74,7 +74,7 @@
                 <constraints nullable="true"/>
             </column>
 
-            <column name="complete" type="BOOLEAN">
+            <column name="complete" type="BOOLEAN" defaultValue="false">
                 <constraints  nullable="true"/>
             </column>
 
@@ -200,7 +200,7 @@
                 <constraints  nullable="true"/>
             </column>
 
-            <column name="complete" type="BOOLEAN">
+            <column name="complete" type="BOOLEAN" defaultValue="false">
                 <constraints  nullable="true"/>
             </column>
 

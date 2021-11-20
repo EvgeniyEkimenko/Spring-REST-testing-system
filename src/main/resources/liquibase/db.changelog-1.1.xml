@@ -18,16 +18,16 @@
                 <constraints  nullable="true"/>
             </column>
 
-            <column name="score" type="DOUBLE">
+            <column name="score" type="DOUBLE" defaultValue="0">
                 <constraints nullable="true"/>
             </column>
 
-            <column name="complete" type="BOOLEAN">
+            <column name="complete" type="BOOLEAN" defaultValue="false">
                 <constraints nullable="true"/>
             </column>
 
             <!--In the future, implement a rating system-->
-            <column name="test_score" type="BOOLEAN" >
+            <column name="test_score" type="BOOLEAN" defaultValue="false">
                 <constraints nullable="true"/>
             </column>
 
@@ -49,7 +49,7 @@
                 <constraints  nullable="true"/>
             </column>-->
 
-            <column name="score" type="DOUBLE">
+            <column name="score" type="DOUBLE" >
                 <constraints nullable="true"/>
             </column>
 
