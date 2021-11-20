@@ -9,6 +9,8 @@ import java.util.List;
 
 public interface LessonStepService {
 
+    LessonStep toLessonStep(LessonStepDto lessonStepDto);
+
     LessonStepDto fromLessonStep(LessonStep lessonStep);
 
     List<LessonStepDto> getAllLessonStepsDto();

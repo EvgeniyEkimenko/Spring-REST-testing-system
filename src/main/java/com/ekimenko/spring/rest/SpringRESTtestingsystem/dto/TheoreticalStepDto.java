@@ -14,11 +14,6 @@ public class TheoreticalStepDto {
     private String usefulText;
     private Long lessonStepId;
 
-    public TheoreticalStep toTheoreticalStep(){
-        TheoreticalStep theoreticalStep = new TheoreticalStep();
-        theoreticalStep.setId(id);
-        //TODO add code
-        return theoreticalStep;
-    }
+
 
 }

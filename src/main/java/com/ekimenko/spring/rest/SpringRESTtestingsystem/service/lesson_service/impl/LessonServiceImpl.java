@@ -2,8 +2,11 @@ package com.ekimenko.spring.rest.SpringRESTtestingsystem.service.lesson_service.
 
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.LessonDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.Lesson;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.LessonStep;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.repository.LessonRepository;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.course_service.CourseService;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.lesson_service.LessonService;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.lesson_service.LessonStepService;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.service_util.ServiceUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,13 +20,40 @@ import java.util.List;
 public class LessonServiceImpl implements LessonService {
 
     private final LessonRepository lessonRepository;
+    private final CourseService courseService;
+    private final LessonStepService lessonStepService;
 
 
     @Autowired
-    public LessonServiceImpl(LessonRepository lessonRepository) {
+    public LessonServiceImpl(LessonRepository lessonRepository, CourseService courseService, LessonStepService lessonStepService) {
         this.lessonRepository = lessonRepository;
+        this.courseService = courseService;
 
+        this.lessonStepService = lessonStepService;
     }
+
+    @Override
+    public Lesson toLesson(LessonDto lessonDto) {
+        Lesson lesson = new Lesson();
+        lesson.setId(lessonDto.getId());
+        lesson.setComplete(lessonDto.getComplete());
+        lesson.setDescription(lessonDto.getDescription());
+        lesson.setName(lessonDto.getName());
+        lesson.setLessonSteps(getLessonStepListByListId(lessonDto.getLessonStepsId()));
+        lesson.setCourse(courseService.getCourseById(lessonDto.getCourseId()));
+        return lesson;
+    }
+
+
+    public List<LessonStep> getLessonStepListByListId(List<Long> lessonStepIdList) {
+        List<LessonStep> lessonStepList = new ArrayList<>();
+        for (int i = 0; i < lessonStepIdList.size(); i++) {
+            lessonStepList.add(lessonStepService.getLessonStepById(lessonStepIdList.get(i)));
+        }
+        return lessonStepList;
+    }
+
+
 
     @Override
     public LessonDto fromLesson(Lesson lesson) {

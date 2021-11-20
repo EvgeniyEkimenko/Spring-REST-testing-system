@@ -3,7 +3,10 @@ package com.ekimenko.spring.rest.SpringRESTtestingsystem.service.lesson_service.
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.LessonStepDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.LessonStep;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.repository.LessonStepRepository;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.lesson_service.LessonService;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.lesson_service.LessonStepService;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.test_service.TestService;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.theoretical_step_service.TheoreticalStepService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,10 +19,28 @@ import java.util.List;
 public class LessonStepServiceImpl implements LessonStepService {
 
     private final LessonStepRepository lessonStepRepository;
+    private final TheoreticalStepService theoreticalStepService;
+    private final LessonService lessonService;
+    private final TestService testService;
 
     @Autowired
-    public LessonStepServiceImpl(LessonStepRepository lessonStepRepository) {
+    public LessonStepServiceImpl(LessonStepRepository lessonStepRepository, TheoreticalStepService theoreticalStepService, LessonService lessonService, TestService testService) {
         this.lessonStepRepository = lessonStepRepository;
+        this.theoreticalStepService = theoreticalStepService;
+        this.lessonService = lessonService;
+        this.testService = testService;
+    }
+
+    @Override
+    public LessonStep toLessonStep(LessonStepDto lessonStepDto) {
+        LessonStep lessonStep = new LessonStep();
+        lessonStep.setId(lessonStepDto.getId());
+        lessonStep.setPositionInLesson(lessonStepDto.getPositionInLesson());
+        lessonStep.setTheoreticalStep(theoreticalStepService
+                .getTheoreticalStepById(lessonStepDto.getTheoreticalStepId()));
+        lessonStep.setLesson(lessonService.getLessonById(lessonStepDto.getLessonId()));
+        lessonStep.setTest(testService.getTestById(lessonStepDto.getTestId()));
+        return lessonStep;
     }
 
     @Override

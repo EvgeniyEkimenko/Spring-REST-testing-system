@@ -41,15 +41,15 @@ public class TheoreticalStepRestControllerV1 {
     @PostMapping(value = "")
     public void addNewTheoreticalStep(@RequestBody TheoreticalStepDto theoreticalStepDto) {
 
-        TheoreticalStep theoreticalStep = theoreticalStepDto.toTheoreticalStep();
-        theoreticalStepService.addNewTheoreticalStep(theoreticalStep);
+/*        TheoreticalStep theoreticalStep = theoreticalStepDto.toTheoreticalStep();
+        theoreticalStepService.addNewTheoreticalStep(theoreticalStep);*/
     }
 
     @PutMapping(value = "")
     public void updateTheoreticalStep(@RequestBody TheoreticalStepDto theoreticalStepDto) {
 
-        TheoreticalStep theoreticalStep = theoreticalStepDto.toTheoreticalStep();
-        theoreticalStepService.updateTheoreticalStep(theoreticalStep);
+/*        TheoreticalStep theoreticalStep = theoreticalStepDto.toTheoreticalStep();
+        theoreticalStepService.updateTheoreticalStep(theoreticalStep);*/
     }
 
     @DeleteMapping(value = "/{id}")

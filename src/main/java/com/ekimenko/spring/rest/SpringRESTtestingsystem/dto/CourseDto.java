@@ -18,10 +18,4 @@ public class CourseDto {
     private List<Long> usersId;
 
 
-    public Course toCourse() {
-        Course course = new Course();
-        //TODO add code
-        return course;
-    }
-
 }

@@ -3,6 +3,7 @@ package com.ekimenko.spring.rest.SpringRESTtestingsystem.service.theoretical_ste
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.TheoreticalStepDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.TheoreticalStep;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.repository.TheoreticalStepRepository;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.lesson_service.LessonStepService;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.theoretical_step_service.TheoreticalStepService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +17,23 @@ import java.util.List;
 public class TheoreticalStepServiceImpl implements TheoreticalStepService {
 
     private final TheoreticalStepRepository theoreticalStepRepository;
+    private final LessonStepService lessonStepService;
 
     @Autowired
-    public TheoreticalStepServiceImpl(TheoreticalStepRepository theoreticalStepRepository) {
+    public TheoreticalStepServiceImpl(TheoreticalStepRepository theoreticalStepRepository, LessonStepService lessonStepService) {
         this.theoreticalStepRepository = theoreticalStepRepository;
+        this.lessonStepService = lessonStepService;
+    }
+
+    @Override
+    public TheoreticalStep toTheoreticalStep(TheoreticalStepDto theoreticalStepDto) {
+        TheoreticalStep theoreticalStep = new TheoreticalStep();
+        theoreticalStep.setId(theoreticalStep.getId());
+        theoreticalStep.setName(theoreticalStepDto.getName());
+        theoreticalStep.setDescription(theoreticalStepDto.getDescription());
+        theoreticalStep.setLessonStep(lessonStepService.getLessonStepById(theoreticalStepDto.getLessonStepId()));
+        theoreticalStep.setUsefulText(theoreticalStepDto.getUsefulText());
+        return theoreticalStep;
     }
 
     @Override

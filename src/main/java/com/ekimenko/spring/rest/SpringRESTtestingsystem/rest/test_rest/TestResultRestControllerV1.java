@@ -68,7 +68,8 @@ public class TestResultRestControllerV1 {
 
     @PostMapping(value = "/finish/{id}")
     public ResponseEntity<TestResultDto> finish(@PathVariable Long id) {
-        testResultService.finishTest(id);
+        TestResultDto testResultDto = testResultService.finishTest(id);
+        return new ResponseEntity<>(testResultDto , HttpStatus.OK);
     }
 
 }

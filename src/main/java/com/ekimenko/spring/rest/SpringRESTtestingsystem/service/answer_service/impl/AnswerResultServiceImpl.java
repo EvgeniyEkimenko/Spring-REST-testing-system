@@ -96,6 +96,7 @@ public class AnswerResultServiceImpl implements AnswerResultService {
         return 0;
     }
 
+    @Override
     public AnswerResult toAnswerResult(AnswerResultDto answerResultDto) {
         AnswerResult answerResult = new AnswerResult();
         answerResult.setId(answerResultDto.getId());

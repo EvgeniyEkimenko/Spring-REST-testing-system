@@ -3,7 +3,9 @@ package com.ekimenko.spring.rest.SpringRESTtestingsystem.service.answer_service.
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.answer_dto.AnswerVariantDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer.AnswerVariant;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.repository.answer_repos.AnswerVariantRepository;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.answer_service.AnswerResultService;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.answer_service.AnswerVariantService;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.question_service.QuestionService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,10 +18,27 @@ import java.util.List;
 public class AnswerVariantImpl implements AnswerVariantService {
 
     private final AnswerVariantRepository answerVariantRepository;
+    private final QuestionService questionService;
+    private final AnswerVariantService answerVariantService;
+    private final AnswerResultService answerResultService;
 
     @Autowired
-    public AnswerVariantImpl(AnswerVariantRepository answerVariantRepository) {
+    public AnswerVariantImpl(AnswerVariantRepository answerVariantRepository, QuestionService questionService, AnswerVariantService answerVariantService, AnswerResultService answerResultService) {
         this.answerVariantRepository = answerVariantRepository;
+        this.questionService = questionService;
+        this.answerVariantService = answerVariantService;
+        this.answerResultService = answerResultService;
+    }
+
+    @Override
+    public AnswerVariant toAnswerVariant(AnswerVariantDto answerVariantDto) {
+        AnswerVariant answerVariant = new AnswerVariant();
+        answerVariant.setId(answerVariantDto.getId());
+        answerVariant.setText(answerVariantDto.getText());
+        answerVariant.setCorrect(answerVariantDto.getCorrect());
+        answerVariant.setQuestion(questionService.getQuestionById(answerVariantDto.getId()));
+        answerVariant.setAnswerResult(answerResultService.getAnswerResultById(answerVariantDto.getAnswerResultId()));
+        return answerVariant;
     }
 
     @Override

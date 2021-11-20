@@ -16,13 +16,6 @@ public class AnswerResultDto {
     private Double score;
     private List<Long> answerVariantsId;
 
-/*    public AnswerResult toAnswerResult() {
-        AnswerResult answerResult = new AnswerResult();
-        answerResult.setId(id);
-        answerResult.setScore(score);
-        //TODO add code
-        return answerResult;
-    }*/
 
 }
 

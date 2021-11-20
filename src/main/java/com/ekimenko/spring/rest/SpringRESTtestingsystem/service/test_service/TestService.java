@@ -9,6 +9,8 @@ import java.util.List;
 
 public interface TestService {
 
+    Test toTest(TestDto testDto);
+
     TestDto fromTest(Test test);
 
     List<TestDto> getAllTestsDto();

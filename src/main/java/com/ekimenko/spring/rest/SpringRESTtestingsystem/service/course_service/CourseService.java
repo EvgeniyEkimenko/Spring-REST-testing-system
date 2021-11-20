@@ -10,6 +10,8 @@ import java.util.List;
 
 public interface CourseService {
 
+    Course toCourse(CourseDto courseDto);
+
     CourseDto fromCourse(Course course);
 
     List<CourseDto> getAllCoursesDto();

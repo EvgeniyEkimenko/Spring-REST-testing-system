@@ -12,11 +12,4 @@ public class AnswerVariantDto {
     private Boolean correct;
     private Long questionId;
     private Long answerResultId;
-
-    public AnswerVariant toAnswerVariant() {
-        AnswerVariant answerVariant = new AnswerVariant();
-        //TODO add code
-        return answerVariant;
-    }
-
 }

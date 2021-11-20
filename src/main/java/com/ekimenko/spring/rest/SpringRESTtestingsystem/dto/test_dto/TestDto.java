@@ -13,16 +13,8 @@ public class TestDto {
     private String name;
     private Long requeredScore;
     private Long numberAttempt;
-    private List<Long> questionId;
+    private List<Long> questionsId;
     private List<Long> testResultId;
     private Long lessonStepId;
-
-    public Test toTestResult() {
-        Test test = new Test();
-        test.setId(id);
-        //TODO add code
-        return test;
-    }
-
 
 }

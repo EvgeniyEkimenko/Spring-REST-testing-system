@@ -17,11 +17,6 @@ public class UserDto {
 
     private List<Long> testResultsId;
 
-    public User toUser(){
-        User user = new User();
-        user.setId(id);
-        //TODO add code
-        return user;
-    }
+
 
 }

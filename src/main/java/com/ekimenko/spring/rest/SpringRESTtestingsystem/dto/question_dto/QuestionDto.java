@@ -16,13 +16,7 @@ public class QuestionDto {
     private Boolean allowedParticleAnswer;
     private Long testId;
     private List<Long> answerVariantsId;
-    private List<Long> answerResultsId;
+    //private List<Long> answerResultsId;
 
-    public Question toQuestion() {
-        Question question = new Question();
-        question.setId(id);
-        //TODO add code
-        return question;
-    }
 
 }

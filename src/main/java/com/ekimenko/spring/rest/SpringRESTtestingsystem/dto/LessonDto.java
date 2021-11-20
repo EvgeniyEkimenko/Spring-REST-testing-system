@@ -16,11 +16,5 @@ public class LessonDto {
     private Long courseId;
     private List<Long> lessonStepsId;
 
-    public Lesson toLesson(){
-        Lesson lesson = new Lesson();
-        lesson.setId(id);
-        //TODO add code
-        return lesson;
-    }
 
 }

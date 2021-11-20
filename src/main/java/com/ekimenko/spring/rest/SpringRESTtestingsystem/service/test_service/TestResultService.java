@@ -9,7 +9,9 @@ import java.util.List;
 
 public interface TestResultService {
 
+    boolean checkAllTestResultsForCompletion(List<Long> testResultsId);
 
+    TestResult toTestResult(TestResultDto testResultDto);
 
     TestResultDto startTest(Long id);
 

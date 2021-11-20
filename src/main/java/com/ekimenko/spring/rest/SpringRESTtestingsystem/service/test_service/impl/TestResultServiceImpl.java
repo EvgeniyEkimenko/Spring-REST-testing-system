@@ -7,6 +7,7 @@ import com.ekimenko.spring.rest.SpringRESTtestingsystem.repository.test_repos.Te
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.service_util.ServiceUtil;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.test_service.TestResultService;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.test_service.TestService;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.user_service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,11 +21,35 @@ public class TestResultServiceImpl implements TestResultService {
 
     private final TestResultRepository testResultRepository;
     private final TestService testService;
+    private final UserService userService;
 
     @Autowired
-    public TestResultServiceImpl(TestResultRepository testResultRepository, TestService testService) {
+    public TestResultServiceImpl(TestResultRepository testResultRepository, TestService testService, UserService userService) {
         this.testResultRepository = testResultRepository;
         this.testService = testService;
+        this.userService = userService;
+    }
+
+    @Override
+    public boolean checkAllTestResultsForCompletion(List<Long> testResultsId) {
+
+        for (Long testResult : testResultsId) {
+            if (!getTestResultById(testResult).getTestScore()) return false;
+        }
+        return true;
+    }
+
+    @Override
+    public TestResult toTestResult(TestResultDto testResultDto) {
+        TestResult testResult = new TestResult();
+        testResult.setId(testResultDto.getId());
+        testResult.setTestScore(testResultDto.isTestScore());
+        testResult.setScore(testResult.getScore());
+        testResult.setComplete(testResultDto.isComplete());
+        testResult.setTest(testService.getTestById(testResultDto.getTestId()));
+        testResult.setUser(userService.findById(testResultDto.getUserId()));
+        //testResult.setAnswerResults();
+        return testResult;
     }
 
     @Override

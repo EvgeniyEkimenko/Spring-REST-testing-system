@@ -9,6 +9,8 @@ import java.util.List;
 
 public interface TheoreticalStepService {
 
+    TheoreticalStep toTheoreticalStep(TheoreticalStepDto theoreticalStepDto);
+
     TheoreticalStepDto fromTheoreticalStep(TheoreticalStep theoreticalStep);
 
     List<TheoreticalStepDto> getAllTheoreticalStepsDto();

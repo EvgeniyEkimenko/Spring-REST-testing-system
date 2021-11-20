@@ -15,11 +15,4 @@ public class LessonStepDto {
     private Long lessonId;
 
 
-    public LessonStep toLessonStep() {
-        LessonStep lessonStep = new LessonStep();
-        lessonStep.setId(id);
-        //TODO add code
-        return lessonStep;
-    }
-
 }
