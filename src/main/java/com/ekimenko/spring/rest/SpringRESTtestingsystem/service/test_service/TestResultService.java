@@ -9,6 +9,11 @@ import java.util.List;
 
 public interface TestResultService {
 
+
+    void startTest(Long id);
+
+    void finishTest(Long id);
+
     TestResultDto fromTestResult(TestResult testResult);
 
     List<TestResultDto> getAllTestResultsDto();

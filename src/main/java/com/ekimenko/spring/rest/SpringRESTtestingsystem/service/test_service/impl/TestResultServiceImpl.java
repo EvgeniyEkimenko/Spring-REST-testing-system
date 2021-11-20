@@ -5,6 +5,7 @@ import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.TestResult;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.repository.test_repos.TestResultRepository;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.service_util.ServiceUtil;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.test_service.TestResultService;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.test_service.TestService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,12 +18,28 @@ import java.util.List;
 public class TestResultServiceImpl implements TestResultService {
 
     private final TestResultRepository testResultRepository;
+    private final TestService testService;
 
     @Autowired
-    public TestResultServiceImpl(TestResultRepository testResultRepository) {
+    public TestResultServiceImpl(TestResultRepository testResultRepository, TestService testService) {
         this.testResultRepository = testResultRepository;
+        this.testService = testService;
     }
 
+    @Override
+    public void startTest(Long id) {
+        TestResult testResult = new TestResult();
+        testResult.setTest(testService.getTestById(id));
+        testResult.setScore(0D);
+        testResult.setComplete(false);
+        addNewTestResult(testResult);
+    }
+
+    @Override
+    public void finishTest(Long id) {
+        TestResult testResult = getTestResultById(id);
+        if (testResult.getScore() >= testResult.getTest().getRequeredScore()) testResult.setComplete(true);
+    }
 
     @Override
     public TestResultDto fromTestResult(TestResult testResult) {

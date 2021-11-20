@@ -8,6 +8,7 @@ import com.ekimenko.spring.rest.SpringRESTtestingsystem.repository.answer_repos.
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.answer_service.AnswerResultService;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.answer_service.AnswerVariantService;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.question_service.QuestionService;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.service_util.Entity;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.service_util.ServiceUtil;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.test_service.TestResultService;
 import lombok.extern.slf4j.Slf4j;

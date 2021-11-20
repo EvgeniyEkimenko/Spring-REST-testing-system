@@ -54,10 +54,20 @@ public class TestResultRestControllerV1 {
     }
 
     @DeleteMapping(value = "/{id}")
-    public void deleteTestResultById(@PathVariable long id) {    //доделать
+    public void deleteTestResultById(@PathVariable long id) {    //TODO repair
 
         testResultService.deleteTestResultById(id);
 
+    }
+
+    @PostMapping(value = "/start/{id}")
+    public void start(@PathVariable Long id) {
+        testResultService.startTest(id);
+    }
+
+    @PostMapping(value = "/finish/{id}")
+    public void finish(@PathVariable Long id) {
+        testResultService.finishTest(id);
     }
 
 }
