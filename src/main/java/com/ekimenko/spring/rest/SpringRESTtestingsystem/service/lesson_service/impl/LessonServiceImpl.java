@@ -10,6 +10,7 @@ import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.lesson_service.L
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.service_util.ServiceUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -20,15 +21,13 @@ import java.util.List;
 public class LessonServiceImpl implements LessonService {
 
     private final LessonRepository lessonRepository;
-    private final CourseService courseService;
     private final LessonStepService lessonStepService;
 
 
     @Autowired
-    public LessonServiceImpl(LessonRepository lessonRepository, CourseService courseService, LessonStepService lessonStepService) {
+    public LessonServiceImpl(LessonRepository lessonRepository
+            ,@Lazy LessonStepService lessonStepService) {
         this.lessonRepository = lessonRepository;
-        this.courseService = courseService;
-
         this.lessonStepService = lessonStepService;
     }
 
@@ -40,7 +39,7 @@ public class LessonServiceImpl implements LessonService {
         lesson.setDescription(lessonDto.getDescription());
         lesson.setName(lessonDto.getName());
         lesson.setLessonSteps(getLessonStepListByListId(lessonDto.getLessonStepsId()));
-        lesson.setCourse(courseService.getCourseById(lessonDto.getCourseId()));
+        //lesson.setCourse(courseService.getCourseById(lessonDto.getCourseId()));
         return lesson;
     }
 

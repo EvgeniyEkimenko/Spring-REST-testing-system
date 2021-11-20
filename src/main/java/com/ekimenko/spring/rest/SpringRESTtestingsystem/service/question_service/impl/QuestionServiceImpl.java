@@ -8,6 +8,7 @@ import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.question_service
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.service_util.ServiceUtil;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.test_service.TestService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -22,7 +23,9 @@ public class QuestionServiceImpl implements QuestionService {
     private final TestService testService;
     private final AnswerResultService answerResultService;
 
-    public QuestionServiceImpl(QuestionRepository questionRepository, TestService testService, AnswerResultService answerResultService) {
+    public QuestionServiceImpl(QuestionRepository questionRepository
+            ,@Lazy TestService testService
+            ,@Lazy AnswerResultService answerResultService) {
         this.questionRepository = questionRepository;
         this.testService = testService;
         this.answerResultService = answerResultService;

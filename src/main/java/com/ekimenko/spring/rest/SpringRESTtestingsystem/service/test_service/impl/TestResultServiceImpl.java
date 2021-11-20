@@ -10,6 +10,7 @@ import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.test_service.Tes
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.user_service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -24,7 +25,9 @@ public class TestResultServiceImpl implements TestResultService {
     private final UserService userService;
 
     @Autowired
-    public TestResultServiceImpl(TestResultRepository testResultRepository, TestService testService, UserService userService) {
+    public TestResultServiceImpl(TestResultRepository testResultRepository
+            ,@Lazy TestService testService
+            ,@Lazy UserService userService) {
         this.testResultRepository = testResultRepository;
         this.testService = testService;
         this.userService = userService;

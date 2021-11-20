@@ -9,6 +9,7 @@ import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.test_service.Tes
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.theoretical_step_service.TheoreticalStepService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -24,7 +25,10 @@ public class LessonStepServiceImpl implements LessonStepService {
     private final TestService testService;
 
     @Autowired
-    public LessonStepServiceImpl(LessonStepRepository lessonStepRepository, TheoreticalStepService theoreticalStepService, LessonService lessonService, TestService testService) {
+    public LessonStepServiceImpl(LessonStepRepository lessonStepRepository
+            ,@Lazy TheoreticalStepService theoreticalStepService
+            ,@Lazy LessonService lessonService
+            ,@Lazy TestService testService) {
         this.lessonStepRepository = lessonStepRepository;
         this.theoreticalStepService = theoreticalStepService;
         this.lessonService = lessonService;

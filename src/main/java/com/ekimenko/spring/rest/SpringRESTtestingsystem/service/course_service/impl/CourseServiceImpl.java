@@ -11,6 +11,7 @@ import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.service_util.Ser
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.user_service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -25,7 +26,9 @@ public class CourseServiceImpl implements CourseService {
     private final UserService userService;
 
     @Autowired
-    public CourseServiceImpl(CourseRepository courseRepository, LessonService lessonService, UserService userService) {
+    public CourseServiceImpl(CourseRepository courseRepository
+            ,@Lazy LessonService lessonService
+            ,@Lazy UserService userService) {
         this.courseRepository = courseRepository;
         this.lessonService = lessonService;
         this.userService = userService;

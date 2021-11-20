@@ -8,6 +8,7 @@ import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.answer_service.A
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.question_service.QuestionService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -23,7 +24,10 @@ public class AnswerVariantImpl implements AnswerVariantService {
     private final AnswerResultService answerResultService;
 
     @Autowired
-    public AnswerVariantImpl(AnswerVariantRepository answerVariantRepository, QuestionService questionService, AnswerVariantService answerVariantService, AnswerResultService answerResultService) {
+    public AnswerVariantImpl(AnswerVariantRepository answerVariantRepository
+            ,@Lazy QuestionService questionService
+            ,@Lazy AnswerVariantService answerVariantService
+            ,@Lazy AnswerResultService answerResultService) {
         this.answerVariantRepository = answerVariantRepository;
         this.questionService = questionService;
         this.answerVariantService = answerVariantService;

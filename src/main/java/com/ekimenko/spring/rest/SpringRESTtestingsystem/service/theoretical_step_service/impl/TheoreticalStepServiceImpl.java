@@ -7,6 +7,7 @@ import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.lesson_service.L
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.theoretical_step_service.TheoreticalStepService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -20,7 +21,8 @@ public class TheoreticalStepServiceImpl implements TheoreticalStepService {
     private final LessonStepService lessonStepService;
 
     @Autowired
-    public TheoreticalStepServiceImpl(TheoreticalStepRepository theoreticalStepRepository, LessonStepService lessonStepService) {
+    public TheoreticalStepServiceImpl(TheoreticalStepRepository theoreticalStepRepository
+            ,@Lazy LessonStepService lessonStepService) {
         this.theoreticalStepRepository = theoreticalStepRepository;
         this.lessonStepService = lessonStepService;
     }
