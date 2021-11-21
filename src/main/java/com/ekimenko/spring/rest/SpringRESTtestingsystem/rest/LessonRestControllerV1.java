@@ -1,5 +1,6 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.rest;
 
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.CourseDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.LessonDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.lesson_service.LessonService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,19 +39,23 @@ public class LessonRestControllerV1 {
     }
 
     @PostMapping(value = "")
-    public void addNewLesson(@RequestBody LessonDto lessonDto) {
+    public ResponseEntity<LessonDto> addNewLesson(@RequestBody LessonDto lessonDto) {
 
-/*        Lesson lesson = lessonDto.toLesson();
-        lessonService.addNewLesson(lesson);*/
+        LessonDto lessonDtoRes = lessonService
+                .addNewLesson(lessonService
+                        .toLesson(lessonDto));
 
+        return new ResponseEntity<>(lessonDtoRes, HttpStatus.OK);
     }
 
     @PutMapping(value = "")
-    public void updateLesson(@RequestBody LessonDto lessonDto) {
+    public ResponseEntity<LessonDto> updateLesson(@RequestBody LessonDto lessonDto) {
 
-/*        Lesson lesson = lessonDto.toLesson();
-        lessonService.updateLesson(lesson);*/
+        LessonDto lessonDtoRes = lessonService
+                .updateLesson(lessonService
+                        .toLesson(lessonDto));
 
+        return new ResponseEntity<>(lessonDtoRes, HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/{id}")

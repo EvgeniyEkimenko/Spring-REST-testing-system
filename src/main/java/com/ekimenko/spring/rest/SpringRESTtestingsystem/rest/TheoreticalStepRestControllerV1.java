@@ -1,5 +1,6 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.rest;
 
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.LessonStepDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.TheoreticalStepDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.theoretical_step_service.TheoreticalStepService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,17 +39,23 @@ public class TheoreticalStepRestControllerV1 {
     }
 
     @PostMapping(value = "")
-    public void addNewTheoreticalStep(@RequestBody TheoreticalStepDto theoreticalStepDto) {
+    public ResponseEntity<TheoreticalStepDto> addNewTheoreticalStep(@RequestBody TheoreticalStepDto theoreticalStepDto) {
 
-/*        TheoreticalStep theoreticalStep = theoreticalStepDto.toTheoreticalStep();
-        theoreticalStepService.addNewTheoreticalStep(theoreticalStep);*/
+        TheoreticalStepDto theoreticalStepDtoRes = theoreticalStepService
+                .addNewTheoreticalStep(theoreticalStepService
+                        .toTheoreticalStep(theoreticalStepDto));
+
+        return new ResponseEntity<>(theoreticalStepDtoRes, HttpStatus.OK);
     }
 
     @PutMapping(value = "")
-    public void updateTheoreticalStep(@RequestBody TheoreticalStepDto theoreticalStepDto) {
+    public ResponseEntity<TheoreticalStepDto> updateTheoreticalStep(@RequestBody TheoreticalStepDto theoreticalStepDto) {
 
-/*        TheoreticalStep theoreticalStep = theoreticalStepDto.toTheoreticalStep();
-        theoreticalStepService.updateTheoreticalStep(theoreticalStep);*/
+        TheoreticalStepDto theoreticalStepDtoRes = theoreticalStepService
+                .updateTheoreticalStep(theoreticalStepService
+                        .toTheoreticalStep(theoreticalStepDto));
+
+        return new ResponseEntity<>(theoreticalStepDtoRes, HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/{id}")

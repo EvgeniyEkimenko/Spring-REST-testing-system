@@ -1,5 +1,6 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.rest.answer_rest;
 
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.answer_dto.AnswerResultDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.answer_dto.AnswerVariantDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.answer_service.AnswerVariantService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,19 +39,23 @@ public class AnswerVariantRestControllerV1 {
     }
 
     @PostMapping(value = "")
-    public void addNewAnswerVariant(@RequestBody AnswerVariantDto answerVariantDto) {
+    public ResponseEntity<AnswerVariantDto> addNewAnswerVariant(@RequestBody AnswerVariantDto answerVariantDto) {
 
-/*        AnswerVariant answerVariant = answerVariantDto.toAnswerVariant();
-        answerVariantService.addNewAnswerVariant(answerVariant);*/
+        AnswerVariantDto AnswerVariantRes = answerVariantService
+                .addNewAnswerVariant(answerVariantService
+                        .toAnswerVariant(answerVariantDto));
 
+        return new ResponseEntity<>(AnswerVariantRes, HttpStatus.OK);
     }
 
     @PutMapping(value = "")
-    public void updateAnswerVariant(@RequestBody AnswerVariantDto answerVariantDto) {
+    public ResponseEntity<AnswerVariantDto> updateAnswerVariant(@RequestBody AnswerVariantDto answerVariantDto) {
 
-/*        AnswerVariant answerVariant = answerVariantDto.toAnswerVariant();
-        answerVariantService.updateAnswerVariant(answerVariant);*/
+        AnswerVariantDto AnswerVariantRes = answerVariantService
+                .updateAnswerVariant(answerVariantService
+                        .toAnswerVariant(answerVariantDto));
 
+        return new ResponseEntity<>(AnswerVariantRes, HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/{id}")

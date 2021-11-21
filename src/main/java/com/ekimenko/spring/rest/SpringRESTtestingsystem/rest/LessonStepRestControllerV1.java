@@ -1,5 +1,6 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.rest;
 
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.LessonDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.LessonStepDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.lesson_service.LessonStepService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,17 +38,23 @@ public class LessonStepRestControllerV1 {
     }
 
     @PostMapping(value = "")
-    public void addNewLessonStep(@RequestBody LessonStepDto lessonStepDto) {
+    public ResponseEntity<LessonStepDto> addNewLessonStep(@RequestBody LessonStepDto lessonStepDto) {
 
-/*        LessonStep lessonStep = lessonStepDto.toLessonStep();
-        lessonStepService.addNewLessonStep(lessonStep);*/
+        LessonStepDto lessonStepDtoRes = lessonStepService
+                .addNewLessonStep(lessonStepService
+                        .toLessonStep(lessonStepDto));
+
+        return new ResponseEntity<>(lessonStepDtoRes, HttpStatus.OK);
     }
 
     @PutMapping(value = "")
-    public void updateLessonStep(@RequestBody LessonStepDto lessonStepDto) {
+    public ResponseEntity<LessonStepDto> updateLessonStep(@RequestBody LessonStepDto lessonStepDto) {
 
-/*        LessonStep lessonStep = lessonStepDto.toLessonStep();
-        lessonStepService.updateLessonStep(lessonStep);*/
+        LessonStepDto lessonStepDtoRes = lessonStepService
+                .updateLessonStep(lessonStepService
+                        .toLessonStep(lessonStepDto));
+
+        return new ResponseEntity<>(lessonStepDtoRes, HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/{id}")

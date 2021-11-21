@@ -1,5 +1,6 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.rest.question_rest;
 
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.answer_dto.AnswerVariantDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.question_dto.QuestionDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.question_service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,17 +39,23 @@ public class QuestionRestControllerV1 {
     }
 
     @PostMapping(value = "")
-    public void addNewQuestion(@RequestBody QuestionDto questionDto) {
+    public ResponseEntity<QuestionDto> addNewQuestion(@RequestBody QuestionDto questionDto) {
 
-/*        Question question = questionDto.toQuestion();
-        questionService.addNewQuestion(question);*/
+        QuestionDto questionDtoRes = questionService
+                .addNewQuestion(questionService
+                        .toQuestion(questionDto));
+
+        return new ResponseEntity<>(questionDtoRes, HttpStatus.OK);
     }
 
     @PutMapping(value = "")
-    public void updateQuestion(@RequestBody QuestionDto questionDto) {
+    public ResponseEntity<QuestionDto> updateQuestion(@RequestBody QuestionDto questionDto) {
 
-/*        Question question = questionDto.toQuestion();
-        questionService.updateQuestion(question);*/
+        QuestionDto questionDtoRes = questionService
+                .updateQuestion(questionService
+                        .toQuestion(questionDto));
+
+        return new ResponseEntity<>(questionDtoRes, HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/{id}")

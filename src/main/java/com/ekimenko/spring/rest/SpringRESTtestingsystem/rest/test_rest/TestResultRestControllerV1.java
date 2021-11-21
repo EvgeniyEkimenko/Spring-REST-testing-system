@@ -1,5 +1,6 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.rest.test_rest;
 
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.test_dto.TestDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.test_dto.TestResultDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.test_service.TestResultService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,17 +40,23 @@ public class TestResultRestControllerV1 {
     }
 
     @PostMapping(value = "")
-    public void addNewTestResult(@RequestBody TestResultDto testResultDto) {
+    public ResponseEntity<TestResultDto> addNewTestResult(@RequestBody TestResultDto testResultDto) {
 
-/*        TestResult testResult = testResultDto.toTestResult();
-        testResultService.addNewTestResult(testResult);*/
+        TestResultDto testResultDtoRes = testResultService
+                .addNewTestResult(testResultService
+                        .toTestResult(testResultDto));
+
+        return new ResponseEntity<>(testResultDtoRes, HttpStatus.OK);
     }
 
     @PutMapping(value = "")
-    public void updateTestResult(@RequestBody TestResultDto testResultDto) {
+    public ResponseEntity<TestResultDto> updateTestResult(@RequestBody TestResultDto testResultDto) {
 
-/*        TestResult testResult = testResultDto.toTestResult();
-        testResultService.updateTestResult(testResult);*/
+        TestResultDto testResultDtoRes = testResultService
+                .updateTestResult(testResultService
+                        .toTestResult(testResultDto));
+
+        return new ResponseEntity<>(testResultDtoRes, HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/{id}")

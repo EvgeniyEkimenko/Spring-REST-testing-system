@@ -1,6 +1,7 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.rest;
 
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.CourseDto;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.test_dto.TestResultDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.course_service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -39,17 +40,23 @@ public class CourseRestControllerV1 {
     }
 
     @PostMapping(value = "")
-    public void addNewCourse(@RequestBody CourseDto courseDto) {
+    public ResponseEntity<CourseDto> addNewCourse(@RequestBody CourseDto courseDto) {
 
-/*        Course course = courseDto.toCourse();
-        courseService.addNewCourse(course);*/
+        CourseDto courseDtoRes = courseService
+                .addNewCourse(courseService
+                        .toCourse(courseDto));
+
+        return new ResponseEntity<>(courseDtoRes, HttpStatus.OK);
     }
 
     @PutMapping(value = "")
-    public void updateCourse(@RequestBody CourseDto courseDto) {
+    public ResponseEntity<CourseDto> updateCourse(@RequestBody CourseDto courseDto) {
 
-/*        Course course = courseDto.toCourse();
-        courseService.updateCourse(course);*/
+        CourseDto courseDtoRes = courseService
+                .updateCourse(courseService
+                        .toCourse(courseDto));
+
+        return new ResponseEntity<>(courseDtoRes, HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/{id}")
