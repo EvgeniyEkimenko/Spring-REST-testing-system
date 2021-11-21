@@ -25,9 +25,9 @@ public class AnswerVariantImpl implements AnswerVariantService {
 
     @Autowired
     public AnswerVariantImpl(AnswerVariantRepository answerVariantRepository
-            ,@Lazy QuestionService questionService
-            ,@Lazy AnswerVariantService answerVariantService
-            ,@Lazy AnswerResultService answerResultService) {
+            , @Lazy QuestionService questionService
+            , @Lazy AnswerVariantService answerVariantService
+            , @Lazy AnswerResultService answerResultService) {
         this.answerVariantRepository = answerVariantRepository;
         this.questionService = questionService;
         this.answerVariantService = answerVariantService;
@@ -52,7 +52,7 @@ public class AnswerVariantImpl implements AnswerVariantService {
         answerVariantDto.setText(answerVariant.getText());
         answerVariantDto.setCorrect(answerVariant.getCorrect());
         answerVariantDto.setQuestionId(answerVariant.getQuestion().getId());
-        answerVariantDto.setAnswerResultId(answerVariant.getAnswerResult().getId());
+        //answerVariantDto.setAnswerResultId(answerVariant.getAnswerResult().getId());
 
         return answerVariantDto;
     }
@@ -93,15 +93,18 @@ public class AnswerVariantImpl implements AnswerVariantService {
     }
 
     @Override
-    public void addNewAnswerVariant(AnswerVariant answerVariant) {
+    public AnswerVariantDto addNewAnswerVariant(AnswerVariant answerVariant) {
+        AnswerVariant answerVariantResult = answerVariantRepository.save(answerVariant);
         //TODO add log info
-        answerVariantRepository.save(answerVariant);
+        return fromAnswerVariant(answerVariantResult);
+
     }
 
     @Override
-    public void updateAnswerVariant(AnswerVariant answerVariant) {
+    public AnswerVariantDto updateAnswerVariant(AnswerVariant answerVariant) {
+        AnswerVariant answerVariantResult = answerVariantRepository.save(answerVariant);
         //TODO add log info
-        answerVariantRepository.save(answerVariant);
+        return fromAnswerVariant(answerVariantResult);
     }
 
 

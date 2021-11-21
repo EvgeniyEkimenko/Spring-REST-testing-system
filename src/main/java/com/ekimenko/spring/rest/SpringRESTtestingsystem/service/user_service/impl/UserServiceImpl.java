@@ -29,8 +29,8 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     public UserServiceImpl(UserRepository userRepository
-            ,@Lazy RoleRepository roleRepository
-            ,@Lazy BCryptPasswordEncoder passwordEncoder) {
+            , @Lazy RoleRepository roleRepository
+            , @Lazy BCryptPasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;

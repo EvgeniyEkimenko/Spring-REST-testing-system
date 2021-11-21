@@ -27,8 +27,8 @@ public class CourseServiceImpl implements CourseService {
 
     @Autowired
     public CourseServiceImpl(CourseRepository courseRepository
-            ,@Lazy LessonService lessonService
-            ,@Lazy UserService userService) {
+            , @Lazy LessonService lessonService
+            , @Lazy UserService userService) {
         this.courseRepository = courseRepository;
         this.lessonService = lessonService;
         this.userService = userService;
@@ -100,15 +100,17 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public Course addNewCourse(Course course) {
+    public CourseDto addNewCourse(Course course) {
+        Course courseResult = courseRepository.save(course);
         //TODO add log info
-        return courseRepository.save(course);
+        return fromCourse(courseResult);
     }
 
     @Override
-    public Course updateCourse(Course course) {
+    public CourseDto updateCourse(Course course) {
+        Course courseResult = courseRepository.save(course);
         //TODO add log info
-        return courseRepository.save(course);
+        return fromCourse(courseResult);
     }
 
     @Override

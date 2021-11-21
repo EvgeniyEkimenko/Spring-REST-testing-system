@@ -29,9 +29,9 @@ public class AnswerResultServiceImpl implements AnswerResultService {
 
     @Autowired
     public AnswerResultServiceImpl(AnswerResultRepository resultRepository
-            ,@Lazy QuestionService questionService
-            ,@Lazy AnswerVariantService answerVariantService
-            ,@Lazy TestResultService testResultService) {
+            , @Lazy QuestionService questionService
+            , @Lazy AnswerVariantService answerVariantService
+            , @Lazy TestResultService testResultService) {
         this.resultRepository = resultRepository;
         this.questionService = questionService;
         this.answerVariantService = answerVariantService;
@@ -165,15 +165,18 @@ public class AnswerResultServiceImpl implements AnswerResultService {
     }
 
     @Override
-    public void addNewAnswerResult(AnswerResult result) {
-        resultRepository.save(result);
+    public AnswerResultDto addNewAnswerResult(AnswerResult result) {
+
+        AnswerResult answerResult = resultRepository.save(result);
         //TODO add log info
+        return fromAnswerResult(answerResult);
     }
 
     @Override
-    public void updateAnswerResult(AnswerResult result) {
-        resultRepository.save(result);
+    public AnswerResultDto updateAnswerResult(AnswerResult result) {
+        AnswerResult answerResult = resultRepository.save(result);
         //TODO add log info
+        return fromAnswerResult(answerResult);
     }
 
 

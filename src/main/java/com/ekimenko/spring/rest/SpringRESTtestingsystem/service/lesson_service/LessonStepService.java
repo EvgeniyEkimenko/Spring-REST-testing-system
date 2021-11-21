@@ -17,9 +17,9 @@ public interface LessonStepService {
 
     List<LessonStep> getAllLessonSteps();
 
-    void addNewLessonStep(LessonStep lessonStep);
+    LessonStepDto addNewLessonStep(LessonStep lessonStep);
 
-    void updateLessonStep(LessonStep lessonStep);
+    LessonStepDto updateLessonStep(LessonStep lessonStep);
 
     LessonStep getLessonStepById(Long id);
 

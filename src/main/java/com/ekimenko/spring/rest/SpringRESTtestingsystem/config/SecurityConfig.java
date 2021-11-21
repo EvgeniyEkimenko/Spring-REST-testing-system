@@ -18,9 +18,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private static final String ADMIN_ENDPOINT = "/api/v1/admin/**";
     private static final String LOGIN_ENDPOINT = "/api/v1/auth/login";
+
     //FIXME
     private static final String OTHER_ENDPINTS = "/**";
-
     private static final String OTHER = "/api/v1";
 
     @Autowired

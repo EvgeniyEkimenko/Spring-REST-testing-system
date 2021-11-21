@@ -26,8 +26,8 @@ public class TestResultServiceImpl implements TestResultService {
 
     @Autowired
     public TestResultServiceImpl(TestResultRepository testResultRepository
-            ,@Lazy TestService testService
-            ,@Lazy UserService userService) {
+            , @Lazy TestService testService
+            , @Lazy UserService userService) {
         this.testResultRepository = testResultRepository;
         this.testService = testService;
         this.userService = userService;
@@ -116,13 +116,17 @@ public class TestResultServiceImpl implements TestResultService {
     }
 
     @Override
-    public void addNewTestResult(TestResult testRes) {
-        testResultRepository.save(testRes);
+    public TestResultDto addNewTestResult(TestResult testRes) {
+        TestResult testResultResult = testResultRepository.save(testRes);
+        //TODO add log info
+        return fromTestResult(testResultResult);
     }
 
     @Override
-    public void updateTestResult(TestResult testRes) {
-        testResultRepository.save(testRes);
+    public TestResultDto updateTestResult(TestResult testRes) {
+        TestResult testResultResult = testResultRepository.save(testRes);
+        //TODO add log info
+        return fromTestResult(testResultResult);
     }
 
 

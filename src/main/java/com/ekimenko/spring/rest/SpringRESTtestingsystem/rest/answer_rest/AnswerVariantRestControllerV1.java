@@ -1,7 +1,6 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.rest.answer_rest;
 
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.answer_dto.AnswerVariantDto;
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer.AnswerVariant;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.answer_service.AnswerVariantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

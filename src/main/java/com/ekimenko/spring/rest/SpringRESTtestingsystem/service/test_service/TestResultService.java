@@ -23,9 +23,9 @@ public interface TestResultService {
 
     List<TestResult> getAllTestResults();
 
-    void addNewTestResult(TestResult testRes);
+    TestResultDto addNewTestResult(TestResult testRes);
 
-    void updateTestResult(TestResult testRes);
+    TestResultDto updateTestResult(TestResult testRes);
 
     TestResult getTestResultById(Long id);
 

@@ -1,7 +1,6 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.rest.test_rest;
 
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.test_dto.TestResultDto;
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.TestResult;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.test_service.TestResultService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

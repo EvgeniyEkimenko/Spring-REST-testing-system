@@ -1,7 +1,6 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.rest.answer_rest;
 
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.answer_dto.AnswerResultDto;
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer.AnswerResult;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.answer_service.AnswerResultService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -37,21 +36,24 @@ public class AnswerResultRestControllerV1 {
         return new ResponseEntity<>(answerResultDtoList, HttpStatus.OK);
     }
 
-/*    @PostMapping(value = "")
-    public void addNewAnswerResult(@RequestBody AnswerResultDto answerResultDto) {
-
-        AnswerResult answerResult = answerResultDto.toAnswerResult();
-
-        resultService.addNewAnswerResult(answerResult);
-
-    }*/
-
     @PostMapping(value = "")
-    public void updateAnswerResult(@RequestBody AnswerResultDto answerResultDto) {
+    public ResponseEntity<AnswerResultDto> addNewAnswerResult(@RequestBody AnswerResultDto answerResultDto) {
 
-        AnswerResult answerResult = resultService.toAnswerResult(answerResultDto);
+        AnswerResultDto answerResultDtoNew = resultService
+                .addNewAnswerResult(resultService
+                        .toAnswerResult(answerResultDto));
 
-        resultService.updateAnswerResult(answerResult);
+        return new ResponseEntity<>(answerResultDtoNew, HttpStatus.OK);
+    }
+
+    @PutMapping(value = "")
+    public ResponseEntity<AnswerResultDto> updateAnswerResult(@RequestBody AnswerResultDto answerResultDto) {
+
+        AnswerResultDto answerResultDtoNew = resultService
+                .updateAnswerResult(resultService
+                        .toAnswerResult(answerResultDto));
+
+        return new ResponseEntity<>(answerResultDtoNew, HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/{id}")

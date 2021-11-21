@@ -17,9 +17,9 @@ public interface TestService {
 
     List<Test> getAllTests();
 
-    void addNewTest(Test test);
+    TestDto addNewTest(Test test);
 
-    void updateTest(Test test);
+    TestDto updateTest(Test test);
 
     Test getTestById(Long id);
 

@@ -17,9 +17,9 @@ public interface CourseService {
 
     List<Course> getAllCourses();
 
-    Course addNewCourse(Course course);
+    CourseDto addNewCourse(Course course);
 
-    Course updateCourse(Course course);
+    CourseDto updateCourse(Course course);
 
     Course getCourseById(Long id);
 

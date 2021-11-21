@@ -1,7 +1,6 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.rest;
 
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.CourseDto;
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.Course;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.course_service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

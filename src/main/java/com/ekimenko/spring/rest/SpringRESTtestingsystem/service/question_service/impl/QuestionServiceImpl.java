@@ -24,8 +24,8 @@ public class QuestionServiceImpl implements QuestionService {
     private final AnswerResultService answerResultService;
 
     public QuestionServiceImpl(QuestionRepository questionRepository
-            ,@Lazy TestService testService
-            ,@Lazy AnswerResultService answerResultService) {
+            , @Lazy TestService testService
+            , @Lazy AnswerResultService answerResultService) {
         this.questionRepository = questionRepository;
         this.testService = testService;
         this.answerResultService = answerResultService;
@@ -86,15 +86,17 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
-    public void addNewQuestion(Question question) {
+    public QuestionDto addNewQuestion(Question question) {
+        Question questionResult = questionRepository.save(question);
         //TODO add log info
-        questionRepository.save(question);
+        return fromQuestion(questionResult);
     }
 
     @Override
-    public void updateQuestion(Question question) {
+    public QuestionDto updateQuestion(Question question) {
+        Question questionResult = questionRepository.save(question);
         //TODO add log info
-        questionRepository.save(question);
+        return fromQuestion(questionResult);
     }
 
 

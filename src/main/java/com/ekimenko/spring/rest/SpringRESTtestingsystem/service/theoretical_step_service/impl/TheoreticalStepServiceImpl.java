@@ -22,7 +22,7 @@ public class TheoreticalStepServiceImpl implements TheoreticalStepService {
 
     @Autowired
     public TheoreticalStepServiceImpl(TheoreticalStepRepository theoreticalStepRepository
-            ,@Lazy LessonStepService lessonStepService) {
+            , @Lazy LessonStepService lessonStepService) {
         this.theoreticalStepRepository = theoreticalStepRepository;
         this.lessonStepService = lessonStepService;
     }
@@ -74,16 +74,18 @@ public class TheoreticalStepServiceImpl implements TheoreticalStepService {
     }
 
     @Override
-    public TheoreticalStep addNewTheoreticalStep(TheoreticalStep theoreticalStep) {
+    public TheoreticalStepDto addNewTheoreticalStep(TheoreticalStep theoreticalStep) {
+        TheoreticalStep theoreticalStepResult = theoreticalStepRepository.save(theoreticalStep);
         //TODO add log info
-        return theoreticalStepRepository.save(theoreticalStep);
+        return fromTheoreticalStep(theoreticalStepResult);
 
     }
 
     @Override
-    public TheoreticalStep updateTheoreticalStep(TheoreticalStep theoreticalStep) {
+    public TheoreticalStepDto updateTheoreticalStep(TheoreticalStep theoreticalStep) {
+        TheoreticalStep theoreticalStepResult = theoreticalStepRepository.save(theoreticalStep);
         //TODO add log info
-        return theoreticalStepRepository.save(theoreticalStep);
+        return fromTheoreticalStep(theoreticalStepResult);
     }
 
     @Override

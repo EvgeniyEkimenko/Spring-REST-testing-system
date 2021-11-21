@@ -24,9 +24,9 @@ public interface AnswerResultService {
 
     AnswerResult getAnswerResultById(long id);
 
-    void addNewAnswerResult(AnswerResult result);
+    AnswerResultDto addNewAnswerResult(AnswerResult result);
 
-    void updateAnswerResult(AnswerResult result);
+    AnswerResultDto updateAnswerResult(AnswerResult result);
 
     void deleteById(long id);
 

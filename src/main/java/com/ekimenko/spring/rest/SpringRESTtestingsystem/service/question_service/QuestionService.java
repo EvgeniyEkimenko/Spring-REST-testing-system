@@ -17,9 +17,9 @@ public interface QuestionService {
 
     List<Question> getAllQuestions();
 
-    void addNewQuestion(Question question);
+    QuestionDto addNewQuestion(Question question);
 
-    void updateQuestion(Question question);
+    QuestionDto updateQuestion(Question question);
 
     Question getQuestionById(Long id);
 

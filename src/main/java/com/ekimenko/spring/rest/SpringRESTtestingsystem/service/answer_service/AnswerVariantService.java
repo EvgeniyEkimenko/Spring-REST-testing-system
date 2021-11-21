@@ -19,9 +19,9 @@ public interface AnswerVariantService {
 
     AnswerVariant getAnswerVariantById(long id);
 
-    void addNewAnswerVariant(AnswerVariant answerVariant);
+    AnswerVariantDto addNewAnswerVariant(AnswerVariant answerVariant);
 
-    void updateAnswerVariant(AnswerVariant answerVariant);
+    AnswerVariantDto updateAnswerVariant(AnswerVariant answerVariant);
 
     void deleteAnswerVariantById(long id);
 

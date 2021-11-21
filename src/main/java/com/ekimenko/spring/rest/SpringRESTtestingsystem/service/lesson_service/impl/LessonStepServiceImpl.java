@@ -26,9 +26,9 @@ public class LessonStepServiceImpl implements LessonStepService {
 
     @Autowired
     public LessonStepServiceImpl(LessonStepRepository lessonStepRepository
-            ,@Lazy TheoreticalStepService theoreticalStepService
-            ,@Lazy LessonService lessonService
-            ,@Lazy TestService testService) {
+            , @Lazy TheoreticalStepService theoreticalStepService
+            , @Lazy LessonService lessonService
+            , @Lazy TestService testService) {
         this.lessonStepRepository = lessonStepRepository;
         this.theoreticalStepService = theoreticalStepService;
         this.lessonService = lessonService;
@@ -84,15 +84,17 @@ public class LessonStepServiceImpl implements LessonStepService {
     }
 
     @Override
-    public void addNewLessonStep(LessonStep lessonStep) {
+    public LessonStepDto addNewLessonStep(LessonStep lessonStep) {
+        LessonStep lessonStepResult = lessonStepRepository.save(lessonStep);
         //TODO add log info
-        lessonStepRepository.save(lessonStep);
+        return fromLessonStep(lessonStepResult);
     }
 
     @Override
-    public void updateLessonStep(LessonStep lessonStep) {
+    public LessonStepDto updateLessonStep(LessonStep lessonStep) {
+        LessonStep lessonStepResult = lessonStepRepository.save(lessonStep);
         //TODO add log info
-        lessonStepRepository.save(lessonStep);
+        return fromLessonStep(lessonStepResult);
     }
 
     @Override

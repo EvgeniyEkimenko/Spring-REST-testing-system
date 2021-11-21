@@ -17,9 +17,9 @@ public interface TheoreticalStepService {
 
     List<TheoreticalStep> getAllTheoreticalSteps();
 
-    TheoreticalStep addNewTheoreticalStep(TheoreticalStep theoreticalStep);
+    TheoreticalStepDto addNewTheoreticalStep(TheoreticalStep theoreticalStep);
 
-    TheoreticalStep updateTheoreticalStep(TheoreticalStep theoreticalStep);
+    TheoreticalStepDto updateTheoreticalStep(TheoreticalStep theoreticalStep);
 
     TheoreticalStep getTheoreticalStepById(Long id);
 

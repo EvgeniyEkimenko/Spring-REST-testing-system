@@ -1,7 +1,6 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.rest;
 
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.LessonStepDto;
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.LessonStep;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.lesson_service.LessonStepService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

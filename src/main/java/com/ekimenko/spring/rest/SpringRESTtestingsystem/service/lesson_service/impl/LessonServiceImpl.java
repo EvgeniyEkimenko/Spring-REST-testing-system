@@ -4,7 +4,6 @@ import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.LessonDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.Lesson;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.LessonStep;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.repository.LessonRepository;
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.course_service.CourseService;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.lesson_service.LessonService;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.lesson_service.LessonStepService;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.service_util.ServiceUtil;
@@ -26,7 +25,7 @@ public class LessonServiceImpl implements LessonService {
 
     @Autowired
     public LessonServiceImpl(LessonRepository lessonRepository
-            ,@Lazy LessonStepService lessonStepService) {
+            , @Lazy LessonStepService lessonStepService) {
         this.lessonRepository = lessonRepository;
         this.lessonStepService = lessonStepService;
     }
@@ -90,15 +89,17 @@ public class LessonServiceImpl implements LessonService {
     }
 
     @Override
-    public Lesson addNewLesson(Lesson lesson) {
+    public LessonDto addNewLesson(Lesson lesson) {
+        Lesson lessonResult = lessonRepository.save(lesson);
         //TODO add log info
-        return lessonRepository.save(lesson);
+        return fromLesson(lessonResult);
     }
 
     @Override
-    public Lesson updateLesson(Lesson lesson) {
+    public LessonDto updateLesson(Lesson lesson) {
+        Lesson lessonResult = lessonRepository.save(lesson);
         //TODO add log info
-        return lessonRepository.save(lesson);
+        return fromLesson(lessonResult);
     }
 
     @Override
