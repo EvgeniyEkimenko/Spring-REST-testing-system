@@ -58,9 +58,9 @@ public class AnswerResultServiceImpl implements AnswerResultService {
         scoreTestRes += score;
         answerResult.getTestResult().setScore(scoreTestRes);
 
-        addNewAnswerResult(toAnswerResult(answerResultDto));
+        AnswerResultDto answerResultDtoNew = addNewAnswerResult(toAnswerResult(answerResultDto));
 
-        return answerResultDto;
+        return answerResultDtoNew;
     }
 
 /*    public boolean checkCorrectAnswer(Long id) {

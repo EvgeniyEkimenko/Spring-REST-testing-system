@@ -1,6 +1,5 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.rest.question_rest;
 
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.answer_dto.AnswerVariantDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.question_dto.QuestionDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.question_service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;

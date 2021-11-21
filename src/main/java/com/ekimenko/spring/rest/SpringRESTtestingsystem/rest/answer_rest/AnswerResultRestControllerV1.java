@@ -62,10 +62,12 @@ public class AnswerResultRestControllerV1 {
         resultService.deleteById(id);
     }
 
-    @PostMapping(value = "/{id}")
+    //give an answer to the question
+    @PostMapping(value = "/give_answer")
     public AnswerResultDto setPointsForTheAnswer(@RequestBody AnswerResultDto answerResultDto) {
 
-        return resultService.setPoints(answerResultDto);
+        AnswerResultDto answerResultDtoNew = resultService.setPoints(answerResultDto);
+        return answerResultDtoNew;
     }
 
 }

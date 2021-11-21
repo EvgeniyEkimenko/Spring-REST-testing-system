@@ -59,7 +59,10 @@ public class TestResultServiceImpl implements TestResultService {
     public TestResultDto startTest(Long id) {
         TestResult testResult = new TestResult();
         testResult.setTest(testService.getTestById(id));
-        testResult.setUser(getUserByTestId(id));  //FIXME
+        //FIXME testResult.setUser(getUserByTestId(id));
+        testResult.setTestScore(false);
+        testResult.setComplete(false);
+        testResult.setScore(0D);
         addNewTestResult(testResult);
         return fromTestResult(testResult);
     }
@@ -74,7 +77,7 @@ public class TestResultServiceImpl implements TestResultService {
 
     @Override
     public TestResultDto finishTest(Long id) {
-        TestResult testResult = getTestResultById(id);
+        TestResult testResult = testService.getTestById(id).
         if (testResult.getScore() >= testResult.getTest().getRequeredScore()) testResult.setTestScore(true);
         testResult.setComplete(true);
         return fromTestResult(testResult);
@@ -86,7 +89,7 @@ public class TestResultServiceImpl implements TestResultService {
         testResultDto.setId(testResult.getId());
         testResultDto.setScore(testResult.getScore());
         testResultDto.setTestId(testResult.getTest().getId());
-        testResultDto.setUserId(testResult.getUser().getId());
+        //FIXME testResultDto.setUserId(testResult.getUser().getId()); Решить проблема получения user id
         testResultDto.setAnswerResultsId(ServiceUtil.getIds(testResult.getAnswerResults()));
 
         return testResultDto;

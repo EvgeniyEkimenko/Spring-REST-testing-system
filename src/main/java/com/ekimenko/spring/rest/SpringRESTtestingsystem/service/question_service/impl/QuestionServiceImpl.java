@@ -40,7 +40,7 @@ public class QuestionServiceImpl implements QuestionService {
         question.setPosition(questionDto.getPosition());
         question.setAllowedParticleAnswer(questionDto.getAllowedParticleAnswer());
         question.setText(questionDto.getText());
-        question.setTest(testService.getTestById(questionDto.getId()));
+        question.setTest(testService.getTestById(questionDto.getTestId()));
         question.setAnswerVariants(answerResultService.getAnswerVariantListForResult(questionDto.getAnswerVariantsId()));
         //question.setAnswerResults();
         return question;

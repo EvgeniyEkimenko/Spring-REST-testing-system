@@ -1,6 +1,5 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.rest;
 
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.LessonStepDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.TheoreticalStepDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.theoretical_step_service.TheoreticalStepService;
 import org.springframework.beans.factory.annotation.Autowired;
