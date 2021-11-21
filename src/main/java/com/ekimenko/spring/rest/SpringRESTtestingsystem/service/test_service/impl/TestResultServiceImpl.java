@@ -77,9 +77,10 @@ public class TestResultServiceImpl implements TestResultService {
 
     @Override
     public TestResultDto finishTest(Long id) {
-        TestResult testResult = testService.getTestById(id).
+        TestResult testResult = getTestResultById(id);
         if (testResult.getScore() >= testResult.getTest().getRequeredScore()) testResult.setTestScore(true);
         testResult.setComplete(true);
+        updateTestResult(testResult);
         return fromTestResult(testResult);
     }
 
@@ -89,9 +90,10 @@ public class TestResultServiceImpl implements TestResultService {
         testResultDto.setId(testResult.getId());
         testResultDto.setScore(testResult.getScore());
         testResultDto.setTestId(testResult.getTest().getId());
+        testResultDto.setComplete(testResult.getComplete());
         //FIXME testResultDto.setUserId(testResult.getUser().getId()); Решить проблема получения user id
         testResultDto.setAnswerResultsId(ServiceUtil.getIds(testResult.getAnswerResults()));
-
+        testResultDto.setTestScore(testResult.getTestScore());
         return testResultDto;
     }
 
