@@ -34,8 +34,9 @@ public class AnswerResult implements EntityWithLongId {
     private Double score;
 
     @ToString.Exclude
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "answerResult")
-    @Column(name = "answer_result_id")
+    //@OneToMany(fetch = FetchType.LAZY, mappedBy = "answerResult")
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "answer_result_id")
     private List<AnswerVariant> answerVariants;
 
 }
