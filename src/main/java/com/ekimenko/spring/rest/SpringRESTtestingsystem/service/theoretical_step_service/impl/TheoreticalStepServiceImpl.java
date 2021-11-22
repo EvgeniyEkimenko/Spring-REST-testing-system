@@ -76,7 +76,7 @@ public class TheoreticalStepServiceImpl implements TheoreticalStepService {
     @Override
     public TheoreticalStepDto addNewTheoreticalStep(TheoreticalStep theoreticalStep) {
         TheoreticalStep theoreticalStepResult = theoreticalStepRepository.save(theoreticalStep);
-        //TODO add log info
+        log.info("IN addNewTheoreticalStep - TheoreticalStep : {} successfully added", theoreticalStepResult);
         return fromTheoreticalStep(theoreticalStepResult);
 
     }
@@ -84,7 +84,7 @@ public class TheoreticalStepServiceImpl implements TheoreticalStepService {
     @Override
     public TheoreticalStepDto updateTheoreticalStep(TheoreticalStep theoreticalStep) {
         TheoreticalStep theoreticalStepResult = theoreticalStepRepository.save(theoreticalStep);
-        //TODO add log info
+        log.info("IN addNewTheoreticalStep - TheoreticalStep : {} successfully updated", theoreticalStepResult);
         return fromTheoreticalStep(theoreticalStepResult);
     }
 

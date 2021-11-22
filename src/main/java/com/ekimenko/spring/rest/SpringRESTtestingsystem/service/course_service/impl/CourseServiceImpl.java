@@ -102,14 +102,14 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public CourseDto addNewCourse(Course course) {
         Course courseResult = courseRepository.save(course);
-        //TODO add log info
+        log.info("IN addNewCourse - Course : {} successfully added", courseResult);
         return fromCourse(courseResult);
     }
 
     @Override
     public CourseDto updateCourse(Course course) {
         Course courseResult = courseRepository.save(course);
-        //TODO add log info
+        log.info("IN addNewCourse - Course : {} successfully updated", courseResult);
         return fromCourse(courseResult);
     }
 

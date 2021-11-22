@@ -95,7 +95,7 @@ public class AnswerVariantImpl implements AnswerVariantService {
     @Override
     public AnswerVariantDto addNewAnswerVariant(AnswerVariant answerVariant) {
         AnswerVariant answerVariantResult = answerVariantRepository.save(answerVariant);
-        //TODO add log info
+        log.info("IN addNewAnswerVariant - AnswerVariant : {} successfully added", answerVariantResult);
         return fromAnswerVariant(answerVariantResult);
 
     }
@@ -103,7 +103,7 @@ public class AnswerVariantImpl implements AnswerVariantService {
     @Override
     public AnswerVariantDto updateAnswerVariant(AnswerVariant answerVariant) {
         AnswerVariant answerVariantResult = answerVariantRepository.save(answerVariant);
-        //TODO add log info
+        log.info("IN addNewAnswerVariant - AnswerVariant : {} successfully updated", answerVariantResult);
         return fromAnswerVariant(answerVariantResult);
     }
 

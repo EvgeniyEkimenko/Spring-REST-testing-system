@@ -123,14 +123,14 @@ public class TestResultServiceImpl implements TestResultService {
     @Override
     public TestResultDto addNewTestResult(TestResult testRes) {
         TestResult testResultResult = testResultRepository.save(testRes);
-        //TODO add log info
+        log.info("IN addNewTestResult - TestResult : {} successfully added", testResultResult);
         return fromTestResult(testResultResult);
     }
 
     @Override
     public TestResultDto updateTestResult(TestResult testRes) {
         TestResult testResultResult = testResultRepository.save(testRes);
-        //TODO add log info
+        log.info("IN addNewTestResult - TestResult : {} successfully updated", testResultResult);
         return fromTestResult(testResultResult);
     }
 

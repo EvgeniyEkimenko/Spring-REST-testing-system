@@ -50,7 +50,6 @@ public class AnswerResultServiceImpl implements AnswerResultService {
                 , answerResultDto.getAnswerVariantsId());
 
         answerResultDto.setScore(score);
-        //Если ответ существует до его получения от студента , то ок. Если нет , то добавлять answerResult
 
         //FIXME into a separate method
         AnswerResult answerResult = toAnswerResult(answerResultDto);
@@ -168,14 +167,14 @@ public class AnswerResultServiceImpl implements AnswerResultService {
     public AnswerResultDto addNewAnswerResult(AnswerResult result) {
 
         AnswerResult answerResult = resultRepository.save(result);
-        //TODO add log info
+        log.info("IN addNewAnswerResult - AnswerResult : {} successfully added", answerResult);
         return fromAnswerResult(answerResult);
     }
 
     @Override
     public AnswerResultDto updateAnswerResult(AnswerResult result) {
         AnswerResult answerResult = resultRepository.save(result);
-        //TODO add log info
+        log.info("IN addNewAnswerResult - AnswerResult : {} successfully updated", answerResult);
         return fromAnswerResult(answerResult);
     }
 

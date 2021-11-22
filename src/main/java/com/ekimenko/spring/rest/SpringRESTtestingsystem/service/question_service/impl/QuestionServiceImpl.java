@@ -88,14 +88,14 @@ public class QuestionServiceImpl implements QuestionService {
     @Override
     public QuestionDto addNewQuestion(Question question) {
         Question questionResult = questionRepository.save(question);
-        //TODO add log info
+        log.info("IN addNewQuestion - Question : {} successfully added", questionResult);
         return fromQuestion(questionResult);
     }
 
     @Override
     public QuestionDto updateQuestion(Question question) {
         Question questionResult = questionRepository.save(question);
-        //TODO add log info
+        log.info("IN addNewQuestion - Question : {} successfully updated", questionResult);
         return fromQuestion(questionResult);
     }
 

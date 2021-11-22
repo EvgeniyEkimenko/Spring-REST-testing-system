@@ -95,14 +95,14 @@ public class TestServiceImpl implements TestService {
     @Override
     public TestDto addNewTest(Test test) {
         Test testRes = testRepository.save(test);
-        //TODO add log info
+        log.info("IN addNewTest - Test : {} successfully added", testRes);
         return fromTest(testRes);
     }
 
     @Override
     public TestDto updateTest(Test test) {
         Test testRes = testRepository.save(test);
-        //TODO add log info
+        log.info("IN addNewTest - Test : {} successfully updated", testRes);
         return fromTest(testRes);
     }
 

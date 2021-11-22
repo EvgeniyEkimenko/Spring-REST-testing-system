@@ -91,14 +91,14 @@ public class LessonServiceImpl implements LessonService {
     @Override
     public LessonDto addNewLesson(Lesson lesson) {
         Lesson lessonResult = lessonRepository.save(lesson);
-        //TODO add log info
+        log.info("IN addNewLesson - Lesson : {} successfully added", lessonResult);
         return fromLesson(lessonResult);
     }
 
     @Override
     public LessonDto updateLesson(Lesson lesson) {
         Lesson lessonResult = lessonRepository.save(lesson);
-        //TODO add log info
+        log.info("IN addNewLesson - Lesson : {} successfully updated", lessonResult);
         return fromLesson(lessonResult);
     }
 
