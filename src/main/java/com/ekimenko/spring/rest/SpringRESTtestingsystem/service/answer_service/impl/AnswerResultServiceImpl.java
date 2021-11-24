@@ -51,7 +51,6 @@ public class AnswerResultServiceImpl implements AnswerResultService {
 
         answerResultDto.setScore(score);
 
-        //FIXME into a separate method
         AnswerResult answerResult = toAnswerResult(answerResultDto);
         double scoreTestRes = answerResult.getTestResult().getScore();
         scoreTestRes += score;
@@ -61,12 +60,6 @@ public class AnswerResultServiceImpl implements AnswerResultService {
 
         return answerResultDtoNew;
     }
-
-/*    public boolean checkCorrectAnswer(Long id) {
-        AnswerVariant answerVariant = answerVariantService.getAnswerVariantById(id);
-        if (answerVariant.getCorrect()) return true;
-        return false;
-    }*/
 
     public double calculatePointsWithAllowedParticleAnswer(Question question, List<Long> answerVariantsId) {
         double count = 0;
@@ -83,6 +76,7 @@ public class AnswerResultServiceImpl implements AnswerResultService {
                 } else count = 0;
             }
         }
+
         int countOfTrueAnswer = correctnessAnswerVariantListId.size();
         return question.getScore() * (count / countOfTrueAnswer);
 

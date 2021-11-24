@@ -65,7 +65,6 @@ public class UserServiceImpl implements UserService {
         return fromUser(findById(id));
     }
 
-    //TODO implement api for registration
     @Override
     public User register(User user) {
         Role roleUser = roleRepository.findByName("ROLE_USER");

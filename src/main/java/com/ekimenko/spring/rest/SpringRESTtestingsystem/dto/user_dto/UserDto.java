@@ -22,7 +22,7 @@ public class UserDto {
         user.setLastName(lastName);
         user.setEmail(email);
         //FIXME if will be bugs
-        if (password!=null && !password.equals("")) user.setPassword(password);
+        if (password != null && !password.equals("")) user.setPassword(password);
 
         return user;
     }
