@@ -12,6 +12,4 @@ public class LessonStepDto {
     private Long theoreticalStepId;
     private Long testId;
     private Long lessonId;
-
-
 }

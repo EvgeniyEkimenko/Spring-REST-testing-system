@@ -8,7 +8,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-
 /*@RunWith(SpringRunner.class)
 @ContextConfiguration(classes = PersistenceTestConfig.class)
 @DataJpaTest
@@ -16,7 +15,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @Sql(executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD, scripts = {"classpath:init.sql"})*/
 
 @SpringBootTest
-class SpringRestMonitoringDrillingRigsApplicationTests {
+class SpringRestTestingSystemTest {
 
     @Autowired
     private LessonRestControllerV1 lessonRestControllerV1;
