@@ -1,9 +1,7 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.lesson;
 
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.Course;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.Lesson;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.repository.LessonRepository;
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.rest.LessonRestControllerV1;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -22,15 +20,15 @@ public class LessonRepositoryTest {
     @Autowired
     private LessonRepository lessonRepository;
 
-    @BeforeEach
+/*    @BeforeEach
     void setUp() {
 
     }
 
     @AfterEach
     void tearDown() {
-       lessonRepository.deleteAll();
-    }
+       //lessonRepository.deleteAll();
+    }*/
 
     @Test
     @DisplayName("Comparing an object from a database with its with an instance of a class. Expected true")
@@ -59,7 +57,6 @@ public class LessonRepositoryTest {
         lessonFirst.setComplete(false);
         lessonFirst.setCourse(null);
         lessonFirst.setLessonSteps(null);
-
         Lesson lessonSecond = new Lesson();
         lessonSecond.setName("testName2");
         lessonSecond.setDescription("testDesc2");

@@ -40,7 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(LOGIN_ENDPOINT).permitAll() //available to everyone
                 .antMatchers(ADMIN_ENDPOINT).hasRole("ADMIN")  //available for admin role
-                .anyRequest().authenticated()    //for the other, any authorization is required (admin or user)
+                //.anyRequest().authenticated()    //for the other, any authorization is required (admin or user)
                 .and()
                 .apply(new JwtConfigurer(jwtTokenProvider));
     }

@@ -4,6 +4,7 @@ import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.LessonDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.Lesson;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.LessonStep;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.repository.LessonRepository;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.course_service.CourseService;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.lesson_service.LessonService;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.lesson_service.LessonStepService;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.service_util.ServiceUtil;
@@ -21,13 +22,18 @@ public class LessonServiceImpl implements LessonService {
 
     private final LessonRepository lessonRepository;
     private final LessonStepService lessonStepService;
+    //fixme
+    private final CourseService courseService;
 
 
     @Autowired
     public LessonServiceImpl(LessonRepository lessonRepository
-            , @Lazy LessonStepService lessonStepService) {
+            , @Lazy LessonStepService lessonStepService,
+                             @Lazy CourseService courseService) {   //fixme <-
         this.lessonRepository = lessonRepository;
         this.lessonStepService = lessonStepService;
+        //fixme (в тестовом варианте добавить зависимость на courseService , ТАКЖЕ касатеся тестов)
+        this.courseService = courseService;
     }
 
     @Override
@@ -38,7 +44,8 @@ public class LessonServiceImpl implements LessonService {
         lesson.setDescription(lessonDto.getDescription());
         lesson.setName(lessonDto.getName());
         lesson.setLessonSteps(getLessonStepListByListId(lessonDto.getLessonStepsId()));
-        //lesson.setCourse(courseService.getCourseById(lessonDto.getCourseId()));
+        //FIXME
+        lesson.setCourse(courseService.getCourseById(lessonDto.getCourseId()));
         return lesson;
     }
 
@@ -59,7 +66,7 @@ public class LessonServiceImpl implements LessonService {
         lessonDto.setName(lesson.getName());
         lessonDto.setDescription(lesson.getDescription());
         lessonDto.setComplete(lesson.getComplete());
-        lessonDto.setCourseId(lesson.getCourse().getId());
+        lessonDto.setCourseId(ServiceUtil.getId(lesson.getCourse()));
         lessonDto.setLessonStepsId(ServiceUtil.getIds(lesson.getLessonSteps()));
 
         return lessonDto;
