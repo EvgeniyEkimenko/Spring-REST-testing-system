@@ -20,15 +20,6 @@ public class LessonRepositoryTest {
     @Autowired
     private LessonRepository lessonRepository;
 
-/*    @BeforeEach
-    void setUp() {
-
-    }
-
-    @AfterEach
-    void tearDown() {
-       //lessonRepository.deleteAll();
-    }*/
 
     @Test
     @DisplayName("Comparing an object from a database with its with an instance of a class. Expected true")
