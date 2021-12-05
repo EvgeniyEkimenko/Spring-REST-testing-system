@@ -5,6 +5,7 @@ import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.LessonStep;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.repository.LessonStepRepository;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.lesson_service.LessonService;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.lesson_service.LessonStepService;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.service_util.ServiceUtil;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.test_service.TestService;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.theoretical_step_service.TheoreticalStepService;
 import lombok.extern.slf4j.Slf4j;
@@ -53,9 +54,12 @@ public class LessonStepServiceImpl implements LessonStepService {
         lessonStepDto.setId(lessonStep.getId());
         lessonStepDto.setPositionInLesson(lessonStep.getPositionInLesson());
         lessonStepDto.setComplete(lessonStep.isComplete());
-        lessonStepDto.setTheoreticalStepId(lessonStep.getTheoreticalStep().getId());
+/*        lessonStepDto.setTheoreticalStepId(lessonStep.getTheoreticalStep().getId());
         lessonStepDto.setLessonId(lessonStep.getLesson().getId());
-        lessonStepDto.setTestId(lessonStep.getTest().getId());
+        lessonStepDto.setTestId(lessonStep.getTest().getId());*/
+        lessonStepDto.setTheoreticalStepId(ServiceUtil.getId(lessonStep.getTheoreticalStep()));
+        lessonStepDto.setLessonId(ServiceUtil.getId(lessonStep.getLesson()));
+        lessonStepDto.setTestId(ServiceUtil.getId(lessonStep.getTest()));
 
         return lessonStepDto;
     }
