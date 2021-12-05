@@ -4,6 +4,7 @@ import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.TheoreticalStepDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.TheoreticalStep;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.repository.TheoreticalStepRepository;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.lesson_service.LessonStepService;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.service_util.ServiceUtil;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.theoretical_step_service.TheoreticalStepService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +46,7 @@ public class TheoreticalStepServiceImpl implements TheoreticalStepService {
         theoreticalStepDto.setName(theoreticalStep.getName());
         theoreticalStepDto.setDescription(theoreticalStep.getDescription());
         theoreticalStepDto.setUsefulText(theoreticalStep.getUsefulText());
-        theoreticalStepDto.setLessonStepId(theoreticalStep.getLessonStep().getId());
+        theoreticalStepDto.setLessonStepId(ServiceUtil.getId(theoreticalStep.getLessonStep()));
 
         return theoreticalStepDto;
     }

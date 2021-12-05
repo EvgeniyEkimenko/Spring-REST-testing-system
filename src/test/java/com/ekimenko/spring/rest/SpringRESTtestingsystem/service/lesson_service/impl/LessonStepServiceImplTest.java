@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
 class LessonStepServiceImplTest {
@@ -197,5 +198,7 @@ class LessonStepServiceImplTest {
 
     @Test
     void deleteLessonStepById() {
+        underTestLessonStep.deleteLessonStepById(1L);
+        verify(lessonStepRepository).deleteById(1L);
     }
 }

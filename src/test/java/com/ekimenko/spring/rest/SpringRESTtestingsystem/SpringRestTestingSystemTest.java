@@ -21,7 +21,6 @@ class SpringRestTestingSystemTest {
 
     @Test
     void contextLoads() throws Exception{
-        assertThat(lessonRestControllerV1).isNotNull();
     }
 
 }
