@@ -16,9 +16,6 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @SpringBootTest
 class SpringRestTestingSystemTest {
 
-    @Autowired
-    private LessonRestControllerV1 lessonRestControllerV1;
-
     @Test
     void contextLoads() throws Exception{
     }

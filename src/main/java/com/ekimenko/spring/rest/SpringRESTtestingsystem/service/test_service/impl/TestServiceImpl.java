@@ -61,7 +61,7 @@ public class TestServiceImpl implements TestService {
         testDto.setName(test.getName());
         testDto.setRequeredScore(test.getRequeredScore());
         testDto.setNumberAttempt(test.getNumberAttempts());
-        testDto.setLessonStepId(test.getLessonStep().getId());
+        testDto.setLessonStepId(ServiceUtil.getId(test.getLessonStep()));
         testDto.setQuestionsId(ServiceUtil.getIds(test.getQuestions()));
         testDto.setTestResultId(ServiceUtil.getIds(test.getTestResults()));
 

@@ -6,6 +6,7 @@ import com.ekimenko.spring.rest.SpringRESTtestingsystem.repository.answer_repos.
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.answer_service.AnswerResultService;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.answer_service.AnswerVariantService;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.question_service.QuestionService;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.service_util.ServiceUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
@@ -51,7 +52,7 @@ public class AnswerVariantImpl implements AnswerVariantService {
         answerVariantDto.setId(answerVariant.getId());
         answerVariantDto.setText(answerVariant.getText());
         answerVariantDto.setCorrect(answerVariant.getCorrect());
-        answerVariantDto.setQuestionId(answerVariant.getQuestion().getId());
+        answerVariantDto.setQuestionId(ServiceUtil.getId(answerVariant.getQuestion()));
         //answerVariantDto.setAnswerResultId(answerVariant.getAnswerResult().getId());
 
         return answerVariantDto;

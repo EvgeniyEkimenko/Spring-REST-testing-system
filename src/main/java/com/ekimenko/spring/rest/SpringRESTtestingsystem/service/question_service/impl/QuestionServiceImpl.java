@@ -54,7 +54,7 @@ public class QuestionServiceImpl implements QuestionService {
         questionDto.setText(question.getText());
         questionDto.setPosition(question.getPosition());
         questionDto.setAllowedParticleAnswer(question.isAllowedParticleAnswer());
-        questionDto.setTestId(question.getTest().getId());
+        questionDto.setTestId(ServiceUtil.getId(question.getTest()));
         questionDto.setAnswerResultsId(ServiceUtil.getIds(question.getAnswerResults()));
         questionDto.setAnswerVariantsId(ServiceUtil.getIds(question.getAnswerVariants()));
 
