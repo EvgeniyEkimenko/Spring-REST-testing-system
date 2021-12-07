@@ -112,8 +112,8 @@ public class AnswerResultServiceImpl implements AnswerResultService {
     public AnswerResultDto fromAnswerResult(AnswerResult answerResult) {
         AnswerResultDto result = new AnswerResultDto();
         result.setId(answerResult.getId());
-        result.setTestResultId(answerResult.getTestResult().getId());
-        result.setQuestionId(answerResult.getQuestion().getId());
+        result.setTestResultId(ServiceUtil.getId(answerResult.getTestResult()));
+        result.setQuestionId(ServiceUtil.getId(answerResult.getQuestion()));
         result.setScore(answerResult.getScore());
         result.setAnswerVariantsId(ServiceUtil.getIds(answerResult.getAnswerVariants()));
         return result;
