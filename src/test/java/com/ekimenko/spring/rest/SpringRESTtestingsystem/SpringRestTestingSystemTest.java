@@ -1,11 +1,7 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem;
 
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.rest.LessonRestControllerV1;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 /*@RunWith(SpringRunner.class)
 @ContextConfiguration(classes = PersistenceTestConfig.class)
@@ -17,7 +13,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 class SpringRestTestingSystemTest {
 
     @Test
-    void contextLoads() throws Exception{
+    void contextLoads() throws Exception {
     }
 
 }

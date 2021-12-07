@@ -18,12 +18,12 @@
                 <constraints nullable="true"/>
             </column>
 
-<!--            <column name="lesson_id" type="BIGINT">
-                <constraints  nullable="true"/>
-            </column>-->
+            <!--            <column name="lesson_id" type="BIGINT">
+                            <constraints  nullable="true"/>
+                        </column>-->
 
             <column name="useful_text" type="TEXT">
-                <constraints  nullable="true"/>
+                <constraints nullable="true"/>
             </column>
 
         </createTable>
@@ -45,15 +45,15 @@
             </column>
 
             <column name="course_id" type="BIGINT">
-                <constraints  nullable="true"/>
+                <constraints nullable="true"/>
             </column>
 
-<!--            <column name="test_id" type="BIGINT">
-                <constraints  nullable="true"/>
-            </column>-->
+            <!--            <column name="test_id" type="BIGINT">
+                            <constraints  nullable="true"/>
+                        </column>-->
 
             <column name="complete" type="BOOLEAN" defaultValue="false">
-                <constraints  nullable="true"/>
+                <constraints nullable="true"/>
             </column>
 
         </createTable>
@@ -75,16 +75,16 @@
             </column>
 
             <column name="complete" type="BOOLEAN" defaultValue="false">
-                <constraints  nullable="true"/>
+                <constraints nullable="true"/>
             </column>
 
-<!--            <column name="students_number" type="INT">
-                <constraints  nullable="true"/>
-            </column>
+            <!--            <column name="students_number" type="INT">
+                            <constraints  nullable="true"/>
+                        </column>
 
-            <column name="percent_completing" type="INT">
-                <constraints  nullable="true"/>
-            </column>-->
+                        <column name="percent_completing" type="INT">
+                            <constraints  nullable="true"/>
+                        </column>-->
 
         </createTable>
     </changeSet>
@@ -102,16 +102,15 @@
     </changeSet>
 
 
-<!--    <changeSet id="1.0.19" author="eugene.ekimenko">
-        <addForeignKeyConstraint baseColumnNames="lesson_id"
-                                 baseTableName="theoretical_step"
-                                 constraintName="fk_theoretical_lesson"
-                                 onDelete="CASCADE"
-                                 onUpdate="RESTRICT"
-                                 referencedColumnNames="id"
-                                 referencedTableName="lesson"/>
-    </changeSet>-->
-
+    <!--    <changeSet id="1.0.19" author="eugene.ekimenko">
+            <addForeignKeyConstraint baseColumnNames="lesson_id"
+                                     baseTableName="theoretical_step"
+                                     constraintName="fk_theoretical_lesson"
+                                     onDelete="CASCADE"
+                                     onUpdate="RESTRICT"
+                                     referencedColumnNames="id"
+                                     referencedTableName="lesson"/>
+        </changeSet>-->
 
 
     <changeSet id="1.0.20" author="eugene.ekimenko">
@@ -124,16 +123,15 @@
                                  referencedTableName="course"/>
     </changeSet>
 
-<!--    <changeSet id="1.0.21" author="eugene.ekimenko">
-        <addForeignKeyConstraint baseColumnNames="test_id"
-                                 baseTableName="lesson"
-                                 constraintName="fk_lesson_test_id"
-                                 onDelete="CASCADE"
-                                 onUpdate="RESTRICT"
-                                 referencedColumnNames="id"
-                                 referencedTableName="test"/>
-    </changeSet>-->
-
+    <!--    <changeSet id="1.0.21" author="eugene.ekimenko">
+            <addForeignKeyConstraint baseColumnNames="test_id"
+                                     baseTableName="lesson"
+                                     constraintName="fk_lesson_test_id"
+                                     onDelete="CASCADE"
+                                     onUpdate="RESTRICT"
+                                     referencedColumnNames="id"
+                                     referencedTableName="test"/>
+        </changeSet>-->
 
 
     <changeSet id="1.0.22" author="eugene.ekimenko">
@@ -166,15 +164,15 @@
                                  referencedTableName="question"/>
     </changeSet>
 
-<!--    <changeSet id="1.0.25" author="eugene.ekimenko">
-        <addForeignKeyConstraint baseColumnNames="question_id"
-                                 baseTableName="answer_result"
-                                 constraintName="fk_ques"
-                                 onDelete="CASCADE"
-                                 onUpdate="RESTRICT"
-                                 referencedColumnNames="id"
-                                 referencedTableName="question"/>
-    </changeSet>-->
+    <!--    <changeSet id="1.0.25" author="eugene.ekimenko">
+            <addForeignKeyConstraint baseColumnNames="question_id"
+                                     baseTableName="answer_result"
+                                     constraintName="fk_ques"
+                                     onDelete="CASCADE"
+                                     onUpdate="RESTRICT"
+                                     referencedColumnNames="id"
+                                     referencedTableName="question"/>
+        </changeSet>-->
 
 
     <changeSet id="1.0.26" author="eugene.ekimenko">
@@ -193,15 +191,15 @@
             </column>
 
             <column name="theoretical_step_id" type="BIGINT">
-                <constraints  nullable="true"/>
+                <constraints nullable="true"/>
             </column>
 
             <column name="test_id" type="BIGINT">
-                <constraints  nullable="true"/>
+                <constraints nullable="true"/>
             </column>
 
             <column name="complete" type="BOOLEAN" defaultValue="false">
-                <constraints  nullable="true"/>
+                <constraints nullable="true"/>
             </column>
 
         </createTable>

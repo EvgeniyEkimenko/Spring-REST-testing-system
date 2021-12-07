@@ -29,11 +29,16 @@ import static org.mockito.Mockito.verify;
 @ExtendWith(MockitoExtension.class)
 class AnswerResultServiceImplTest {
 
-    @Mock private AnswerResultRepository resultRepository;
-    @Mock private QuestionService questionService;
-    @Mock private AnswerVariantService answerVariantService;
-    @Mock private TestResultService testResultService;
-    @InjectMocks private AnswerResultServiceImpl underTestAnswerResult;
+    @Mock
+    private AnswerResultRepository resultRepository;
+    @Mock
+    private QuestionService questionService;
+    @Mock
+    private AnswerVariantService answerVariantService;
+    @Mock
+    private TestResultService testResultService;
+    @InjectMocks
+    private AnswerResultServiceImpl underTestAnswerResult;
 
     private AnswerResult answerResult;
 

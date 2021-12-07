@@ -11,11 +11,11 @@
             </column>
 
             <column name="test_id" type="BIGINT">
-                <constraints  nullable="true"/>
+                <constraints nullable="true"/>
             </column>
 
             <column name="user_id" type="BIGINT">
-                <constraints  nullable="true"/>
+                <constraints nullable="true"/>
             </column>
 
             <column name="score" type="DOUBLE" defaultValue="0">
@@ -42,14 +42,14 @@
             </column>
 
             <column name="test_result_id" type="BIGINT">
-                <constraints  nullable="true"/>
+                <constraints nullable="true"/>
             </column>
 
-<!--            <column name="user_id" type="BIGINT">
-                <constraints  nullable="true"/>
-            </column>-->
+            <!--            <column name="user_id" type="BIGINT">
+                            <constraints  nullable="true"/>
+                        </column>-->
 
-            <column name="score" type="DOUBLE" >
+            <column name="score" type="DOUBLE">
                 <constraints nullable="true"/>
             </column>
 
@@ -72,11 +72,11 @@
             </column>
 
             <column name="requered_score" type="BIGINT">
-                <constraints  nullable="true"/>
+                <constraints nullable="true"/>
             </column>
 
             <column name="number_attempts" type="BIGINT">
-                <constraints  nullable="true"/>
+                <constraints nullable="true"/>
             </column>
 
         </createTable>
@@ -90,28 +90,28 @@
             </column>
 
             <column name="test_id" type="BIGINT">
-                <constraints  nullable="true"/>
+                <constraints nullable="true"/>
             </column>
 
             <column name="text" type="TEXT">
-                <constraints  nullable="true"/>
+                <constraints nullable="true"/>
             </column>
 
             <column name="score" type="DOUBLE">
-                <constraints  nullable="true"/>
+                <constraints nullable="true"/>
             </column>
 
             <column name="position" type="INT">
-                <constraints  nullable="true"/>
+                <constraints nullable="true"/>
             </column>
 
             <column name="allowed_particle_answer" type="BOOLEAN">
-                <constraints  nullable="true"/>
+                <constraints nullable="true"/>
             </column>
 
-<!--            <column name="complete" type="BOOLEAN">
-                <constraints  nullable="true"/>
-            </column>-->
+            <!--            <column name="complete" type="BOOLEAN">
+                            <constraints  nullable="true"/>
+                        </column>-->
 
         </createTable>
     </changeSet>
@@ -124,7 +124,7 @@
             </column>
 
             <column name="question_id" type="BIGINT">
-                <constraints  nullable="true"/>
+                <constraints nullable="true"/>
             </column>
 
             <column name="text" type="TEXT">
@@ -132,11 +132,11 @@
             </column>
 
             <column name="correct" type="BOOLEAN">
-                <constraints  nullable="true"/>
+                <constraints nullable="true"/>
             </column>
 
             <column name="answer_result_id" type="BIGINT">
-                <constraints  nullable="true"/>
+                <constraints nullable="true"/>
             </column>
 
 
@@ -170,13 +170,13 @@
                                  referencedColumnNames="id"
                                  referencedTableName="test_result"/>
 
-<!--        <addForeignKeyConstraint baseColumnNames="user_id"
-                                 baseTableName="answer_result"
-                                 constraintName="fk_answer_result_id"
-                                 onDelete="CASCADE"
-                                 onUpdate="RESTRICT"
-                                 referencedColumnNames="id"
-                                 referencedTableName="users"/>-->
+        <!--        <addForeignKeyConstraint baseColumnNames="user_id"
+                                         baseTableName="answer_result"
+                                         constraintName="fk_answer_result_id"
+                                         onDelete="CASCADE"
+                                         onUpdate="RESTRICT"
+                                         referencedColumnNames="id"
+                                         referencedTableName="users"/>-->
     </changeSet>
 
     <changeSet id="1.0.13" author="eugene.ekimenko">
