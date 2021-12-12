@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.ArrayList;
@@ -15,17 +16,12 @@ import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-@DataJpaTest
-//@ExtendWith(SpringExtension.class)
+@SpringBootTest
+//@DataJpaTest
 public class LessonRepositoryTest {
 
     @Autowired
     private LessonRepository underTest;
-
-    @AfterEach
-    void tearDown() {
-        //underTest.deleteAll();
-    }
 
     @Test
     @DisplayName("Comparing an object from a database with its with an instance of a class. Expected true")
@@ -37,7 +33,7 @@ public class LessonRepositoryTest {
         lessonTest.setCourse(null);
         lessonTest.setLessonSteps(null);
 
-        underTest.save(lessonTest);
+        underTest.saveAndFlush(lessonTest);
 
         Lesson lessonAssert = new Lesson();
         lessonAssert = underTest.getById(1L);
