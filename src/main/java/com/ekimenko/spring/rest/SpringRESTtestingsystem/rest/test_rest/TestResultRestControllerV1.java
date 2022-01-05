@@ -11,7 +11,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping(value = "/api/v1/test_result")
+@RequestMapping(value = "/api/v1/test-result")
 public class TestResultRestControllerV1 {
 
     private final TestResultService testResultService;
@@ -30,7 +30,7 @@ public class TestResultRestControllerV1 {
         return new ResponseEntity<>(resultDto, HttpStatus.OK);
     }
 
-    @GetMapping(value = "")
+    @GetMapping(value = "/all")
     public ResponseEntity<List<TestResultDto>> getAllTestResults() {
 
         List<TestResultDto> testResultDtoLists = testResultService.getAllTestResultsDto();
