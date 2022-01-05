@@ -29,7 +29,7 @@ public class LessonRestControllerV1 {
         return new ResponseEntity<>(lessonDto, HttpStatus.OK);
     }
 
-    @GetMapping(value = "")
+    @GetMapping(value = "/all")
     public ResponseEntity<List<LessonDto>> getAllLessons() {
 
         List<LessonDto> lessonDtoList = lessonService.getAllLessonsDto();

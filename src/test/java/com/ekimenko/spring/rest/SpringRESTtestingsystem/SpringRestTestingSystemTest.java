@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Sql(executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD, scripts = {"classpath:init.sql"})*/
 
-@SpringBootTest
+//@SpringBootTest
 class SpringRestTestingSystemTest {
 
     @Test
