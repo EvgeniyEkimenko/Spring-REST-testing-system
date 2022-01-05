@@ -30,7 +30,7 @@ public class CourseRestControllerV1 {
         return new ResponseEntity<>(courseDto, HttpStatus.OK);
     }
 
-    @GetMapping(value = "")
+    @GetMapping(value = "/all")
     public ResponseEntity<List<CourseDto>> getAllCourses() {
 
         List<CourseDto> courseDtoList = courseService.getAllCoursesDto();

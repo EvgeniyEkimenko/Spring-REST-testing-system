@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/api/v1/lesson_step")
+@RequestMapping(value = "/api/v1/lesson-step")
 public class LessonStepRestControllerV1 {
 
     private final LessonStepService lessonStepService;
@@ -28,7 +28,7 @@ public class LessonStepRestControllerV1 {
         return new ResponseEntity<>(lessonStepDto, HttpStatus.OK);
     }
 
-    @GetMapping(value = "")
+    @GetMapping(value = "/all")
     public ResponseEntity<List<LessonStepDto>> getAllLessonSteps() {
 
         List<LessonStepDto> lessonStepDtoList = lessonStepService.getAllLessonStepsDto();
