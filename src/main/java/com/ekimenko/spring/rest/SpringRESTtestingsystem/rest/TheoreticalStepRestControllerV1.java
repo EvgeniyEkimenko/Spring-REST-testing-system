@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/api/v1/theoretical_step")
+@RequestMapping(value = "/api/v1/theoretical-step")
 public class TheoreticalStepRestControllerV1 {
 
     private final TheoreticalStepService theoreticalStepService;
@@ -29,7 +29,7 @@ public class TheoreticalStepRestControllerV1 {
         return new ResponseEntity<>(theoreticalStepDto, HttpStatus.OK);
     }
 
-    @GetMapping(value = "")
+    @GetMapping(value = "/all")
     public ResponseEntity<List<TheoreticalStepDto>> getAllTheoreticalSteps() {
 
         List<TheoreticalStepDto> theoreticalStepDtoList = theoreticalStepService.getAllTheoreticalStepsDto();
