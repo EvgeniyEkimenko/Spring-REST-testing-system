@@ -29,7 +29,7 @@ public class QuestionRestControllerV1 {
         return new ResponseEntity<>(questionDto, HttpStatus.OK);
     }
 
-    @GetMapping(value = "")
+    @GetMapping(value = "/all")
     public ResponseEntity<List<QuestionDto>> getAllQuestions() {
 
         List<QuestionDto> questionsDto = questionService.getAllQuestionsDto();

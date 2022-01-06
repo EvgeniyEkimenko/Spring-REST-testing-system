@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/api/v1/answer_variant")
+@RequestMapping(value = "/api/v1/answer-variant")
 public class AnswerVariantRestControllerV1 {
 
     private final AnswerVariantService answerVariantService;
@@ -29,7 +29,7 @@ public class AnswerVariantRestControllerV1 {
         return new ResponseEntity<>(answerVariantDto, HttpStatus.OK);
     }
 
-    @GetMapping(value = "")
+    @GetMapping(value = "/all")
     public ResponseEntity<List<AnswerVariantDto>> getAllAnswerVariants() {
 
         List<AnswerVariantDto> answerVariantsDto = answerVariantService.getAllAnswerVariantsDto();

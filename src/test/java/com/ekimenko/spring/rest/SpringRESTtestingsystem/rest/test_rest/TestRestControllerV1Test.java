@@ -90,6 +90,7 @@ class TestRestControllerV1Test {
 
         com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.Test test =
                 new com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.Test();
+        test.setId(1L);
         test.setName("testName");
         test.setNumberAttempts(1L);
         test.setQuestions(Collections.emptyList());
@@ -97,6 +98,7 @@ class TestRestControllerV1Test {
         test.setTestResults(Collections.emptyList());
 
         TestDto inputTestDto = new TestDto();
+        inputTestDto.setId(1L);
         inputTestDto.setName("testName");
         inputTestDto.setNumberAttempt(1L);
         inputTestDto.setQuestionsId(Collections.emptyList());
