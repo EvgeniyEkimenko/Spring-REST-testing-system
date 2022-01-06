@@ -1,7 +1,6 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
 /*@RunWith(SpringRunner.class)
 @ContextConfiguration(classes = PersistenceTestConfig.class)

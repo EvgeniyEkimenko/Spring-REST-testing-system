@@ -132,7 +132,7 @@ class LessonRestControllerV1Test {
     }
 
     @Test
-    void updateLesson() throws Exception{
+    void updateLesson() throws Exception {
         LessonDto expectedLessonDto = new LessonDto();
         expectedLessonDto.setId(1L);
         expectedLessonDto.setName("testName");
@@ -169,7 +169,7 @@ class LessonRestControllerV1Test {
 
     @Test
     void deleteLessonByID() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.delete("/api/v1/lesson/{id}" , 1L))
+        mvc.perform(MockMvcRequestBuilders.delete("/api/v1/lesson/{id}", 1L))
                 .andDo(print())
                 .andExpect(status().isOk());
     }

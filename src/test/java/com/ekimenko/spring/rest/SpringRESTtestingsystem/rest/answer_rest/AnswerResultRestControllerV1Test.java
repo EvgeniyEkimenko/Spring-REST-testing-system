@@ -3,7 +3,6 @@ package com.ekimenko.spring.rest.SpringRESTtestingsystem.rest.answer_rest;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.answer_dto.AnswerResultDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer.AnswerResult;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.answer_service.AnswerResultService;
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.answer_service.AnswerVariantService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -56,7 +55,7 @@ class AnswerResultRestControllerV1Test {
     }
 
     @Test
-    void getAllAnswerResult() throws Exception{
+    void getAllAnswerResult() throws Exception {
         AnswerResultDto expectedAnswerResultDto = new AnswerResultDto();
         expectedAnswerResultDto.setId(1L);
         expectedAnswerResultDto.setScore(0D);
@@ -79,7 +78,7 @@ class AnswerResultRestControllerV1Test {
     }
 
     @Test
-    void addNewAnswerResult() throws Exception{
+    void addNewAnswerResult() throws Exception {
         AnswerResultDto expectedAnswerResultDto = new AnswerResultDto();
         expectedAnswerResultDto.setId(1L);
         expectedAnswerResultDto.setScore(0D);
@@ -112,7 +111,7 @@ class AnswerResultRestControllerV1Test {
     }
 
     @Test
-    void updateAnswerResult() throws Exception{
+    void updateAnswerResult() throws Exception {
         AnswerResultDto expectedAnswerResultDto = new AnswerResultDto();
         expectedAnswerResultDto.setId(1L);
         expectedAnswerResultDto.setScore(0D);
@@ -147,14 +146,14 @@ class AnswerResultRestControllerV1Test {
     }
 
     @Test
-    void deleteAnswerResultByID() throws Exception{
+    void deleteAnswerResultByID() throws Exception {
         mvc.perform(MockMvcRequestBuilders.delete("/api/v1/answer-result/{id}", 1L))
                 .andDo(print())
                 .andExpect(status().isOk());
     }
 
     @Test
-    void setPointsForTheAnswer() throws Exception{
+    void setPointsForTheAnswer() throws Exception {
         AnswerResultDto expectedAnswerResultDto = new AnswerResultDto();
         expectedAnswerResultDto.setId(1L);
         expectedAnswerResultDto.setScore(0D);
