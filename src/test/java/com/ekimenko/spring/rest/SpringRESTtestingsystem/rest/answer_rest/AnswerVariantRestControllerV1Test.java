@@ -1,11 +1,9 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.rest.answer_rest;
 
 
-
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.answer_dto.AnswerVariantDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer.AnswerVariant;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.answer_service.AnswerVariantService;
-import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.question_service.QuestionService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -19,7 +17,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import static org.mockito.Mockito.when;
@@ -58,7 +55,7 @@ class AnswerVariantRestControllerV1Test {
     }
 
     @Test
-    void getAllAnswerVariants() throws Exception{
+    void getAllAnswerVariants() throws Exception {
         AnswerVariantDto expectedAnswerVariantDto = new AnswerVariantDto();
         expectedAnswerVariantDto.setId(1L);
         expectedAnswerVariantDto.setCorrect(false);
@@ -81,7 +78,7 @@ class AnswerVariantRestControllerV1Test {
     }
 
     @Test
-    void addNewAnswerVariant() throws Exception{
+    void addNewAnswerVariant() throws Exception {
         AnswerVariantDto expectedAnswerVariantDto = new AnswerVariantDto();
         expectedAnswerVariantDto.setId(1L);
         expectedAnswerVariantDto.setCorrect(false);
@@ -114,7 +111,7 @@ class AnswerVariantRestControllerV1Test {
     }
 
     @Test
-    void updateAnswerVariant() throws Exception{
+    void updateAnswerVariant() throws Exception {
         AnswerVariantDto expectedAnswerVariantDto = new AnswerVariantDto();
         expectedAnswerVariantDto.setId(1L);
         expectedAnswerVariantDto.setCorrect(false);
@@ -149,7 +146,7 @@ class AnswerVariantRestControllerV1Test {
     }
 
     @Test
-    void deleteAnswerVariantByID() throws Exception{
+    void deleteAnswerVariantByID() throws Exception {
         mvc.perform(MockMvcRequestBuilders.delete("/api/v1/answer-variant/{id}", 1L))
                 .andDo(print())
                 .andExpect(status().isOk());

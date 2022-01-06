@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/api/v1/answer_result")
+@RequestMapping(value = "/api/v1/answer-result")
 public class AnswerResultRestControllerV1 {
 
     private final AnswerResultService resultService;
@@ -28,7 +28,7 @@ public class AnswerResultRestControllerV1 {
         return new ResponseEntity<>(answerResultDto, HttpStatus.OK);
     }
 
-    @GetMapping(value = "")
+    @GetMapping(value = "/all")
     public ResponseEntity<List<AnswerResultDto>> getAllAnswerResult() {
 
         List<AnswerResultDto> answerResultDtoList = resultService.getAllAnswerResultDto();
@@ -62,8 +62,7 @@ public class AnswerResultRestControllerV1 {
         resultService.deleteById(id);
     }
 
-    //give an answer to the question
-    @PostMapping(value = "/give_answer")
+    @PostMapping(value = "/check_answer")
     public AnswerResultDto setPointsForTheAnswer(@RequestBody AnswerResultDto answerResultDto) {
 
         AnswerResultDto answerResultDtoNew = resultService.setPoints(answerResultDto);
