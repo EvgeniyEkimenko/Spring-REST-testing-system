@@ -29,7 +29,7 @@ public class TestRestControllerV1 {
         return new ResponseEntity<>(testDto, HttpStatus.OK);
     }
 
-    @GetMapping(value = "")
+    @GetMapping(value = "/all")
     public ResponseEntity<List<TestDto>> getAllTests() {
 
         List<TestDto> testDtoList = testService.getAllTestsDto();
