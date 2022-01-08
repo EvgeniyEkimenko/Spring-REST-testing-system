@@ -98,6 +98,10 @@ class AnswerVariantRestControllerV1Test {
         inputAnswerVariantDto.setAnswerResultId(null);
         inputAnswerVariantDto.setQuestionId(null);
 
+        when(answerVariantService.
+                toAnswerVariant(inputAnswerVariantDto))
+                .thenReturn(answerVariant);
+
         when(answerVariantService
                 .addNewAnswerVariant(answerVariant))
                 .thenReturn(expectedAnswerVariantDto);
@@ -132,6 +136,10 @@ class AnswerVariantRestControllerV1Test {
         inputAnswerVariantDto.setText("testText");
         inputAnswerVariantDto.setAnswerResultId(null);
         inputAnswerVariantDto.setQuestionId(null);
+
+        when(answerVariantService.
+                toAnswerVariant(inputAnswerVariantDto))
+                .thenReturn(answerVariant);
 
         when(answerVariantService
                 .updateAnswerVariant(answerVariant))

@@ -98,6 +98,10 @@ class AnswerResultRestControllerV1Test {
         inputAnswerResultDto.setAnswerVariantsId(Collections.emptyList());
         inputAnswerResultDto.setTestResultId(null);
 
+        when(answerResultService.
+                toAnswerResult(inputAnswerResultDto))
+                .thenReturn(answerResult);
+
         when(answerResultService
                 .addNewAnswerResult(answerResult))
                 .thenReturn(expectedAnswerResultDto);
@@ -132,6 +136,10 @@ class AnswerResultRestControllerV1Test {
         inputAnswerResultDto.setQuestionId(null);
         inputAnswerResultDto.setAnswerVariantsId(Collections.emptyList());
         inputAnswerResultDto.setTestResultId(null);
+
+        when(answerResultService.
+                toAnswerResult(inputAnswerResultDto))
+                .thenReturn(answerResult);
 
         when(answerResultService
                 .updateAnswerResult(answerResult))

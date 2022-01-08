@@ -109,6 +109,10 @@ class TestResultRestControllerV1Test {
         inputTestResultDto.setTestId(null);
         inputTestResultDto.setAnswerResultsId(Collections.emptyList());
 
+        when(testResultService.
+                toTestResult(inputTestResultDto))
+                .thenReturn(testResult);
+
         when(testResultService
                 .addNewTestResult(testResult))
                 .thenReturn(expectedTestResultDto);
@@ -149,6 +153,10 @@ class TestResultRestControllerV1Test {
         inputTestResultDto.setUserId(null);
         inputTestResultDto.setTestId(null);
         inputTestResultDto.setAnswerResultsId(Collections.emptyList());
+
+        when(testResultService.
+                toTestResult(inputTestResultDto))
+                .thenReturn(testResult);
 
         when(testResultService
                 .updateTestResult(testResult))

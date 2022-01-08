@@ -102,6 +102,10 @@ class CourseRestControllerV1Test {
         expectedCourseDto.setLessonsId(Collections.emptyList());
         expectedCourseDto.setUsersId(Collections.emptyList());
 
+        when(courseService.
+                toCourse(inputCourseDto))
+                .thenReturn(course);
+
         when(courseService
                 .addNewCourse(course))
                 .thenReturn(expectedCourseDto);
@@ -125,6 +129,7 @@ class CourseRestControllerV1Test {
         expectedCourseDto.setUsersId(Collections.emptyList());
 
         Course course = new Course();
+        course.setId(1L);
         course.setName("name");
         course.setComplete(false);
         course.setUsers(Collections.emptyList());
@@ -132,11 +137,16 @@ class CourseRestControllerV1Test {
         course.setUsers(Collections.emptyList());
 
         CourseDto inputCourseDto = new CourseDto();
+        expectedCourseDto.setId(1L);
         expectedCourseDto.setName("name");
         expectedCourseDto.setComplete(false);
         expectedCourseDto.setUsersId(Collections.emptyList());
         expectedCourseDto.setLessonsId(Collections.emptyList());
         expectedCourseDto.setUsersId(Collections.emptyList());
+
+        when(courseService.
+                toCourse(inputCourseDto))
+                .thenReturn(course);
 
         when(courseService
                 .updateCourse(course))

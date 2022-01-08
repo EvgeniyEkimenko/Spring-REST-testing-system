@@ -149,12 +149,14 @@ class TheoreticalStepRestControllerV1Test {
         expectedTheoreticalStepDto.setDescription("desc");
 
         TheoreticalStepDto inputTheoreticalStepDto = new TheoreticalStepDto();
+        inputTheoreticalStepDto.setId(1L);
         inputTheoreticalStepDto.setLessonStepId(null);
         inputTheoreticalStepDto.setUsefulText("text");
         inputTheoreticalStepDto.setName("name");
         inputTheoreticalStepDto.setDescription("desc");
 
         TheoreticalStep theoreticalStep = new TheoreticalStep();
+        theoreticalStep.setId(1L);
         theoreticalStep.setLessonStep(null);
         theoreticalStep.setUsefulText("text");
         theoreticalStep.setName("name");

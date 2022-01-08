@@ -104,6 +104,10 @@ class LessonStepRestControllerV1Test {
         inputLessonStepDto.setTheoreticalStepId(null);
         inputLessonStepDto.setLessonId(null);
 
+        when(lessonStepService.
+                toLessonStep(inputLessonStepDto))
+                .thenReturn(lessonStep);
+
         when(lessonStepService
                 .addNewLessonStep(lessonStep))
                 .thenReturn(expectedLessonStepDto);
@@ -128,6 +132,7 @@ class LessonStepRestControllerV1Test {
         expectedLessonStepDto.setLessonId(null);
 
         LessonStep lessonStep = new LessonStep();
+        lessonStep.setId(1L);
         lessonStep.setTest(null);
         lessonStep.setComplete(false);
         lessonStep.setPositionInLesson(1);
@@ -141,6 +146,10 @@ class LessonStepRestControllerV1Test {
         inputLessonStepDto.setPositionInLesson(1);
         inputLessonStepDto.setTheoreticalStepId(null);
         inputLessonStepDto.setLessonId(null);
+
+        when(lessonStepService.
+                toLessonStep(inputLessonStepDto))
+                .thenReturn(lessonStep);
 
         when(lessonStepService
                 .updateLessonStep(lessonStep))

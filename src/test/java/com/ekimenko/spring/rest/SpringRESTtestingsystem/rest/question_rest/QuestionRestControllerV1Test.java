@@ -105,13 +105,17 @@ class QuestionRestControllerV1Test {
         question.setAnswerVariants(Collections.emptyList());
 
         QuestionDto inputQuestionDto = new QuestionDto();
-        expectedQuestionDto.setText("testText");
-        expectedQuestionDto.setPosition(1);
-        expectedQuestionDto.setAllowedParticleAnswer(false);
-        expectedQuestionDto.setScore(1D);
-        expectedQuestionDto.setAnswerResultsId(Collections.emptyList());
-        expectedQuestionDto.setTestId(null);
-        expectedQuestionDto.setAnswerVariantsId(Collections.emptyList());
+        inputQuestionDto.setText("testText");
+        inputQuestionDto.setPosition(1);
+        inputQuestionDto.setAllowedParticleAnswer(false);
+        inputQuestionDto.setScore(1D);
+        inputQuestionDto.setAnswerResultsId(Collections.emptyList());
+        inputQuestionDto.setTestId(null);
+        inputQuestionDto.setAnswerVariantsId(Collections.emptyList());
+
+        when(questionService.
+                toQuestion(inputQuestionDto))
+                .thenReturn(question);
 
         when(questionService
                 .addNewQuestion(question))
@@ -149,13 +153,17 @@ class QuestionRestControllerV1Test {
 
         QuestionDto inputQuestionDto = new QuestionDto();
         inputQuestionDto.setTestId(1L);
-        expectedQuestionDto.setText("testText");
-        expectedQuestionDto.setPosition(1);
-        expectedQuestionDto.setAllowedParticleAnswer(false);
-        expectedQuestionDto.setScore(1D);
-        expectedQuestionDto.setAnswerResultsId(Collections.emptyList());
-        expectedQuestionDto.setTestId(null);
-        expectedQuestionDto.setAnswerVariantsId(Collections.emptyList());
+        inputQuestionDto.setText("testText");
+        inputQuestionDto.setPosition(1);
+        inputQuestionDto.setAllowedParticleAnswer(false);
+        inputQuestionDto.setScore(1D);
+        inputQuestionDto.setAnswerResultsId(Collections.emptyList());
+        inputQuestionDto.setTestId(null);
+        inputQuestionDto.setAnswerVariantsId(Collections.emptyList());
+
+        when(questionService.
+                toQuestion(inputQuestionDto))
+                .thenReturn(question);
 
         when(questionService
                 .updateQuestion(question))

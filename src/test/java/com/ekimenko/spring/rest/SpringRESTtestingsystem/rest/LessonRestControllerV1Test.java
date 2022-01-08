@@ -105,12 +105,12 @@ class LessonRestControllerV1Test {
         expectedLessonDto.setLessonStepsId(Collections.emptyList());
         expectedLessonDto.setDescription("testDesc");
 
-        Lesson lessonForAdd = new Lesson();
-        lessonForAdd.setName("testName");
-        lessonForAdd.setComplete(false);
-        lessonForAdd.setCourse(null);
-        lessonForAdd.setLessonSteps(Collections.emptyList());
-        lessonForAdd.setDescription("testDesc");
+        Lesson lesson = new Lesson();
+        lesson.setName("testName");
+        lesson.setComplete(false);
+        lesson.setCourse(null);
+        lesson.setLessonSteps(Collections.emptyList());
+        lesson.setDescription("testDesc");
 
         LessonDto inputLessonDto = new LessonDto();
         inputLessonDto.setName("testName");
@@ -119,8 +119,12 @@ class LessonRestControllerV1Test {
         inputLessonDto.setLessonStepsId(Collections.emptyList());
         inputLessonDto.setDescription("testDesc");
 
+        when(lessonService.
+                toLesson(inputLessonDto))
+                .thenReturn(lesson);
+
         when(lessonService
-                .addNewLesson(lessonForAdd))
+                .addNewLesson(lesson))
                 .thenReturn(expectedLessonDto);
 
         mvc.perform(MockMvcRequestBuilders
@@ -141,22 +145,28 @@ class LessonRestControllerV1Test {
         expectedLessonDto.setLessonStepsId(Collections.emptyList());
         expectedLessonDto.setDescription("testDesc");
 
-        Lesson lessonForAdd = new Lesson();
-        lessonForAdd.setName("testName");
-        lessonForAdd.setComplete(false);
-        lessonForAdd.setCourse(null);
-        lessonForAdd.setLessonSteps(Collections.emptyList());
-        lessonForAdd.setDescription("testDesc");
+        Lesson lesson = new Lesson();
+        lesson.setId(1L);
+        lesson.setName("testName");
+        lesson.setComplete(false);
+        lesson.setCourse(null);
+        lesson.setLessonSteps(Collections.emptyList());
+        lesson.setDescription("testDesc");
 
         LessonDto inputLessonDto = new LessonDto();
+        inputLessonDto.setId(1L);
         inputLessonDto.setName("testName");
         inputLessonDto.setComplete(false);
         inputLessonDto.setCourseId(null);
         inputLessonDto.setLessonStepsId(Collections.emptyList());
         inputLessonDto.setDescription("testDesc");
 
+        when(lessonService.
+                toLesson(inputLessonDto))
+                .thenReturn(lesson);
+
         when(lessonService
-                .updateLesson(lessonForAdd))
+                .updateLesson(lesson))
                 .thenReturn(expectedLessonDto);
 
         mvc.perform(MockMvcRequestBuilders
