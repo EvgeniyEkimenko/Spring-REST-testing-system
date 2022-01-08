@@ -59,7 +59,7 @@ class TheoreticalStepRestControllerV1Test {
     void getTheoreticalStepById() throws Exception {
         TheoreticalStepDto expectedTheoreticalStepDto = new TheoreticalStepDto();
         expectedTheoreticalStepDto.setId(1L);
-        expectedTheoreticalStepDto.setLessonStepId(null);
+        expectedTheoreticalStepDto.setLessonStepId(1L);
         expectedTheoreticalStepDto.setUsefulText("text");
         expectedTheoreticalStepDto.setName("name");
         expectedTheoreticalStepDto.setDescription("desc");
@@ -82,7 +82,7 @@ class TheoreticalStepRestControllerV1Test {
 
         TheoreticalStepDto expectedTheoreticalStepDto = new TheoreticalStepDto();
         expectedTheoreticalStepDto.setId(1L);
-        expectedTheoreticalStepDto.setLessonStepId(null);
+        expectedTheoreticalStepDto.setLessonStepId(1L);
         expectedTheoreticalStepDto.setUsefulText("text");
         expectedTheoreticalStepDto.setName("name");
         expectedTheoreticalStepDto.setDescription("desc");
