@@ -1,7 +1,9 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.rest.test_rest;
 
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.test_dto.TestResultDto;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer.AnswerResult;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.TestResult;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.user.User;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.test_service.TestResultService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
@@ -22,14 +24,12 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.*;
-import static org.springframework.restdocs.operation.preprocess.Preprocessors.prettyPrint;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -64,9 +64,9 @@ class TestResultRestControllerV1Test {
         expectedTestResultDto.setTestScore(false);
         expectedTestResultDto.setScore(0.0);
         expectedTestResultDto.setComplete(false);
-        expectedTestResultDto.setUserId(null);
+        expectedTestResultDto.setUserId(1L);
         expectedTestResultDto.setTestId(1L);
-        expectedTestResultDto.setAnswerResultsId(Collections.emptyList());
+        expectedTestResultDto.setAnswerResultsId(List.of(1L));
 
         when(testResultService
                 .getTestResultDtoById(1L))
@@ -87,9 +87,9 @@ class TestResultRestControllerV1Test {
         expectedTestResultDto.setTestScore(false);
         expectedTestResultDto.setScore(0.0);
         expectedTestResultDto.setComplete(false);
-        expectedTestResultDto.setUserId(null);
+        expectedTestResultDto.setUserId(1L);
         expectedTestResultDto.setTestId(1L);
-        expectedTestResultDto.setAnswerResultsId(Collections.emptyList());
+        expectedTestResultDto.setAnswerResultsId(List.of(1L));
 
         List<TestResultDto> expectedTestResultDtoList = new ArrayList<>();
         expectedTestResultDtoList.add(expectedTestResultDto);
@@ -107,30 +107,42 @@ class TestResultRestControllerV1Test {
 
     @Test
     void addNewTestResult() throws Exception {
+        User user = new User();
+        com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.Test test =
+                new com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.Test();
+
+        test.setId(1L);
+        user.setId(1L);
+
+        List<AnswerResult> answerResultList = new ArrayList<>();
+        AnswerResult answerResult = new AnswerResult();
+        answerResult.setId(1L);
+        answerResultList.add(answerResult);
+
         TestResultDto expectedTestResultDto = new TestResultDto();
         expectedTestResultDto.setId(1L);
         expectedTestResultDto.setTestScore(false);
         expectedTestResultDto.setScore(0.0);
         expectedTestResultDto.setComplete(false);
-        expectedTestResultDto.setUserId(null);
-        expectedTestResultDto.setTestId(null);
-        expectedTestResultDto.setAnswerResultsId(Collections.emptyList());
+        expectedTestResultDto.setUserId(1L);
+        expectedTestResultDto.setTestId(1L);
+        expectedTestResultDto.setAnswerResultsId(List.of(1L));
 
         TestResult testResult = new TestResult();
         testResult.setTestScore(false);
         testResult.setScore(0.0);
         testResult.setComplete(false);
-        testResult.setUser(null);
-        testResult.setTest(null);
-        testResult.setAnswerResults(Collections.emptyList());
+        testResult.setUser(user);
+        testResult.setTest(test);
+        testResult.setAnswerResults(answerResultList);
 
         TestResultDto inputTestResultDto = new TestResultDto();
         inputTestResultDto.setTestScore(false);
         inputTestResultDto.setScore(0.0);
         inputTestResultDto.setComplete(false);
-        inputTestResultDto.setUserId(null);
-        inputTestResultDto.setTestId(null);
-        inputTestResultDto.setAnswerResultsId(Collections.emptyList());
+        inputTestResultDto.setUserId(1L);
+        inputTestResultDto.setTestId(1L);
+        inputTestResultDto.setAnswerResultsId(List.of(1L));
 
         when(testResultService.
                 toTestResult(inputTestResultDto))
@@ -150,32 +162,44 @@ class TestResultRestControllerV1Test {
 
     @Test
     void updateTestResult() throws Exception {
+        User user = new User();
+        com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.Test test =
+                new com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.Test();
+
+        test.setId(1L);
+        user.setId(1L);
+
+        List<AnswerResult> answerResultList = new ArrayList<>();
+        AnswerResult answerResult = new AnswerResult();
+        answerResult.setId(1L);
+        answerResultList.add(answerResult);
+
         TestResultDto expectedTestResultDto = new TestResultDto();
         expectedTestResultDto.setId(1L);
         expectedTestResultDto.setTestScore(false);
         expectedTestResultDto.setScore(0.0);
         expectedTestResultDto.setComplete(false);
-        expectedTestResultDto.setUserId(null);
-        expectedTestResultDto.setTestId(null);
-        expectedTestResultDto.setAnswerResultsId(Collections.emptyList());
+        expectedTestResultDto.setUserId(1L);
+        expectedTestResultDto.setTestId(1L);
+        expectedTestResultDto.setAnswerResultsId(List.of(1L));
 
         TestResult testResult = new TestResult();
-        expectedTestResultDto.setId(1L);
+        testResult.setId(1L);
         testResult.setTestScore(false);
         testResult.setScore(0.0);
         testResult.setComplete(false);
-        testResult.setUser(null);
-        testResult.setTest(null);
-        testResult.setAnswerResults(Collections.emptyList());
+        testResult.setUser(user);
+        testResult.setTest(test);
+        testResult.setAnswerResults(answerResultList);
 
         TestResultDto inputTestResultDto = new TestResultDto();
-        expectedTestResultDto.setId(1L);
+        inputTestResultDto.setId(1L);
         inputTestResultDto.setTestScore(false);
         inputTestResultDto.setScore(0.0);
         inputTestResultDto.setComplete(false);
-        inputTestResultDto.setUserId(null);
-        inputTestResultDto.setTestId(null);
-        inputTestResultDto.setAnswerResultsId(Collections.emptyList());
+        inputTestResultDto.setUserId(1L);
+        inputTestResultDto.setTestId(1L);
+        inputTestResultDto.setAnswerResultsId(List.of(1L));
 
         when(testResultService.
                 toTestResult(inputTestResultDto))
@@ -207,9 +231,9 @@ class TestResultRestControllerV1Test {
         expectedTestResultDto.setTestScore(false);
         expectedTestResultDto.setScore(0.0);
         expectedTestResultDto.setComplete(false);
-        expectedTestResultDto.setUserId(null);
-        expectedTestResultDto.setTestId(null);
-        expectedTestResultDto.setAnswerResultsId(Collections.emptyList());
+        expectedTestResultDto.setUserId(1L);
+        expectedTestResultDto.setTestId(1L);
+        expectedTestResultDto.setAnswerResultsId(List.of(1L));
 
         when(testResultService
                 .startTest(1L))
@@ -229,9 +253,9 @@ class TestResultRestControllerV1Test {
         expectedTestResultDto.setTestScore(false);
         expectedTestResultDto.setScore(0.0);
         expectedTestResultDto.setComplete(false);
-        expectedTestResultDto.setUserId(null);
-        expectedTestResultDto.setTestId(null);
-        expectedTestResultDto.setAnswerResultsId(Collections.emptyList());
+        expectedTestResultDto.setUserId(1L);
+        expectedTestResultDto.setTestId(1L);
+        expectedTestResultDto.setAnswerResultsId(List.of(1L));
 
         when(testResultService
                 .finishTest(1L))

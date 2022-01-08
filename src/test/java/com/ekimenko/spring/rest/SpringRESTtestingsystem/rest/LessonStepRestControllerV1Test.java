@@ -1,7 +1,9 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.rest;
 
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.LessonStepDto;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.Lesson;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.LessonStep;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.TheoreticalStep;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.lesson_service.LessonStepService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
@@ -28,7 +30,6 @@ import static org.mockito.Mockito.when;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.*;
-import static org.springframework.restdocs.operation.preprocess.Preprocessors.prettyPrint;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -58,13 +59,23 @@ class LessonStepRestControllerV1Test {
 
     @Test
     void getLessonStepById() throws Exception {
+        com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.Test test =
+                new com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.Test();
+        test.setId(1L);
+
+        TheoreticalStep theoreticalStep = new TheoreticalStep();
+        theoreticalStep.setId(1L);
+
+        Lesson lesson = new Lesson();
+        lesson.setId(1L);
+
         LessonStepDto expectedLessonStepDto = new LessonStepDto();
         expectedLessonStepDto.setId(1L);
-        expectedLessonStepDto.setTestId(null);
+        expectedLessonStepDto.setTestId(1L);
         expectedLessonStepDto.setComplete(false);
         expectedLessonStepDto.setPositionInLesson(1);
-        expectedLessonStepDto.setTheoreticalStepId(null);
-        expectedLessonStepDto.setLessonId(null);
+        expectedLessonStepDto.setTheoreticalStepId(1L);
+        expectedLessonStepDto.setLessonId(1L);
 
         when(lessonStepService
                 .getLessonStepDtoById(1L))
@@ -79,15 +90,25 @@ class LessonStepRestControllerV1Test {
 
     @Test
     void getAllLessonSteps() throws Exception {
+        com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.Test test =
+                new com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.Test();
+        test.setId(1L);
+
+        TheoreticalStep theoreticalStep = new TheoreticalStep();
+        theoreticalStep.setId(1L);
+
+        Lesson lesson = new Lesson();
+        lesson.setId(1L);
+
         List<LessonStepDto> expectedLessonStepDtoList = new ArrayList<>();
 
         LessonStepDto lessonStepDto = new LessonStepDto();
         lessonStepDto.setId(1L);
-        lessonStepDto.setTestId(null);
+        lessonStepDto.setTestId(1L);
         lessonStepDto.setComplete(false);
         lessonStepDto.setPositionInLesson(1);
-        lessonStepDto.setTheoreticalStepId(null);
-        lessonStepDto.setLessonId(null);
+        lessonStepDto.setTheoreticalStepId(1L);
+        lessonStepDto.setLessonId(1L);
 
         expectedLessonStepDtoList.add(lessonStepDto);
 
@@ -104,28 +125,38 @@ class LessonStepRestControllerV1Test {
 
     @Test
     void addNewLessonStep() throws Exception {
+        com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.Test test =
+                new com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.Test();
+        test.setId(1L);
+
+        TheoreticalStep theoreticalStep = new TheoreticalStep();
+        theoreticalStep.setId(1L);
+
+        Lesson lesson = new Lesson();
+        lesson.setId(1L);
+
         LessonStepDto expectedLessonStepDto = new LessonStepDto();
         expectedLessonStepDto.setId(1L);
-        expectedLessonStepDto.setTestId(null);
+        expectedLessonStepDto.setTestId(1L);
         expectedLessonStepDto.setComplete(false);
         expectedLessonStepDto.setPositionInLesson(1);
-        expectedLessonStepDto.setTheoreticalStepId(null);
-        expectedLessonStepDto.setLessonId(null);
+        expectedLessonStepDto.setTheoreticalStepId(1L);
+        expectedLessonStepDto.setLessonId(1L);
 
         LessonStep lessonStep = new LessonStep();
-        lessonStep.setTest(null);
+        lessonStep.setTest(test);
         lessonStep.setComplete(false);
         lessonStep.setPositionInLesson(1);
-        lessonStep.setTheoreticalStep(null);
-        lessonStep.setLesson(null);
+        lessonStep.setTheoreticalStep(theoreticalStep);
+        lessonStep.setLesson(lesson);
 
         LessonStepDto inputLessonStepDto = new LessonStepDto();
         inputLessonStepDto.setId(1L);
-        inputLessonStepDto.setTestId(null);
+        inputLessonStepDto.setTestId(1L);
         inputLessonStepDto.setComplete(false);
         inputLessonStepDto.setPositionInLesson(1);
-        inputLessonStepDto.setTheoreticalStepId(null);
-        inputLessonStepDto.setLessonId(null);
+        inputLessonStepDto.setTheoreticalStepId(1L);
+        inputLessonStepDto.setLessonId(1L);
 
         when(lessonStepService.
                 toLessonStep(inputLessonStepDto))
@@ -146,29 +177,39 @@ class LessonStepRestControllerV1Test {
 
     @Test
     void updateLessonStep() throws Exception {
+        com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.Test test =
+                new com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.Test();
+        test.setId(1L);
+
+        TheoreticalStep theoreticalStep = new TheoreticalStep();
+        theoreticalStep.setId(1L);
+
+        Lesson lesson = new Lesson();
+        lesson.setId(1L);
+
         LessonStepDto expectedLessonStepDto = new LessonStepDto();
         expectedLessonStepDto.setId(1L);
-        expectedLessonStepDto.setTestId(null);
+        expectedLessonStepDto.setTestId(1L);
         expectedLessonStepDto.setComplete(false);
         expectedLessonStepDto.setPositionInLesson(1);
-        expectedLessonStepDto.setTheoreticalStepId(null);
-        expectedLessonStepDto.setLessonId(null);
+        expectedLessonStepDto.setTheoreticalStepId(1L);
+        expectedLessonStepDto.setLessonId(1L);
 
         LessonStep lessonStep = new LessonStep();
         lessonStep.setId(1L);
-        lessonStep.setTest(null);
+        lessonStep.setTest(test);
         lessonStep.setComplete(false);
         lessonStep.setPositionInLesson(1);
-        lessonStep.setTheoreticalStep(null);
-        lessonStep.setLesson(null);
+        lessonStep.setTheoreticalStep(theoreticalStep);
+        lessonStep.setLesson(lesson);
 
         LessonStepDto inputLessonStepDto = new LessonStepDto();
         inputLessonStepDto.setId(1L);
-        inputLessonStepDto.setTestId(null);
+        inputLessonStepDto.setTestId(1L);
         inputLessonStepDto.setComplete(false);
         inputLessonStepDto.setPositionInLesson(1);
-        inputLessonStepDto.setTheoreticalStepId(null);
-        inputLessonStepDto.setLessonId(null);
+        inputLessonStepDto.setTheoreticalStepId(1L);
+        inputLessonStepDto.setLessonId(1L);
 
         when(lessonStepService.
                 toLessonStep(inputLessonStepDto))

@@ -2,6 +2,8 @@ package com.ekimenko.spring.rest.SpringRESTtestingsystem.rest;
 
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.CourseDto;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.Course;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.Lesson;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.user.User;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.course_service.CourseService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
@@ -22,14 +24,12 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.*;
-import static org.springframework.restdocs.operation.preprocess.Preprocessors.prettyPrint;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -63,9 +63,9 @@ class CourseRestControllerV1Test {
         expectedCourseDto.setId(1L);
         expectedCourseDto.setName("name");
         expectedCourseDto.setComplete(false);
-        expectedCourseDto.setUsersId(Collections.emptyList());
-        expectedCourseDto.setLessonsId(Collections.emptyList());
-        expectedCourseDto.setUsersId(Collections.emptyList());
+        expectedCourseDto.setUsersId(List.of(1L));
+        expectedCourseDto.setLessonsId(List.of(1L));
+        expectedCourseDto.setDescription("description");
 
         when(courseService
                 .getCourseDtoById(1L))
@@ -86,9 +86,11 @@ class CourseRestControllerV1Test {
         expectedCourseDto.setId(1L);
         expectedCourseDto.setName("name");
         expectedCourseDto.setComplete(false);
-        expectedCourseDto.setUsersId(Collections.emptyList());
-        expectedCourseDto.setLessonsId(Collections.emptyList());
-        expectedCourseDto.setUsersId(Collections.emptyList());
+        expectedCourseDto.setUsersId(List.of(1L));
+        expectedCourseDto.setLessonsId(List.of(1L));
+        expectedCourseDto.setDescription("description");
+
+        expectedCourseDtoList.add(expectedCourseDto);
 
         when(courseService
                 .getAllCoursesDto())
@@ -103,27 +105,39 @@ class CourseRestControllerV1Test {
 
     @Test
     void addNewCourse() throws Exception {
+        List<User> userList = new ArrayList<>();
+        List<Lesson> lessonList = new ArrayList<>();
+
+        User user = new User();
+        Lesson lesson = new Lesson();
+
+        user.setId(1L);
+        lesson.setId(1L);
+
+        userList.add(user);
+        lessonList.add(lesson);
+
         CourseDto expectedCourseDto = new CourseDto();
         expectedCourseDto.setId(1L);
         expectedCourseDto.setName("name");
         expectedCourseDto.setComplete(false);
-        expectedCourseDto.setUsersId(Collections.emptyList());
-        expectedCourseDto.setLessonsId(Collections.emptyList());
-        expectedCourseDto.setUsersId(Collections.emptyList());
+        expectedCourseDto.setUsersId(List.of(1L));
+        expectedCourseDto.setLessonsId(List.of(1L));
+        expectedCourseDto.setDescription("description");
 
         Course course = new Course();
         course.setName("name");
         course.setComplete(false);
-        course.setUsers(Collections.emptyList());
-        course.setLessons(Collections.emptyList());
-        course.setUsers(Collections.emptyList());
+        course.setUsers(userList);
+        course.setLessons(lessonList);
+        course.setDescription("description");
 
         CourseDto inputCourseDto = new CourseDto();
-        expectedCourseDto.setName("name");
-        expectedCourseDto.setComplete(false);
-        expectedCourseDto.setUsersId(Collections.emptyList());
-        expectedCourseDto.setLessonsId(Collections.emptyList());
-        expectedCourseDto.setUsersId(Collections.emptyList());
+        inputCourseDto.setName("name");
+        inputCourseDto.setComplete(false);
+        inputCourseDto.setUsersId(List.of(1L));
+        inputCourseDto.setLessonsId(List.of(1L));
+        inputCourseDto.setDescription("description");
 
         when(courseService.
                 toCourse(inputCourseDto))
@@ -143,29 +157,42 @@ class CourseRestControllerV1Test {
 
     @Test
     void updateCourse() throws Exception {
+        List<User> userList = new ArrayList<>();
+        List<Lesson> lessonList = new ArrayList<>();
+
+        User user = new User();
+        Lesson lesson = new Lesson();
+
+        user.setId(1L);
+        lesson.setId(1L);
+
+        userList.add(user);
+        lessonList.add(lesson);
+
+
         CourseDto expectedCourseDto = new CourseDto();
         expectedCourseDto.setId(1L);
         expectedCourseDto.setName("name");
         expectedCourseDto.setComplete(false);
-        expectedCourseDto.setUsersId(Collections.emptyList());
-        expectedCourseDto.setLessonsId(Collections.emptyList());
-        expectedCourseDto.setUsersId(Collections.emptyList());
+        expectedCourseDto.setUsersId(List.of(1L));
+        expectedCourseDto.setLessonsId(List.of(1L));
+        expectedCourseDto.setDescription("description");
 
         Course course = new Course();
         course.setId(1L);
         course.setName("name");
         course.setComplete(false);
-        course.setUsers(Collections.emptyList());
-        course.setLessons(Collections.emptyList());
-        course.setUsers(Collections.emptyList());
+        course.setUsers(userList);
+        course.setLessons(lessonList);
+        course.setDescription("description");
 
         CourseDto inputCourseDto = new CourseDto();
-        expectedCourseDto.setId(1L);
-        expectedCourseDto.setName("name");
-        expectedCourseDto.setComplete(false);
-        expectedCourseDto.setUsersId(Collections.emptyList());
-        expectedCourseDto.setLessonsId(Collections.emptyList());
-        expectedCourseDto.setUsersId(Collections.emptyList());
+        inputCourseDto.setId(1L);
+        inputCourseDto.setName("name");
+        inputCourseDto.setComplete(false);
+        inputCourseDto.setUsersId(List.of(1L));
+        inputCourseDto.setLessonsId(List.of(1L));
+        inputCourseDto.setDescription("description");
 
         when(courseService.
                 toCourse(inputCourseDto))

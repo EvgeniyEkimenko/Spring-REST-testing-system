@@ -1,6 +1,9 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.rest.test_rest;
 
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.test_dto.TestDto;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.LessonStep;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.question.Question;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.TestResult;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.test_service.TestService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
@@ -21,14 +24,12 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.*;
-import static org.springframework.restdocs.operation.preprocess.Preprocessors.prettyPrint;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -62,9 +63,9 @@ class TestRestControllerV1Test {
         expectedTestDto.setId(1L);
         expectedTestDto.setName("testName");
         expectedTestDto.setNumberAttempt(1L);
-        expectedTestDto.setQuestionsId(Collections.emptyList());
-        expectedTestDto.setLessonStepId(null);
-        expectedTestDto.setTestResultId(Collections.emptyList());
+        expectedTestDto.setQuestionsId(List.of(1L));
+        expectedTestDto.setLessonStepId(1L);
+        expectedTestDto.setTestResultId(List.of(1L));
 
         when(testService
                 .getTestDtoById(1L))
@@ -83,9 +84,10 @@ class TestRestControllerV1Test {
         expectedTestDto.setId(1L);
         expectedTestDto.setName("testName");
         expectedTestDto.setNumberAttempt(1L);
-        expectedTestDto.setQuestionsId(Collections.emptyList());
-        expectedTestDto.setLessonStepId(null);
-        expectedTestDto.setTestResultId(Collections.emptyList());
+        expectedTestDto.setQuestionsId(List.of(1L));
+        expectedTestDto.setLessonStepId(1L);
+        expectedTestDto.setTestResultId(List.of(1L));
+        expectedTestDto.setRequeredScore(10L);
 
         List<TestDto> expectedTestDtoList = new ArrayList<>();
         expectedTestDtoList.add(expectedTestDto);
@@ -103,28 +105,45 @@ class TestRestControllerV1Test {
 
     @Test
     void addNewTest() throws Exception {
+        List<Question> questionList = new ArrayList<>();
+        List<TestResult> testResultList = new ArrayList<>();
+
+        Question question = new Question();
+        TestResult testResult = new TestResult();
+        LessonStep lessonStep = new LessonStep();
+
+        question.setId(1L);
+        testResult.setId(1L);
+        lessonStep.setId(1L);
+
+        questionList.add(question);
+        testResultList.add(testResult);
+
         TestDto expectedTestDto = new TestDto();
         expectedTestDto.setId(1L);
         expectedTestDto.setName("testName");
         expectedTestDto.setNumberAttempt(1L);
-        expectedTestDto.setQuestionsId(Collections.emptyList());
-        expectedTestDto.setLessonStepId(null);
-        expectedTestDto.setTestResultId(Collections.emptyList());
+        expectedTestDto.setQuestionsId(List.of(1L));
+        expectedTestDto.setLessonStepId(1L);
+        expectedTestDto.setTestResultId(List.of(1L));
+        expectedTestDto.setRequeredScore(10L);
 
         com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.Test test =
                 new com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.Test();
         test.setName("testName");
         test.setNumberAttempts(1L);
-        test.setQuestions(Collections.emptyList());
-        test.setLessonStep(null);
-        test.setTestResults(Collections.emptyList());
+        test.setQuestions(questionList);
+        test.setLessonStep(lessonStep);
+        test.setTestResults(testResultList);
+        test.setRequeredScore(10L);
 
         TestDto inputTestDto = new TestDto();
         inputTestDto.setName("testName");
         inputTestDto.setNumberAttempt(1L);
-        inputTestDto.setQuestionsId(Collections.emptyList());
-        inputTestDto.setLessonStepId(null);
-        inputTestDto.setTestResultId(Collections.emptyList());
+        inputTestDto.setQuestionsId(List.of(1L));
+        inputTestDto.setLessonStepId(1L);
+        inputTestDto.setTestResultId(List.of(1L));
+        inputTestDto.setRequeredScore(10L);
 
         when(testService.
                 toTest(inputTestDto))
@@ -145,30 +164,47 @@ class TestRestControllerV1Test {
 
     @Test
     void updateTest() throws Exception {
+        List<Question> questionList = new ArrayList<>();
+        List<TestResult> testResultList = new ArrayList<>();
+
+        Question question = new Question();
+        TestResult testResult = new TestResult();
+        LessonStep lessonStep = new LessonStep();
+
+        question.setId(1L);
+        testResult.setId(1L);
+        lessonStep.setId(1L);
+
+        questionList.add(question);
+        testResultList.add(testResult);
+
         TestDto expectedTestDto = new TestDto();
         expectedTestDto.setId(1L);
         expectedTestDto.setName("testName");
         expectedTestDto.setNumberAttempt(1L);
-        expectedTestDto.setQuestionsId(Collections.emptyList());
-        expectedTestDto.setLessonStepId(null);
-        expectedTestDto.setTestResultId(Collections.emptyList());
+        expectedTestDto.setQuestionsId(List.of(1L));
+        expectedTestDto.setLessonStepId(1L);
+        expectedTestDto.setTestResultId(List.of(1L));
+        expectedTestDto.setRequeredScore(10L);
 
         com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.Test test =
                 new com.ekimenko.spring.rest.SpringRESTtestingsystem.model.test.Test();
         test.setId(1L);
         test.setName("testName");
         test.setNumberAttempts(1L);
-        test.setQuestions(Collections.emptyList());
-        test.setLessonStep(null);
-        test.setTestResults(Collections.emptyList());
+        test.setQuestions(questionList);
+        test.setLessonStep(lessonStep);
+        test.setTestResults(testResultList);
+        test.setRequeredScore(10L);
 
         TestDto inputTestDto = new TestDto();
         inputTestDto.setId(1L);
         inputTestDto.setName("testName");
         inputTestDto.setNumberAttempt(1L);
-        inputTestDto.setQuestionsId(Collections.emptyList());
-        inputTestDto.setLessonStepId(null);
-        inputTestDto.setTestResultId(Collections.emptyList());
+        inputTestDto.setQuestionsId(List.of(1L));
+        inputTestDto.setLessonStepId(1L);
+        inputTestDto.setTestResultId(List.of(1L));
+        inputTestDto.setRequeredScore(10L);
 
         when(testService.
                 toTest(inputTestDto))

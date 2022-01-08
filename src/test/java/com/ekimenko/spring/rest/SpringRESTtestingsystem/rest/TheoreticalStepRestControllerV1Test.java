@@ -1,6 +1,7 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.rest;
 
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.TheoreticalStepDto;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.LessonStep;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.TheoreticalStep;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.theoretical_step_service.TheoreticalStepService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -102,21 +103,24 @@ class TheoreticalStepRestControllerV1Test {
 
     @Test
     void addNewTheoreticalStep() throws Exception {
+        LessonStep lessonStep = new LessonStep();
+        lessonStep.setId(1L);
+
         TheoreticalStepDto expectedTheoreticalStepDto = new TheoreticalStepDto();
         expectedTheoreticalStepDto.setId(1L);
-        expectedTheoreticalStepDto.setLessonStepId(null);
+        expectedTheoreticalStepDto.setLessonStepId(1L);
         expectedTheoreticalStepDto.setUsefulText("text");
         expectedTheoreticalStepDto.setName("name");
         expectedTheoreticalStepDto.setDescription("desc");
 
         TheoreticalStepDto inputTheoreticalStepDto = new TheoreticalStepDto();
-        inputTheoreticalStepDto.setLessonStepId(null);
+        inputTheoreticalStepDto.setLessonStepId(1L);
         inputTheoreticalStepDto.setUsefulText("text");
         inputTheoreticalStepDto.setName("name");
         inputTheoreticalStepDto.setDescription("desc");
 
         TheoreticalStep theoreticalStep = new TheoreticalStep();
-        theoreticalStep.setLessonStep(null);
+        theoreticalStep.setLessonStep(lessonStep);
         theoreticalStep.setUsefulText("text");
         theoreticalStep.setName("name");
         theoreticalStep.setDescription("desc");
@@ -141,23 +145,26 @@ class TheoreticalStepRestControllerV1Test {
 
     @Test
     void updateTheoreticalStep() throws Exception {
+        LessonStep lessonStep = new LessonStep();
+        lessonStep.setId(1L);
+
         TheoreticalStepDto expectedTheoreticalStepDto = new TheoreticalStepDto();
         expectedTheoreticalStepDto.setId(1L);
-        expectedTheoreticalStepDto.setLessonStepId(null);
+        expectedTheoreticalStepDto.setLessonStepId(1L);
         expectedTheoreticalStepDto.setUsefulText("text");
         expectedTheoreticalStepDto.setName("name");
         expectedTheoreticalStepDto.setDescription("desc");
 
         TheoreticalStepDto inputTheoreticalStepDto = new TheoreticalStepDto();
         inputTheoreticalStepDto.setId(1L);
-        inputTheoreticalStepDto.setLessonStepId(null);
+        inputTheoreticalStepDto.setLessonStepId(1L);
         inputTheoreticalStepDto.setUsefulText("text");
         inputTheoreticalStepDto.setName("name");
         inputTheoreticalStepDto.setDescription("desc");
 
         TheoreticalStep theoreticalStep = new TheoreticalStep();
         theoreticalStep.setId(1L);
-        theoreticalStep.setLessonStep(null);
+        theoreticalStep.setLessonStep(lessonStep);
         theoreticalStep.setUsefulText("text");
         theoreticalStep.setName("name");
         theoreticalStep.setDescription("desc");

@@ -1,7 +1,9 @@
 package com.ekimenko.spring.rest.SpringRESTtestingsystem.rest;
 
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.LessonDto;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.Course;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.Lesson;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.LessonStep;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.lesson_service.LessonService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
@@ -22,14 +24,12 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.*;
-import static org.springframework.restdocs.operation.preprocess.Preprocessors.prettyPrint;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -66,8 +66,8 @@ class LessonRestControllerV1Test {
         expectedLessonDto.setId(1L);
         expectedLessonDto.setName("testName");
         expectedLessonDto.setComplete(false);
-        expectedLessonDto.setCourseId(null);
-        expectedLessonDto.setLessonStepsId(Collections.emptyList());
+        expectedLessonDto.setCourseId(1L);
+        expectedLessonDto.setLessonStepsId(List.of(1L));
         expectedLessonDto.setDescription("testDesc");
 
         when(lessonService
@@ -91,20 +91,12 @@ class LessonRestControllerV1Test {
         expectedLessonDto.setId(1L);
         expectedLessonDto.setName("testName");
         expectedLessonDto.setComplete(false);
-        expectedLessonDto.setCourseId(null);
-        expectedLessonDto.setLessonStepsId(Collections.emptyList());
+        expectedLessonDto.setCourseId(1L);
+        expectedLessonDto.setLessonStepsId(List.of(1L));
         expectedLessonDto.setDescription("testDesc");
 
-        LessonDto secondExpectedLessonDto = new LessonDto();
-        secondExpectedLessonDto.setId(2L);
-        secondExpectedLessonDto.setName("testName1");
-        secondExpectedLessonDto.setComplete(false);
-        secondExpectedLessonDto.setCourseId(null);
-        secondExpectedLessonDto.setLessonStepsId(Collections.emptyList());
-        secondExpectedLessonDto.setDescription("testDesc1");
-
         expectedLessonDtoList.add(expectedLessonDto);
-        expectedLessonDtoList.add(secondExpectedLessonDto);
+
 
         when(lessonService
                 .getAllLessonsDto())
@@ -120,26 +112,33 @@ class LessonRestControllerV1Test {
 
     @Test
     void addNewLesson() throws Exception {
+        Course course = new Course();
+        course.setId(1L);
+        LessonStep lessonStep = new LessonStep();
+        lessonStep.setId(1L);
+        List<LessonStep> lessonStepList = new ArrayList<>();
+        lessonStepList.add(lessonStep);
+
         LessonDto expectedLessonDto = new LessonDto();
         expectedLessonDto.setId(1L);
         expectedLessonDto.setName("testName");
         expectedLessonDto.setComplete(false);
-        expectedLessonDto.setCourseId(null);
-        expectedLessonDto.setLessonStepsId(Collections.emptyList());
+        expectedLessonDto.setCourseId(1L);
+        expectedLessonDto.setLessonStepsId(List.of(1L));
         expectedLessonDto.setDescription("testDesc");
 
         Lesson lesson = new Lesson();
         lesson.setName("testName");
         lesson.setComplete(false);
-        lesson.setCourse(null);
-        lesson.setLessonSteps(Collections.emptyList());
+        lesson.setCourse(course);
+        lesson.setLessonSteps(lessonStepList);
         lesson.setDescription("testDesc");
 
         LessonDto inputLessonDto = new LessonDto();
         inputLessonDto.setName("testName");
         inputLessonDto.setComplete(false);
-        inputLessonDto.setCourseId(null);
-        inputLessonDto.setLessonStepsId(Collections.emptyList());
+        inputLessonDto.setCourseId(1L);
+        inputLessonDto.setLessonStepsId(List.of(1L));
         inputLessonDto.setDescription("testDesc");
 
         when(lessonService.
@@ -160,28 +159,35 @@ class LessonRestControllerV1Test {
 
     @Test
     void updateLesson() throws Exception {
+        Course course = new Course();
+        course.setId(1L);
+        LessonStep lessonStep = new LessonStep();
+        lessonStep.setId(1L);
+        List<LessonStep> lessonStepList = new ArrayList<>();
+        lessonStepList.add(lessonStep);
+
         LessonDto expectedLessonDto = new LessonDto();
         expectedLessonDto.setId(1L);
         expectedLessonDto.setName("testName");
         expectedLessonDto.setComplete(false);
-        expectedLessonDto.setCourseId(null);
-        expectedLessonDto.setLessonStepsId(Collections.emptyList());
+        expectedLessonDto.setCourseId(1L);
+        expectedLessonDto.setLessonStepsId(List.of(1L));
         expectedLessonDto.setDescription("testDesc");
 
         Lesson lesson = new Lesson();
         lesson.setId(1L);
         lesson.setName("testName");
         lesson.setComplete(false);
-        lesson.setCourse(null);
-        lesson.setLessonSteps(Collections.emptyList());
+        lesson.setCourse(course);
+        lesson.setLessonSteps(lessonStepList);
         lesson.setDescription("testDesc");
 
         LessonDto inputLessonDto = new LessonDto();
         inputLessonDto.setId(1L);
         inputLessonDto.setName("testName");
         inputLessonDto.setComplete(false);
-        inputLessonDto.setCourseId(null);
-        inputLessonDto.setLessonStepsId(Collections.emptyList());
+        inputLessonDto.setCourseId(1L);
+        inputLessonDto.setLessonStepsId(List.of(1L));
         inputLessonDto.setDescription("testDesc");
 
         when(lessonService.

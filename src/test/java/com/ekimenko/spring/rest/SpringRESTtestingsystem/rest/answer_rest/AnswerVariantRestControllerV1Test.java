@@ -2,7 +2,9 @@ package com.ekimenko.spring.rest.SpringRESTtestingsystem.rest.answer_rest;
 
 
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.dto.answer_dto.AnswerVariantDto;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer.AnswerResult;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer.AnswerVariant;
+import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.question.Question;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.answer_service.AnswerVariantService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
@@ -29,7 +31,6 @@ import static org.mockito.Mockito.when;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.*;
-import static org.springframework.restdocs.operation.preprocess.Preprocessors.prettyPrint;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -63,8 +64,8 @@ class AnswerVariantRestControllerV1Test {
         expectedAnswerVariantDto.setId(1L);
         expectedAnswerVariantDto.setCorrect(false);
         expectedAnswerVariantDto.setText("testText");
-        expectedAnswerVariantDto.setAnswerResultId(null);
-        expectedAnswerVariantDto.setQuestionId(null);
+        expectedAnswerVariantDto.setAnswerResultId(1L);
+        expectedAnswerVariantDto.setQuestionId(1L);
 
         when(answerVariantService
                 .getAnswerVariantDtoById(1L))
@@ -83,8 +84,8 @@ class AnswerVariantRestControllerV1Test {
         expectedAnswerVariantDto.setId(1L);
         expectedAnswerVariantDto.setCorrect(false);
         expectedAnswerVariantDto.setText("testText");
-        expectedAnswerVariantDto.setAnswerResultId(null);
-        expectedAnswerVariantDto.setQuestionId(null);
+        expectedAnswerVariantDto.setAnswerResultId(1L);
+        expectedAnswerVariantDto.setQuestionId(1L);
 
         List<AnswerVariantDto> expectedAnswerVariantDtoList = new ArrayList<>();
         expectedAnswerVariantDtoList.add(expectedAnswerVariantDto);
@@ -102,24 +103,30 @@ class AnswerVariantRestControllerV1Test {
 
     @Test
     void addNewAnswerVariant() throws Exception {
+        AnswerResult answerResult = new AnswerResult();
+        Question question = new Question();
+
+        answerResult.setId(1L);
+        question.setId(1L);
+
         AnswerVariantDto expectedAnswerVariantDto = new AnswerVariantDto();
         expectedAnswerVariantDto.setId(1L);
         expectedAnswerVariantDto.setCorrect(false);
         expectedAnswerVariantDto.setText("testText");
-        expectedAnswerVariantDto.setAnswerResultId(null);
-        expectedAnswerVariantDto.setQuestionId(null);
+        expectedAnswerVariantDto.setAnswerResultId(1L);
+        expectedAnswerVariantDto.setQuestionId(1L);
 
         AnswerVariant answerVariant = new AnswerVariant();
         answerVariant.setCorrect(false);
         answerVariant.setText("testText");
-        answerVariant.setAnswerResult(null);
-        answerVariant.setQuestion(null);
+        answerVariant.setAnswerResult(answerResult);
+        answerVariant.setQuestion(question);
 
         AnswerVariantDto inputAnswerVariantDto = new AnswerVariantDto();
         inputAnswerVariantDto.setCorrect(false);
         inputAnswerVariantDto.setText("testText");
-        inputAnswerVariantDto.setAnswerResultId(null);
-        inputAnswerVariantDto.setQuestionId(null);
+        inputAnswerVariantDto.setAnswerResultId(1L);
+        inputAnswerVariantDto.setQuestionId(1L);
 
         when(answerVariantService.
                 toAnswerVariant(inputAnswerVariantDto))
@@ -139,26 +146,32 @@ class AnswerVariantRestControllerV1Test {
 
     @Test
     void updateAnswerVariant() throws Exception {
+        AnswerResult answerResult = new AnswerResult();
+        Question question = new Question();
+
+        answerResult.setId(1L);
+        question.setId(1L);
+
         AnswerVariantDto expectedAnswerVariantDto = new AnswerVariantDto();
         expectedAnswerVariantDto.setId(1L);
         expectedAnswerVariantDto.setCorrect(false);
         expectedAnswerVariantDto.setText("testText");
-        expectedAnswerVariantDto.setAnswerResultId(null);
-        expectedAnswerVariantDto.setQuestionId(null);
+        expectedAnswerVariantDto.setAnswerResultId(1L);
+        expectedAnswerVariantDto.setQuestionId(1L);
 
         AnswerVariant answerVariant = new AnswerVariant();
         answerVariant.setId(1L);
         answerVariant.setCorrect(false);
         answerVariant.setText("testText");
-        answerVariant.setAnswerResult(null);
-        answerVariant.setQuestion(null);
+        answerVariant.setAnswerResult(answerResult);
+        answerVariant.setQuestion(question);
 
         AnswerVariantDto inputAnswerVariantDto = new AnswerVariantDto();
         inputAnswerVariantDto.setId(1L);
         inputAnswerVariantDto.setCorrect(false);
         inputAnswerVariantDto.setText("testText");
-        inputAnswerVariantDto.setAnswerResultId(null);
-        inputAnswerVariantDto.setQuestionId(null);
+        inputAnswerVariantDto.setAnswerResultId(1L);
+        inputAnswerVariantDto.setQuestionId(1L);
 
         when(answerVariantService.
                 toAnswerVariant(inputAnswerVariantDto))
