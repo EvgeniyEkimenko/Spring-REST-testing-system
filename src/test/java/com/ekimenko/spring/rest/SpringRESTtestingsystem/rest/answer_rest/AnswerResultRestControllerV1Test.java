@@ -146,7 +146,7 @@ class AnswerResultRestControllerV1Test {
                 .thenReturn(expectedAnswerResultDto);
 
         mvc.perform(MockMvcRequestBuilders
-                        .post("/api/v1/answer-result")
+                        .put("/api/v1/answer-result")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(inputAnswerResultDto)))
                 .andDo(print())

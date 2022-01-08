@@ -170,7 +170,7 @@ class QuestionRestControllerV1Test {
                 .thenReturn(expectedQuestionDto);
 
         mvc.perform(MockMvcRequestBuilders
-                        .post("/api/v1/question")
+                        .put("/api/v1/question")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(inputQuestionDto)))
                 .andDo(print())

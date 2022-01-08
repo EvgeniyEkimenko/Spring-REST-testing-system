@@ -146,7 +146,7 @@ class AnswerVariantRestControllerV1Test {
                 .thenReturn(expectedAnswerVariantDto);
 
         mvc.perform(MockMvcRequestBuilders
-                        .post("/api/v1/answer-variant")
+                        .put("/api/v1/answer-variant")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(inputAnswerVariantDto)))
                 .andDo(print())

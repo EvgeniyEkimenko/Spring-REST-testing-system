@@ -156,7 +156,7 @@ class TestRestControllerV1Test {
                 .thenReturn(expectedTestDto);
 
         mvc.perform(MockMvcRequestBuilders
-                        .post("/api/v1/test")
+                        .put("/api/v1/test")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(inputTestDto)))
                 .andDo(print())

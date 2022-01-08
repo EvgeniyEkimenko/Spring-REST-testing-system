@@ -156,7 +156,7 @@ class LessonStepRestControllerV1Test {
                 .thenReturn(expectedLessonStepDto);
 
         mvc.perform(MockMvcRequestBuilders
-                        .post("/api/v1/lesson-step")
+                        .put("/api/v1/lesson-step")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(inputLessonStepDto)))
                 .andDo(print())

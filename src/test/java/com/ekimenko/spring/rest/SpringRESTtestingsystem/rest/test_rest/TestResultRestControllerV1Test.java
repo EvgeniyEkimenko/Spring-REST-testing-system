@@ -163,7 +163,7 @@ class TestResultRestControllerV1Test {
                 .thenReturn(expectedTestResultDto);
 
         mvc.perform(MockMvcRequestBuilders
-                        .post("/api/v1/test-result")
+                        .put("/api/v1/test-result")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(inputTestResultDto)))
                 .andDo(print())
