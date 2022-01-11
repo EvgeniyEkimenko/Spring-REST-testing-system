@@ -34,7 +34,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith({RestDocumentationExtension.class, SpringExtension.class})
-@AutoConfigureRestDocs(outputDir = "target/generated-snippets")
+@AutoConfigureRestDocs(outputDir = "target/generated-snippets/lesson-step")
 @SpringBootTest
 @AutoConfigureMockMvc
 class LessonStepRestControllerV1Test {
@@ -52,7 +52,7 @@ class LessonStepRestControllerV1Test {
         this.mvc = MockMvcBuilders
                 .webAppContextSetup(webApplicationContext)
                 .apply(documentationConfiguration(restDocumentation))
-                .alwaysDo(document("{method-name}",
+                .alwaysDo(document("lesson-step/{method-name}",
                         preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint())))
                 .build();
     }
