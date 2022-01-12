@@ -17,6 +17,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.restdocs.RestDocumentationContextProvider;
 import org.springframework.restdocs.RestDocumentationExtension;
+import org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -45,17 +46,6 @@ class TestResultRestControllerV1Test {
     @MockBean
     private TestResultService testResultService;
 
-    @BeforeEach
-    public void setUp(WebApplicationContext webApplicationContext,
-                      RestDocumentationContextProvider restDocumentation) {
-
-        this.mvc = MockMvcBuilders
-                .webAppContextSetup(webApplicationContext)
-                .apply(documentationConfiguration(restDocumentation))
-                .alwaysDo(document("test-result/{method-name}",
-                        preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint())))
-                .build();
-    }
 
     @Test
     void getTestResultById() throws Exception {
@@ -72,7 +62,7 @@ class TestResultRestControllerV1Test {
                 .getTestResultDtoById(1L))
                 .thenReturn(expectedTestResultDto);
 
-        mvc.perform(MockMvcRequestBuilders
+        mvc.perform(RestDocumentationRequestBuilders
                         .get("/api/v1/test-result/{id}", 1L)
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
@@ -98,7 +88,7 @@ class TestResultRestControllerV1Test {
                 .getAllTestResultsDto())
                 .thenReturn(expectedTestResultDtoList);
 
-        mvc.perform(MockMvcRequestBuilders
+        mvc.perform(RestDocumentationRequestBuilders
                         .get("/api/v1/test-result/all")
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
@@ -152,7 +142,7 @@ class TestResultRestControllerV1Test {
                 .addNewTestResult(testResult))
                 .thenReturn(expectedTestResultDto);
 
-        mvc.perform(MockMvcRequestBuilders
+        mvc.perform(RestDocumentationRequestBuilders
                         .post("/api/v1/test-result")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(inputTestResultDto)))
@@ -209,7 +199,7 @@ class TestResultRestControllerV1Test {
                 .updateTestResult(testResult))
                 .thenReturn(expectedTestResultDto);
 
-        mvc.perform(MockMvcRequestBuilders
+        mvc.perform(RestDocumentationRequestBuilders
                         .put("/api/v1/test-result")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(inputTestResultDto)))
@@ -219,7 +209,7 @@ class TestResultRestControllerV1Test {
 
     @Test
     void deleteTestResultById() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.delete("/api/v1/test-result/{id}", 1L))
+        mvc.perform(RestDocumentationRequestBuilders.delete("/api/v1/test-result/{id}", 1L))
                 .andDo(print())
                 .andExpect(status().isOk());
     }
@@ -239,7 +229,7 @@ class TestResultRestControllerV1Test {
                 .startTest(1L))
                 .thenReturn(expectedTestResultDto);
 
-        mvc.perform(MockMvcRequestBuilders
+        mvc.perform(RestDocumentationRequestBuilders
                         .post("/api/v1/test-result/start/{id}", 1L)
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
@@ -261,7 +251,7 @@ class TestResultRestControllerV1Test {
                 .finishTest(1L))
                 .thenReturn(expectedTestResultDto);
 
-        mvc.perform(MockMvcRequestBuilders
+        mvc.perform(RestDocumentationRequestBuilders
                         .post("/api/v1/test-result/finish/{id}", 1L)
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())

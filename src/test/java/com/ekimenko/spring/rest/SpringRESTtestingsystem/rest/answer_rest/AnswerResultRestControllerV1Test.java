@@ -18,6 +18,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.restdocs.RestDocumentationContextProvider;
 import org.springframework.restdocs.RestDocumentationExtension;
+import org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -46,17 +47,6 @@ class AnswerResultRestControllerV1Test {
     @MockBean
     private AnswerResultService answerResultService;
 
-    @BeforeEach
-    public void setUp(WebApplicationContext webApplicationContext,
-                      RestDocumentationContextProvider restDocumentation) {
-
-        this.mvc = MockMvcBuilders
-                .webAppContextSetup(webApplicationContext)
-                .apply(documentationConfiguration(restDocumentation))
-                .alwaysDo(document("answer-result/{method-name}",
-                        preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint())))
-                .build();
-    }
 
     @Test
     void getAnswerResultById() throws Exception {
@@ -71,7 +61,7 @@ class AnswerResultRestControllerV1Test {
                 .getAnswerResultDtoById(1L))
                 .thenReturn(expectedAnswerResultDto);
 
-        mvc.perform(MockMvcRequestBuilders
+        mvc.perform(RestDocumentationRequestBuilders
                         .get("/api/v1/answer-result/{id}", 1L)
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
@@ -94,7 +84,7 @@ class AnswerResultRestControllerV1Test {
                 .getAllAnswerResultDto())
                 .thenReturn(expectedAnswerResultDtoList);
 
-        mvc.perform(MockMvcRequestBuilders
+        mvc.perform(RestDocumentationRequestBuilders
                         .get("/api/v1/answer-result/all")
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
@@ -142,7 +132,7 @@ class AnswerResultRestControllerV1Test {
                 .addNewAnswerResult(answerResult))
                 .thenReturn(expectedAnswerResultDto);
 
-        mvc.perform(MockMvcRequestBuilders
+        mvc.perform(RestDocumentationRequestBuilders
                         .post("/api/v1/answer-result")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(inputAnswerResultDto)))
@@ -193,7 +183,7 @@ class AnswerResultRestControllerV1Test {
                 .updateAnswerResult(answerResult))
                 .thenReturn(expectedAnswerResultDto);
 
-        mvc.perform(MockMvcRequestBuilders
+        mvc.perform(RestDocumentationRequestBuilders
                         .put("/api/v1/answer-result")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(inputAnswerResultDto)))
@@ -203,7 +193,7 @@ class AnswerResultRestControllerV1Test {
 
     @Test
     void deleteAnswerResultByID() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.delete("/api/v1/answer-result/{id}", 1L))
+        mvc.perform(RestDocumentationRequestBuilders.delete("/api/v1/answer-result/{id}", 1L))
                 .andDo(print())
                 .andExpect(status().isOk());
     }
@@ -228,7 +218,7 @@ class AnswerResultRestControllerV1Test {
                 .setPoints(inputAnswerResultDto))
                 .thenReturn(expectedAnswerResultDto);
 
-        mvc.perform(MockMvcRequestBuilders
+        mvc.perform(RestDocumentationRequestBuilders
                         .post("/api/v1/answer-result/check_answer")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(inputAnswerResultDto)))

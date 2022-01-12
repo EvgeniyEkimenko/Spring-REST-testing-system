@@ -17,6 +17,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.restdocs.RestDocumentationContextProvider;
 import org.springframework.restdocs.RestDocumentationExtension;
+import org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -45,18 +46,6 @@ class TestRestControllerV1Test {
     @MockBean
     private TestService testService;
 
-    @BeforeEach
-    public void setUp(WebApplicationContext webApplicationContext,
-                      RestDocumentationContextProvider restDocumentation) {
-
-        this.mvc = MockMvcBuilders
-                .webAppContextSetup(webApplicationContext)
-                .apply(documentationConfiguration(restDocumentation))
-                .alwaysDo(document("test/{method-name}",
-                        preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint())))
-                .build();
-    }
-
     @Test
     void getTestById() throws Exception {
         TestDto expectedTestDto = new TestDto();
@@ -71,7 +60,7 @@ class TestRestControllerV1Test {
                 .getTestDtoById(1L))
                 .thenReturn(expectedTestDto);
 
-        mvc.perform(MockMvcRequestBuilders
+        mvc.perform(RestDocumentationRequestBuilders
                         .get("/api/v1/test/{id}", 1L)
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
@@ -96,7 +85,7 @@ class TestRestControllerV1Test {
                 .getAllTestsDto())
                 .thenReturn(expectedTestDtoList);
 
-        mvc.perform(MockMvcRequestBuilders
+        mvc.perform(RestDocumentationRequestBuilders
                         .get("/api/v1/test/all")
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
@@ -153,7 +142,7 @@ class TestRestControllerV1Test {
                 .addNewTest(test))
                 .thenReturn(expectedTestDto);
 
-        mvc.perform(MockMvcRequestBuilders
+        mvc.perform(RestDocumentationRequestBuilders
                         .post("/api/v1/test")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(inputTestDto)))
@@ -214,7 +203,7 @@ class TestRestControllerV1Test {
                 .updateTest(test))
                 .thenReturn(expectedTestDto);
 
-        mvc.perform(MockMvcRequestBuilders
+        mvc.perform(RestDocumentationRequestBuilders
                         .put("/api/v1/test")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(inputTestDto)))
@@ -224,7 +213,7 @@ class TestRestControllerV1Test {
 
     @Test
     void deleteTestByID() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.delete("/api/v1/test/{id}", 1L))
+        mvc.perform(RestDocumentationRequestBuilders.delete("/api/v1/test/{id}", 1L))
                 .andDo(print())
                 .andExpect(status().isOk());
     }

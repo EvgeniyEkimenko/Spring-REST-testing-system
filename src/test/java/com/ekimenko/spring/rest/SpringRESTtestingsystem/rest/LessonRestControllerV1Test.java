@@ -17,6 +17,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.restdocs.RestDocumentationContextProvider;
 import org.springframework.restdocs.RestDocumentationExtension;
+import org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -47,18 +48,6 @@ class LessonRestControllerV1Test {
     @MockBean
     private LessonService lessonService;
 
-    @BeforeEach
-    public void setUp(WebApplicationContext webApplicationContext,
-                      RestDocumentationContextProvider restDocumentation) {
-
-        this.mvc = MockMvcBuilders
-                .webAppContextSetup(webApplicationContext)
-                .apply(documentationConfiguration(restDocumentation))
-                .alwaysDo(document("lesson/{method-name}",
-                        preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint())))
-                .build();
-    }
-
     @Test
     void getLessonById() throws Exception {
 
@@ -74,7 +63,7 @@ class LessonRestControllerV1Test {
                 .getLessonDtoById(1L))
                 .thenReturn(expectedLessonDto);
 
-        mvc.perform(MockMvcRequestBuilders
+        mvc.perform(RestDocumentationRequestBuilders
                         .get("/api/v1/lesson/{id}", 1L)
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
@@ -102,7 +91,7 @@ class LessonRestControllerV1Test {
                 .getAllLessonsDto())
                 .thenReturn(expectedLessonDtoList);
 
-        mvc.perform(MockMvcRequestBuilders
+        mvc.perform(RestDocumentationRequestBuilders
                         .get("/api/v1/lesson/all")
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
@@ -149,7 +138,7 @@ class LessonRestControllerV1Test {
                 .addNewLesson(lesson))
                 .thenReturn(expectedLessonDto);
 
-        mvc.perform(MockMvcRequestBuilders
+        mvc.perform(RestDocumentationRequestBuilders
                         .post("/api/v1/lesson")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(inputLessonDto)))
@@ -198,7 +187,7 @@ class LessonRestControllerV1Test {
                 .updateLesson(lesson))
                 .thenReturn(expectedLessonDto);
 
-        mvc.perform(MockMvcRequestBuilders
+        mvc.perform(RestDocumentationRequestBuilders
                         .put("/api/v1/lesson")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(inputLessonDto)))
@@ -208,7 +197,7 @@ class LessonRestControllerV1Test {
 
     @Test
     void deleteLessonByID() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.delete("/api/v1/lesson/{id}", 1L))
+        mvc.perform(RestDocumentationRequestBuilders.delete("/api/v1/lesson/{id}", 1L))
                 .andDo(print())
                 .andExpect(status().isOk());
     }

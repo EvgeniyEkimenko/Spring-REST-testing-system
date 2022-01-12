@@ -64,20 +64,53 @@ from resource to resource.
 Language (HAL)] format. Links can be found beneath the `_links` key. Users of the API should
 not create URIs themselves, instead they should use the above-described links to navigate
 
-[[overview-hypermedia-]]
-== Hypermedia
+[[overview-hypermedia]]
 
-=== Add Answer Result
+=== Answer Result
+
+==== Get Answer Result By Id
 Obtains a specific answer result by its unique identifier.
 
-==== Sample Request
+===== Sample Request
 include::{snippets}/answer-result/get-answer-result-by-id/http-request.adoc[]
 
-==== Sample Response
+===== Sample Response
 include::{snippets}/answer-result/get-answer-result-by-id/http-response.adoc[]
 
-==== CURL sample
+===== CURL sample
 include::{snippets}/answer-result/get-answer-result-by-id/curl-request.adoc[]
 
-==== Response Body
+===== Response Body
 include::{snippets}/answer-result/get-answer-result-by-id/response-body.adoc[]
+
+
+==== Add Answer Result
+Adds a new answer result for the request body.
+
+===== Sample Request
+include::{snippets}/answer-result/add-new-answer-result/http-request.adoc[]
+
+===== Sample Response
+include::{snippets}/answer-result/add-new-answer-result/http-response.adoc[]
+
+===== CURL sample
+include::{snippets}/answer-result/add-new-answer-result/curl-request.adoc[]
+
+===== Response Body
+include::{snippets}/answer-result/add-new-answer-result/response-body.adoc[]
+
+
+==== Delete Answer Result By Id
+Deletes a specific answer result by its unique identifier.
+
+===== Sample Request
+include::{snippets}/answer-result/delete-answer-result-by-id/http-request.adoc[]
+
+===== Sample Response
+include::{snippets}/answer-result/delete-answer-result-by-id/http-response.adoc[]
+
+===== CURL sample
+include::{snippets}/answer-result/delete-answer-result-by-id/curl-request.adoc[]
+
+===== Response Body
+include::{snippets}/answer-result/delete-answer-result-by-id/response-body.adoc[]

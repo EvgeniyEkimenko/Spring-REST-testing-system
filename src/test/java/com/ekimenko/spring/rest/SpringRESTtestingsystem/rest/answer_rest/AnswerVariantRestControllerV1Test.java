@@ -18,6 +18,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.restdocs.RestDocumentationContextProvider;
 import org.springframework.restdocs.RestDocumentationExtension;
+import org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -46,17 +47,6 @@ class AnswerVariantRestControllerV1Test {
     @MockBean
     private AnswerVariantService answerVariantService;
 
-    @BeforeEach
-    public void setUp(WebApplicationContext webApplicationContext,
-                      RestDocumentationContextProvider restDocumentation) {
-
-        this.mvc = MockMvcBuilders
-                .webAppContextSetup(webApplicationContext)
-                .apply(documentationConfiguration(restDocumentation))
-                .alwaysDo(document("answer-variant/{method-name}",
-                        preprocessRequest(prettyPrint()), preprocessResponse(prettyPrint())))
-                .build();
-    }
 
     @Test
     void getAnswerVariantById() throws Exception {
@@ -71,7 +61,7 @@ class AnswerVariantRestControllerV1Test {
                 .getAnswerVariantDtoById(1L))
                 .thenReturn(expectedAnswerVariantDto);
 
-        mvc.perform(MockMvcRequestBuilders
+        mvc.perform(RestDocumentationRequestBuilders
                         .get("/api/v1/answer-variant/{id}", 1L)
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
@@ -94,7 +84,7 @@ class AnswerVariantRestControllerV1Test {
                 .getAllAnswerVariantsDto())
                 .thenReturn(expectedAnswerVariantDtoList);
 
-        mvc.perform(MockMvcRequestBuilders
+        mvc.perform(RestDocumentationRequestBuilders
                         .get("/api/v1/answer-variant/all")
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
@@ -136,7 +126,7 @@ class AnswerVariantRestControllerV1Test {
                 .addNewAnswerVariant(answerVariant))
                 .thenReturn(expectedAnswerVariantDto);
 
-        mvc.perform(MockMvcRequestBuilders
+        mvc.perform(RestDocumentationRequestBuilders
                         .post("/api/v1/answer-variant")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(inputAnswerVariantDto)))
@@ -181,7 +171,7 @@ class AnswerVariantRestControllerV1Test {
                 .updateAnswerVariant(answerVariant))
                 .thenReturn(expectedAnswerVariantDto);
 
-        mvc.perform(MockMvcRequestBuilders
+        mvc.perform(RestDocumentationRequestBuilders
                         .put("/api/v1/answer-variant")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(inputAnswerVariantDto)))
@@ -191,7 +181,7 @@ class AnswerVariantRestControllerV1Test {
 
     @Test
     void deleteAnswerVariantByID() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.delete("/api/v1/answer-variant/{id}", 1L))
+        mvc.perform(RestDocumentationRequestBuilders.delete("/api/v1/answer-variant/{id}", 1L))
                 .andDo(print())
                 .andExpect(status().isOk());
     }
