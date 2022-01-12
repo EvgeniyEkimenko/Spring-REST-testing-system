@@ -31,6 +31,10 @@ import static org.mockito.Mockito.when;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.*;
+import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
+import static org.springframework.restdocs.payload.PayloadDocumentation.responseFields;
+import static org.springframework.restdocs.request.RequestDocumentation.parameterWithName;
+import static org.springframework.restdocs.request.RequestDocumentation.pathParameters;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -66,7 +70,43 @@ class TestResultRestControllerV1Test {
                         .get("/api/v1/test-result/{id}", 1L)
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andDo(document("test-result/{method-name}", preprocessRequest(prettyPrint())
+                        , preprocessResponse(prettyPrint()), pathParameters(parameterWithName("id")
+                                .description("Test Result Unique Identifier"))));
+
+    }
+
+    @Test
+    void getTestResultByIdResponseFieldDocumentation() throws Exception {
+        TestResultDto expectedTestResultDto = new TestResultDto();
+        expectedTestResultDto.setId(1L);
+        expectedTestResultDto.setTestScore(false);
+        expectedTestResultDto.setScore(0.0);
+        expectedTestResultDto.setComplete(false);
+        expectedTestResultDto.setUserId(1L);
+        expectedTestResultDto.setTestId(1L);
+        expectedTestResultDto.setAnswerResultsId(List.of(1L));
+
+        when(testResultService
+                .getTestResultDtoById(1L))
+                .thenReturn(expectedTestResultDto);
+
+        mvc.perform(RestDocumentationRequestBuilders
+                        .get("/api/v1/test-result/{id}", 1L)
+                        .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andDo(document("test-result/{method-name}", preprocessRequest(prettyPrint())
+                        , preprocessResponse(prettyPrint()), pathParameters(parameterWithName("id")
+                                .description("Test Result Unique Identifier")), responseFields(fieldWithPath("id")
+                                        .description("Test Result Unique Identifier"),
+                                fieldWithPath("complete").description("logical value of execution"),
+                                fieldWithPath("score").description("Number of points per test"),
+                                fieldWithPath("userId").description("User Unique Identifier"),
+                                fieldWithPath("testId").description("Test Unique Identifier"),
+                                fieldWithPath("testScore").description("Displays whether there are enough points for the test"),
+                                fieldWithPath("answerResultsId").description("Answer Result Unique Identifier"))));
 
     }
 
@@ -92,7 +132,9 @@ class TestResultRestControllerV1Test {
                         .get("/api/v1/test-result/all")
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andDo(document("test-result/{method-name}", preprocessRequest(prettyPrint())
+                        , preprocessResponse(prettyPrint())));
     }
 
     @Test
@@ -147,7 +189,10 @@ class TestResultRestControllerV1Test {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(inputTestResultDto)))
                 .andDo(print())
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andDo(document("test-result/{method-name}", preprocessRequest(prettyPrint())
+                        , preprocessResponse(prettyPrint())));
+
     }
 
     @Test
@@ -204,14 +249,19 @@ class TestResultRestControllerV1Test {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(inputTestResultDto)))
                 .andDo(print())
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andDo(document("test-result/{method-name}", preprocessRequest(prettyPrint())
+                        , preprocessResponse(prettyPrint())));
     }
 
     @Test
     void deleteTestResultById() throws Exception {
         mvc.perform(RestDocumentationRequestBuilders.delete("/api/v1/test-result/{id}", 1L))
                 .andDo(print())
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andDo(document("test-result/{method-name}", preprocessRequest(prettyPrint())
+                        , preprocessResponse(prettyPrint()), pathParameters(parameterWithName("id")
+                                .description("Test Result Unique Identifier"))));
     }
 
     @Test
@@ -233,7 +283,10 @@ class TestResultRestControllerV1Test {
                         .post("/api/v1/test-result/start/{id}", 1L)
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andDo(document("test-result/{method-name}", preprocessRequest(prettyPrint())
+                        , preprocessResponse(prettyPrint()), pathParameters(parameterWithName("id")
+                                .description("Test Unique Identifier"))));
     }
 
     @Test
@@ -255,6 +308,9 @@ class TestResultRestControllerV1Test {
                         .post("/api/v1/test-result/finish/{id}", 1L)
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andDo(document("test-result/{method-name}", preprocessRequest(prettyPrint())
+                        , preprocessResponse(prettyPrint()), pathParameters(parameterWithName("id")
+                                .description("Test Unique Identifier"))));
     }
 }

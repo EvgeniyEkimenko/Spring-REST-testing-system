@@ -31,6 +31,10 @@ import static org.mockito.Mockito.when;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.*;
+import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
+import static org.springframework.restdocs.payload.PayloadDocumentation.responseFields;
+import static org.springframework.restdocs.request.RequestDocumentation.parameterWithName;
+import static org.springframework.restdocs.request.RequestDocumentation.pathParameters;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -45,8 +49,6 @@ class CourseRestControllerV1Test {
 
     @MockBean
     private CourseService courseService;
-
-
 
     @Test
     void getCourseById() throws Exception {
@@ -66,7 +68,40 @@ class CourseRestControllerV1Test {
                         .get("/api/v1/course/{id}", 1L)
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andDo(document("course/{method-name}", preprocessRequest(prettyPrint())
+                        , preprocessResponse(prettyPrint()), pathParameters(parameterWithName("id")
+                                .description("Course Unique Identifier"))));
+    }
+
+    @Test
+    void getCourseByIdResponseFieldDocumentation() throws Exception {
+        CourseDto expectedCourseDto = new CourseDto();
+        expectedCourseDto.setId(1L);
+        expectedCourseDto.setName("name");
+        expectedCourseDto.setComplete(false);
+        expectedCourseDto.setUsersId(List.of(1L));
+        expectedCourseDto.setLessonsId(List.of(1L));
+        expectedCourseDto.setDescription("description");
+
+        when(courseService
+                .getCourseDtoById(1L))
+                .thenReturn(expectedCourseDto);
+
+        mvc.perform(RestDocumentationRequestBuilders
+                        .get("/api/v1/course/{id}", 1L)
+                        .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andDo(document("course/{method-name}", preprocessRequest(prettyPrint())
+                        , preprocessResponse(prettyPrint()), pathParameters(parameterWithName("id")
+                                .description("Course Unique Identifier")), responseFields(fieldWithPath("id")
+                                        .description("Course Unique Identifier"),
+                                fieldWithPath("name").description("Course name"),
+                                fieldWithPath("complete").description("logical value of execution"),
+                                fieldWithPath("description").description("Course Description"),
+                                fieldWithPath("lessonsId").description("Lesson Unique Identifier"),
+                                fieldWithPath("usersId").description("User Unique Identifier"))));
     }
 
     @Test
@@ -91,7 +126,9 @@ class CourseRestControllerV1Test {
                         .get("/api/v1/course/all")
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andDo(document("course/{method-name}", preprocessRequest(prettyPrint())
+                        , preprocessResponse(prettyPrint())));
     }
 
     @Test
@@ -143,7 +180,9 @@ class CourseRestControllerV1Test {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(inputCourseDto)))
                 .andDo(print())
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andDo(document("course/{method-name}", preprocessRequest(prettyPrint())
+                        , preprocessResponse(prettyPrint())));
     }
 
     @Test
@@ -198,13 +237,18 @@ class CourseRestControllerV1Test {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(inputCourseDto)))
                 .andDo(print())
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andDo(document("course/{method-name}", preprocessRequest(prettyPrint())
+                        , preprocessResponse(prettyPrint())));
     }
 
     @Test
     void deleteCourseByID() throws Exception {
         mvc.perform(RestDocumentationRequestBuilders.delete("/api/v1/course/{id}", 1L))
                 .andDo(print())
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andDo(document("course/{method-name}", preprocessRequest(prettyPrint())
+                        , preprocessResponse(prettyPrint()), pathParameters(parameterWithName("id")
+                                .description("Course Unique Identifier"))));
     }
 }

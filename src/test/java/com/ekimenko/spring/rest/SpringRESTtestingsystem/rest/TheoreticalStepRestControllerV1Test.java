@@ -72,7 +72,7 @@ class TheoreticalStepRestControllerV1Test {
                 .andExpect(status().isOk())
                 .andDo(document("theoretical-step/{method-name}", preprocessRequest(prettyPrint())
                         , preprocessResponse(prettyPrint()), pathParameters(parameterWithName("id")
-                        .description("Theoretical Step DTO Unique Identifier"))));
+                        .description("Theoretical Step Unique Identifier"))));
     }
 
     @Test
@@ -96,11 +96,11 @@ class TheoreticalStepRestControllerV1Test {
                 .andDo(document("theoretical-step/{method-name}",preprocessRequest(prettyPrint())
                         , preprocessResponse(prettyPrint()), pathParameters(parameterWithName("id")
                         .description("Theoretical Step DTO Unique Identifier")), responseFields(fieldWithPath("id")
-                                .description("Theoretical Step DTO Unique Identifier"),
-                        fieldWithPath("name").description("Name of the product"),
-                        fieldWithPath("description").description("Product Description"),
-                        fieldWithPath("usefulText").description("Product Price"),
-                        fieldWithPath("lessonStepId").description("Product stock"))));
+                                .description("Theoretical Step Unique Identifier"),
+                        fieldWithPath("name").description("Name of the Theoretical Step"),
+                        fieldWithPath("description").description("Theoretical Step Description"),
+                        fieldWithPath("usefulText").description("Text required to complete all tasks"),
+                        fieldWithPath("lessonStepId").description("Lesson Step Unique Identifier"))));
     }
 
     @Test
