@@ -15,6 +15,5 @@ public class AnswerResultDto {
     private Double score;
     private List<Long> answerVariantsId;
 
-
 }
 

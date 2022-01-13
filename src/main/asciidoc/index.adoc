@@ -13,8 +13,7 @@
 [[overview-http-verbs]]
 == HTTP verbs
 
-RESTful notes tries to adhere as closely as possible to standard HTTP and REST conventions in its
-use of HTTP verbs.
+RESTful notes tries to adhere as closely as possible to standard HTTP and REST conventions in its use of HTTP verbs.
 
 |===
 | Verb | Usage
@@ -32,8 +31,7 @@ use of HTTP verbs.
 | Used to delete an existing resource
 |===
 
-RESTful notes tries to adhere as closely as possible to standard HTTP and REST conventions in its
-use of HTTP status codes.
+RESTful notes tries to adhere as closely as possible to standard HTTP and REST conventions in its use of HTTP status codes.
 
 |===
 | Status code | Usage
@@ -58,59 +56,72 @@ use of HTTP status codes.
 [[overview-hypermedia]]
 == Hypermedia
 
-RESTful Notes uses hypermedia and resources include links to other resources in their
-responses. Responses are in http://stateless.co/hal_specification.html[Hypertext Application
+RESTful Notes uses hypermedia and resources include links to other resources in their responses.
+Responses are in http://stateless.co/hal_specification.html[Hypertext Application
 from resource to resource.
-Language (HAL)] format. Links can be found beneath the `_links` key. Users of the API should
-not create URIs themselves, instead they should use the above-described links to navigate
+Language (HAL)] format.
+Links can be found beneath the `_links` key.
+Users of the API should not create URIs themselves, instead they should use the above-described links to navigate
 
 [[overview-hypermedia]]
-
 === Answer Result
 
 ==== Get Answer Result By Id
+
 Obtains a specific answer result by its unique identifier.
 
 ===== Sample Request
+
 include::{snippets}/answer-result/get-answer-result-by-id/http-request.adoc[]
 
 ===== Sample Response
+
 include::{snippets}/answer-result/get-answer-result-by-id/http-response.adoc[]
 
 ===== CURL sample
+
 include::{snippets}/answer-result/get-answer-result-by-id/curl-request.adoc[]
 
 ===== Response Body
+
 include::{snippets}/answer-result/get-answer-result-by-id/response-body.adoc[]
 
-
 ==== Add Answer Result
+
 Adds a new answer result for the request body.
 
 ===== Sample Request
+
 include::{snippets}/answer-result/add-new-answer-result/http-request.adoc[]
 
 ===== Sample Response
+
 include::{snippets}/answer-result/add-new-answer-result/http-response.adoc[]
 
 ===== CURL sample
+
 include::{snippets}/answer-result/add-new-answer-result/curl-request.adoc[]
 
 ===== Response Body
+
 include::{snippets}/answer-result/add-new-answer-result/response-body.adoc[]
 
-
 ==== Delete Answer Result By Id
+
 Deletes a specific answer result by its unique identifier.
 
 ===== Sample Request
+
 include::{snippets}/answer-result/delete-answer-result-by-id/http-request.adoc[]
 
 ===== Sample Response
+
 include::{snippets}/answer-result/delete-answer-result-by-id/http-response.adoc[]
 
 ===== CURL sample
+
 include::{snippets}/answer-result/delete-answer-result-by-id/curl-request.adoc[]
 
 ===== Response Body
+
 include::{snippets}/answer-result/delete-answer-result-by-id/response-body.adoc[]

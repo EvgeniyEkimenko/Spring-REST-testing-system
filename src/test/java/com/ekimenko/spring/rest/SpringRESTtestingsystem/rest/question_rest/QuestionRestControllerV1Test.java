@@ -6,7 +6,6 @@ import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.answer.AnswerVaria
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.model.question.Question;
 import com.ekimenko.spring.rest.SpringRESTtestingsystem.service.question_service.QuestionService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,27 +14,26 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.restdocs.RestDocumentationContextProvider;
 import org.springframework.restdocs.RestDocumentationExtension;
 import org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.context.WebApplicationContext;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
-import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.*;
+import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
+import static org.springframework.restdocs.payload.PayloadDocumentation.responseFields;
+import static org.springframework.restdocs.request.RequestDocumentation.parameterWithName;
+import static org.springframework.restdocs.request.RequestDocumentation.pathParameters;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith({RestDocumentationExtension.class, SpringExtension.class})
-@AutoConfigureRestDocs(outputDir = "target/generated-snippets/question")
+@AutoConfigureRestDocs(outputDir = "target/generated-snippets")
 @SpringBootTest
 @AutoConfigureMockMvc
 class QuestionRestControllerV1Test {
@@ -67,7 +65,46 @@ class QuestionRestControllerV1Test {
                         .get("/api/v1/question/{id}", 1L)
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andDo(document("question/{method-name}", preprocessRequest(prettyPrint())
+                        , preprocessResponse(prettyPrint()), pathParameters(parameterWithName("id")
+                                .description("Question Unique Identifier"))));
+
+    }
+
+    @Test
+    void getQuestionByIdResponseFieldDocumentation() throws Exception {
+        QuestionDto expectedQuestionDto = new QuestionDto();
+        expectedQuestionDto.setId(1L);
+        expectedQuestionDto.setText("testText");
+        expectedQuestionDto.setPosition(1);
+        expectedQuestionDto.setAllowedParticleAnswer(false);
+        expectedQuestionDto.setScore(1D);
+        expectedQuestionDto.setAnswerResultsId(List.of(1L));
+        expectedQuestionDto.setTestId(1L);
+        expectedQuestionDto.setAnswerVariantsId(List.of(1L));
+
+        when(questionService
+                .getQuestionDtoById(1L))
+                .thenReturn(expectedQuestionDto);
+
+        mvc.perform(RestDocumentationRequestBuilders
+                        .get("/api/v1/question/{id}", 1L)
+                        .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andDo(document("question/{method-name}", preprocessRequest(prettyPrint())
+                        , preprocessResponse(prettyPrint()), pathParameters(parameterWithName("id")
+                                .description("Question Unique Identifier")), responseFields(fieldWithPath("id")
+                                        .description("Question Unique Identifier"),
+                                fieldWithPath("text").description("Question text"),
+                                fieldWithPath("score").description("Number of points per question"),
+                                fieldWithPath("position").description("Position in the text among other questions"),
+                                fieldWithPath("allowedParticleAnswer").description("Partial response"),
+                                fieldWithPath("testId").description("Test Unique Identifier"),
+                                fieldWithPath("answerVariantsId").description("Answer Variant Unique Identifiers"),
+                                fieldWithPath("answerResultsId").description("Answer Result Unique Identifiers"))));
+
     }
 
     @Test
@@ -93,7 +130,9 @@ class QuestionRestControllerV1Test {
                         .get("/api/v1/question/all")
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andDo(document("question/{method-name}", preprocessRequest(prettyPrint())
+                        , preprocessResponse(prettyPrint())));
     }
 
     @Test
@@ -154,7 +193,9 @@ class QuestionRestControllerV1Test {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(inputQuestionDto)))
                 .andDo(print())
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andDo(document("question/{method-name}", preprocessRequest(prettyPrint())
+                        , preprocessResponse(prettyPrint())));
     }
 
     @Test
@@ -217,13 +258,19 @@ class QuestionRestControllerV1Test {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(inputQuestionDto)))
                 .andDo(print())
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andDo(document("question/{method-name}", preprocessRequest(prettyPrint())
+                        , preprocessResponse(prettyPrint())));
+
     }
 
     @Test
     void deleteQuestionByID() throws Exception {
         mvc.perform(RestDocumentationRequestBuilders.delete("/api/v1/question/{id}", 1L))
                 .andDo(print())
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andDo(document("question/{method-name}", preprocessRequest(prettyPrint())
+                        , preprocessResponse(prettyPrint()), pathParameters(parameterWithName("id")
+                                .description("Question Unique Identifier"))));
     }
 }
