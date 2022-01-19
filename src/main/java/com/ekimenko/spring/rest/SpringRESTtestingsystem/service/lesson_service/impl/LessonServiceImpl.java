@@ -32,7 +32,7 @@ public class LessonServiceImpl implements LessonService {
                              @Lazy CourseService courseService) {   //fixme <-
         this.lessonRepository = lessonRepository;
         this.lessonStepService = lessonStepService;
-        //fixme (в тестовом варианте добавить зависимость на courseService , ТАКЖЕ касатеся тестов)
+        //fixme
         this.courseService = courseService;
     }
 

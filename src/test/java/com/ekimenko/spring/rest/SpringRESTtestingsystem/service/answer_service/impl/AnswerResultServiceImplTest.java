@@ -161,7 +161,6 @@ class AnswerResultServiceImplTest {
     @Disabled
     void calculatePointsWithAllowedParticleAnswer() {
         //given
-
         //when
         //then
     }

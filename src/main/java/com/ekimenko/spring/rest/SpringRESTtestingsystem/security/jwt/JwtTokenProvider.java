@@ -23,10 +23,10 @@ import java.util.List;
 public class JwtTokenProvider {
 
     @Value("${jwt.token.secret}")
-    private String secret; //секретное слово для генерации и дешифрации токена
+    private String secret;
 
     @Value("${jwt.token.expired}")
-    private long validityInMilliseconds; //Время валидности токена
+    private long validityInMilliseconds;
 
     @Autowired
     private UserDetailsService userDetailsService;
@@ -50,11 +50,11 @@ public class JwtTokenProvider {
         Date now = new Date();
         Date validity = new Date(now.getTime() + validityInMilliseconds);
 
-        return Jwts.builder()//
-                .setClaims(claims)//
-                .setIssuedAt(now)//
-                .setExpiration(validity)//
-                .signWith(SignatureAlgorithm.HS256, secret)//
+        return Jwts.builder()
+                .setClaims(claims)
+                .setIssuedAt(now)
+                .setExpiration(validity)
+                .signWith(SignatureAlgorithm.HS256, secret)
                 .compact();
     }
 

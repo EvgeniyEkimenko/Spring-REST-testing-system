@@ -66,19 +66,21 @@ Users of the API should not create URIs themselves, instead they should use the 
 [[overview-hypermedia]]
 === Answer Result
 
+include::{snippets}/answer-result/get-answer-result-by-id-response-field-documentation/response-fields.adoc[]
+
 ==== Get Answer Result By Id
 
 Obtains a specific answer result by its unique identifier.
 
-===== Sample Request
+===== HTTP Request
 
 include::{snippets}/answer-result/get-answer-result-by-id/http-request.adoc[]
 
-===== Sample Response
+===== HTTP Response
 
 include::{snippets}/answer-result/get-answer-result-by-id/http-response.adoc[]
 
-===== CURL sample
+===== CURL Request
 
 include::{snippets}/answer-result/get-answer-result-by-id/curl-request.adoc[]
 
@@ -86,25 +88,39 @@ include::{snippets}/answer-result/get-answer-result-by-id/curl-request.adoc[]
 
 include::{snippets}/answer-result/get-answer-result-by-id/response-body.adoc[]
 
+=====  Path Parameters
+
+include::{snippets}/answer-result/get-answer-result-by-id/path-parameters.adoc[]
+
+
+
 ==== Add Answer Result
 
 Adds a new answer result for the request body.
 
-===== Sample Request
+===== HTTP Request
 
 include::{snippets}/answer-result/add-new-answer-result/http-request.adoc[]
 
-===== Sample Response
+===== HTTP Response
 
 include::{snippets}/answer-result/add-new-answer-result/http-response.adoc[]
 
-===== CURL sample
+===== CURL Request
 
 include::{snippets}/answer-result/add-new-answer-result/curl-request.adoc[]
+
+===== Request Body
+
+include::{snippets}/answer-result/add-new-answer-result/request-body.adoc[]
 
 ===== Response Body
 
 include::{snippets}/answer-result/add-new-answer-result/response-body.adoc[]
+
+
+
+
 
 ==== Delete Answer Result By Id
 
@@ -125,3 +141,80 @@ include::{snippets}/answer-result/delete-answer-result-by-id/curl-request.adoc[]
 ===== Response Body
 
 include::{snippets}/answer-result/delete-answer-result-by-id/response-body.adoc[]
+
+=====  Path Parameters
+
+include::{snippets}/answer-result/delete-answer-result-by-id/path-parameters.adoc[]
+
+
+
+==== Get All Answer Results
+
+Obtains all the results of the answer.
+
+===== HTTP Request
+
+include::{snippets}/answer-result/get-all-answer-result/http-request.adoc[]
+
+===== HTTP Response
+
+include::{snippets}/answer-result/get-all-answer-result/http-response.adoc[]
+
+===== CURL Request
+
+include::{snippets}/answer-result/get-all-answer-result/curl-request.adoc[]
+
+===== Response Body
+
+include::{snippets}/answer-result/get-all-answer-result/response-body.adoc[]
+
+
+
+==== Set Points For The Answer
+
+Set the point values for the answer.
+
+===== HTTP Request
+
+include::{snippets}/answer-result/set-points-for-the-answer/http-request.adoc[]
+
+===== HTTP Response
+
+include::{snippets}/answer-result/set-points-for-the-answer/http-response.adoc[]
+
+===== CURL Request
+
+include::{snippets}/answer-result/set-points-for-the-answer/curl-request.adoc[]
+
+===== Request Body
+
+include::{snippets}/answer-result/set-points-for-the-answer/request-body.adoc[]
+
+===== Response Body
+
+include::{snippets}/answer-result/set-points-for-the-answer/response-body.adoc[]
+
+
+==== Update Answer Result
+
+Changes the state of the answer result
+
+===== HTTP Request
+
+include::{snippets}/answer-result/add-new-answer-result/http-request.adoc[]
+
+===== HTTP Response
+
+include::{snippets}/answer-result/add-new-answer-result/http-response.adoc[]
+
+===== CURL Request
+
+include::{snippets}/answer-result/add-new-answer-result/curl-request.adoc[]
+
+===== Request Body
+
+include::{snippets}/answer-result/add-new-answer-result/request-body.adoc[]
+
+===== Response Body
+
+include::{snippets}/answer-result/add-new-answer-result/response-body.adoc[]
