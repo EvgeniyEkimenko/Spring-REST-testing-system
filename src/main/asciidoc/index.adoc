@@ -405,3 +405,133 @@ include::{snippets}/answer-variant/update-answer-variant/response-body.adoc[]
 
 
 
+=== Course
+
+include::{snippets}/course/get-course-by-id-response-field-documentation/response-fields.adoc[]
+
+==== Get Course By Id
+
+Obtains a specific course by its unique identifier.
+
+===== HTTP Request
+
+include::{snippets}/course/get-course-by-id/http-request.adoc[]
+
+===== HTTP Response
+
+include::{snippets}/course/get-course-by-id/http-response.adoc[]
+
+===== CURL Request
+
+include::{snippets}/course/get-course-by-id/curl-request.adoc[]
+
+===== Response Body
+
+include::{snippets}/course/get-course-by-id/response-body.adoc[]
+
+=====  Path Parameters
+
+include::{snippets}/course/get-course-by-id/path-parameters.adoc[]
+
+
+
+
+==== Add Course
+
+Adds a new course for the request body.
+
+===== HTTP Request
+
+include::{snippets}/course/add-new-course/http-request.adoc[]
+
+===== HTTP Response
+
+include::{snippets}/course/add-new-course/http-response.adoc[]
+
+===== CURL Request
+
+include::{snippets}/course/add-new-course/curl-request.adoc[]
+
+===== Request Body
+
+include::{snippets}/course/add-new-course/request-body.adoc[]
+
+===== Response Body
+
+include::{snippets}/course/add-new-course/response-body.adoc[]
+
+
+
+
+
+==== Delete Course By Id
+
+Deletes a specific course by its unique identifier.
+
+===== Sample Request
+
+include::{snippets}/course/delete-course-by-id/http-request.adoc[]
+
+===== Sample Response
+
+include::{snippets}/course/delete-course-by-id/http-response.adoc[]
+
+===== CURL sample
+
+include::{snippets}/course/delete-course-by-id/curl-request.adoc[]
+
+===== Response Body
+
+include::{snippets}/course/delete-course-by-id/response-body.adoc[]
+
+=====  Path Parameters
+
+include::{snippets}/course/delete-course-by-id/path-parameters.adoc[]
+
+
+
+==== Get All Courses
+
+Obtains all the courses.
+
+===== HTTP Request
+
+include::{snippets}/course/get-all-courses/http-request.adoc[]
+
+===== HTTP Response
+
+include::{snippets}/course/get-all-courses/http-response.adoc[]
+
+===== CURL Request
+
+include::{snippets}/course/get-all-courses/curl-request.adoc[]
+
+===== Response Body
+
+include::{snippets}/course/get-all-courses/response-body.adoc[]
+
+
+
+==== Update Course
+
+Changes the state of the course.
+
+===== HTTP Request
+
+include::{snippets}/course/update-course/http-request.adoc[]
+
+===== HTTP Response
+
+include::{snippets}/course/update-course/http-response.adoc[]
+
+===== CURL Request
+
+include::{snippets}/course/update-course/curl-request.adoc[]
+
+===== Request Body
+
+include::{snippets}/course/update-course/request-body.adoc[]
+
+===== Response Body
+
+include::{snippets}/course/update-course/response-body.adoc[]
