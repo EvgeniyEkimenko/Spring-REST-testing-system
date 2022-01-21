@@ -1,4 +1,4 @@
-= Documentation for spring-REST-testing using Spring REST Doc API
+= Documentation for spring-REST-testing using Spring REST Doc API (version 0.2)
 :doctype: book
 :icons: font
 :source-highlighter: highlightjs
@@ -201,20 +201,207 @@ Changes the state of the answer result
 
 ===== HTTP Request
 
-include::{snippets}/answer-result/add-new-answer-result/http-request.adoc[]
+include::{snippets}/answer-result/update-answer-result/http-request.adoc[]
 
 ===== HTTP Response
 
-include::{snippets}/answer-result/add-new-answer-result/http-response.adoc[]
+include::{snippets}/answer-result/update-answer-result/http-response.adoc[]
 
 ===== CURL Request
 
-include::{snippets}/answer-result/add-new-answer-result/curl-request.adoc[]
+include::{snippets}/answer-result/update-answer-result/curl-request.adoc[]
 
 ===== Request Body
 
-include::{snippets}/answer-result/add-new-answer-result/request-body.adoc[]
+include::{snippets}/answer-result/update-answer-result/request-body.adoc[]
 
 ===== Response Body
 
-include::{snippets}/answer-result/add-new-answer-result/response-body.adoc[]
+include::{snippets}/answer-result/update-answer-result/response-body.adoc[]
+
+
+
+
+=== Answer Result
+
+include::{snippets}/answer-result/get-answer-result-by-id-response-field-documentation/response-fields.adoc[]
+
+==== Get Answer Result By Id
+
+Obtains a specific answer result by its unique identifier.
+
+===== HTTP Request
+
+include::{snippets}/answer-result/get-answer-result-by-id/http-request.adoc[]
+
+===== HTTP Response
+
+include::{snippets}/answer-result/get-answer-result-by-id/http-response.adoc[]
+
+===== CURL Request
+
+include::{snippets}/answer-result/get-answer-result-by-id/curl-request.adoc[]
+
+===== Response Body
+
+include::{snippets}/answer-result/get-answer-result-by-id/response-body.adoc[]
+
+=====  Path Parameters
+
+include::{snippets}/answer-result/get-answer-result-by-id/path-parameters.adoc[]
+
+
+
+
+
+
+
+
+
+
+
+
+=== Answer Variant
+
+include::{snippets}/answer-variant/get-answer-variant-by-id-response-field-documentation/response-fields.adoc[]
+
+==== Get Answer Variant By Id
+
+Obtains a specific answer variant by its unique identifier.
+
+===== HTTP Request
+
+include::{snippets}/answer-variant/get-answer-variant-by-id/http-request.adoc[]
+
+===== HTTP Response
+
+include::{snippets}/answer-variant/get-answer-variant-by-id/http-response.adoc[]
+
+===== CURL Request
+
+include::{snippets}/answer-variant/get-answer-variant-by-id/curl-request.adoc[]
+
+===== Response Body
+
+include::{snippets}/answer-variant/get-answer-variant-by-id/response-body.adoc[]
+
+=====  Path Parameters
+
+include::{snippets}/answer-variant/get-answer-variant-by-id/path-parameters.adoc[]
+
+
+
+
+==== Add Answer Variant
+
+Adds a new answer variant for the request body.
+
+===== HTTP Request
+
+include::{snippets}/answer-variant/add-new-answer-variant/http-request.adoc[]
+
+===== HTTP Response
+
+include::{snippets}/answer-variant/add-new-answer-variant/http-response.adoc[]
+
+===== CURL Request
+
+include::{snippets}/answer-variant/add-new-answer-variant/curl-request.adoc[]
+
+===== Request Body
+
+include::{snippets}/answer-variant/add-new-answer-variant/request-body.adoc[]
+
+===== Response Body
+
+include::{snippets}/answer-variant/add-new-answer-variant/response-body.adoc[]
+
+
+
+
+
+==== Delete Answer Variant By Id
+
+Deletes a specific answer variant by its unique identifier.
+
+===== Sample Request
+
+include::{snippets}/answer-variant/delete-answer-variant-by-id/http-request.adoc[]
+
+===== Sample Response
+
+include::{snippets}/answer-variant/delete-answer-variant-by-id/http-response.adoc[]
+
+===== CURL sample
+
+include::{snippets}/answer-variant/delete-answer-variant-by-id/curl-request.adoc[]
+
+===== Response Body
+
+include::{snippets}/answer-variant/delete-answer-variant-by-id/response-body.adoc[]
+
+=====  Path Parameters
+
+include::{snippets}/answer-variant/delete-answer-variant-by-id/path-parameters.adoc[]
+
+
+
+==== Get All Answer Variants
+
+Obtains all the variants of the answer.
+
+===== HTTP Request
+
+include::{snippets}/answer-variant/get-all-answer-variants/http-request.adoc[]
+
+===== HTTP Response
+
+include::{snippets}/answer-variant/get-all-answer-variants/http-response.adoc[]
+
+===== CURL Request
+
+include::{snippets}/answer-variant/get-all-answer-variants/curl-request.adoc[]
+
+===== Response Body
+
+include::{snippets}/answer-variant/get-all-answer-variants/response-body.adoc[]
+
+
+
+==== Update Answer Variant
+
+Changes the state of the answer variant
+
+===== HTTP Request
+
+include::{snippets}/answer-variant/update-answer-variant/http-request.adoc[]
+
+===== HTTP Response
+
+include::{snippets}/answer-variant/update-answer-variant/http-response.adoc[]
+
+===== CURL Request
+
+include::{snippets}/answer-variant/update-answer-variant/curl-request.adoc[]
+
+===== Request Body
+
+include::{snippets}/answer-variant/update-answer-variant/request-body.adoc[]
+
+===== Response Body
+
+include::{snippets}/answer-variant/update-answer-variant/response-body.adoc[]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
