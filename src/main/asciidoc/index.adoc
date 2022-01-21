@@ -1102,3 +1102,209 @@ include::{snippets}/test/update-test/request-body.adoc[]
 ===== Response Body
 
 include::{snippets}/test/update-test/response-body.adoc[]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=== Test Result
+
+include::{snippets}/test-result/get-test-result-by-id-response-field-documentation/response-fields.adoc[]
+
+==== Get Test Result By Id
+
+Obtains a specific Test Result by its unique identifier.
+
+===== HTTP Request
+
+include::{snippets}/test-result/get-test-result-by-id/http-request.adoc[]
+
+===== HTTP Response
+
+include::{snippets}/test-result/get-test-result-by-id/http-response.adoc[]
+
+===== CURL Request
+
+include::{snippets}/test-result/get-test-result-by-id/curl-request.adoc[]
+
+===== Response Body
+
+include::{snippets}/test-result/get-test-result-by-id/response-body.adoc[]
+
+=====  Path Parameters
+
+include::{snippets}/test-result/get-test-result-by-id/path-parameters.adoc[]
+
+
+
+
+==== Add Test Result
+
+Adds a new Test Result for the request body.
+
+===== HTTP Request
+
+include::{snippets}/test-result/add-new-test-result/http-request.adoc[]
+
+===== HTTP Response
+
+include::{snippets}/test-result/add-new-test-result/http-response.adoc[]
+
+===== CURL Request
+
+include::{snippets}/test-result/add-new-test-result/curl-request.adoc[]
+
+===== Request Body
+
+include::{snippets}/test-result/add-new-test-result/request-body.adoc[]
+
+===== Response Body
+
+include::{snippets}/test-result/add-new-test-result/response-body.adoc[]
+
+
+
+
+
+==== Delete Test Result By Id
+
+Deletes a specific Test Result Step by its unique identifier.
+
+===== Sample Request
+
+include::{snippets}/test-result/delete-test-result-by-id/http-request.adoc[]
+
+===== Sample Response
+
+include::{snippets}/test-result/delete-test-result-by-id/http-response.adoc[]
+
+===== CURL sample
+
+include::{snippets}/test-result/delete-test-result-by-id/curl-request.adoc[]
+
+===== Path Parameters
+
+include::{snippets}/test-result/delete-test-result-by-id/path-parameters.adoc[]
+
+
+
+==== Get All Test Results
+
+Obtains all the Test Results.
+
+===== HTTP Request
+
+include::{snippets}/test-result/get-all-test-results/http-request.adoc[]
+
+===== HTTP Response
+
+include::{snippets}/test-result/get-all-test-results/http-response.adoc[]
+
+===== CURL Request
+
+include::{snippets}/test-result/get-all-test-results/curl-request.adoc[]
+
+===== Response Body
+
+include::{snippets}/test-result/get-all-test-results/response-body.adoc[]
+
+
+
+==== Update Test Result
+
+Changes the state of the Test Result.
+
+===== HTTP Request
+
+include::{snippets}/test-result/update-test-result/http-request.adoc[]
+
+===== HTTP Response
+
+include::{snippets}/test-result/update-test-result/http-response.adoc[]
+
+===== CURL Request
+
+include::{snippets}/test-result/update-test-result/curl-request.adoc[]
+
+===== Request Body
+
+include::{snippets}/test-result/update-test-result/request-body.adoc[]
+
+===== Response Body
+
+include::{snippets}/test-result/update-test-result/response-body.adoc[]
+
+
+==== Start
+
+Starts the test execution. Obtains Test Result with initial values.
+
+===== HTTP Request
+
+include::{snippets}/test-result/start/http-request.adoc[]
+
+===== HTTP Response
+
+include::{snippets}/test-result/start/http-response.adoc[]
+
+===== CURL Request
+
+include::{snippets}/test-result/start/curl-request.adoc[]
+
+===== Response Body
+
+include::{snippets}/test-result/start/response-body.adoc[]
+
+=====  Path Parameters
+
+include::{snippets}/test-result/start/path-parameters.adoc[]
+
+
+==== Finish
+
+Finishes the test execution. Obtains Test Result with final values.
+
+===== HTTP Request
+
+include::{snippets}/test-result/finish/http-request.adoc[]
+
+===== HTTP Response
+
+include::{snippets}/test-result/finish/http-response.adoc[]
+
+===== CURL Request
+
+include::{snippets}/test-result/finish/curl-request.adoc[]
+
+===== Response Body
+
+include::{snippets}/test-result/finish/response-body.adoc[]
+
+=====  Path Parameters
+
+include::{snippets}/test-result/finish/path-parameters.adoc[]
+
+
