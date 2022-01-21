@@ -222,36 +222,6 @@ include::{snippets}/answer-result/update-answer-result/response-body.adoc[]
 
 
 
-=== Answer Result
-
-include::{snippets}/answer-result/get-answer-result-by-id-response-field-documentation/response-fields.adoc[]
-
-==== Get Answer Result By Id
-
-Obtains a specific answer result by its unique identifier.
-
-===== HTTP Request
-
-include::{snippets}/answer-result/get-answer-result-by-id/http-request.adoc[]
-
-===== HTTP Response
-
-include::{snippets}/answer-result/get-answer-result-by-id/http-response.adoc[]
-
-===== CURL Request
-
-include::{snippets}/answer-result/get-answer-result-by-id/curl-request.adoc[]
-
-===== Response Body
-
-include::{snippets}/answer-result/get-answer-result-by-id/response-body.adoc[]
-
-=====  Path Parameters
-
-include::{snippets}/answer-result/get-answer-result-by-id/path-parameters.adoc[]
-
-
-
 
 
 
@@ -535,3 +505,152 @@ include::{snippets}/course/update-course/request-body.adoc[]
 ===== Response Body
 
 include::{snippets}/course/update-course/response-body.adoc[]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=== Lesson
+
+include::{snippets}/lesson/get-lesson-by-id-response-field-documentation/response-fields.adoc[]
+
+==== Get Lesson By Id
+
+Obtains a specific lesson by its unique identifier.
+
+===== HTTP Request
+
+include::{snippets}/lesson/get-lesson-by-id/http-request.adoc[]
+
+===== HTTP Response
+
+include::{snippets}/lesson/get-lesson-by-id/http-response.adoc[]
+
+===== CURL Request
+
+include::{snippets}/lesson/get-lesson-by-id/curl-request.adoc[]
+
+===== Response Body
+
+include::{snippets}/lesson/get-lesson-by-id/response-body.adoc[]
+
+=====  Path Parameters
+
+include::{snippets}/lesson/get-lesson-by-id/path-parameters.adoc[]
+
+
+
+
+==== Add Lesson
+
+Adds a new lesson for the request body.
+
+===== HTTP Request
+
+include::{snippets}/lesson/add-new-lesson/http-request.adoc[]
+
+===== HTTP Response
+
+include::{snippets}/lesson/add-new-lesson/http-response.adoc[]
+
+===== CURL Request
+
+include::{snippets}/lesson/add-new-lesson/curl-request.adoc[]
+
+===== Request Body
+
+include::{snippets}/lesson/add-new-lesson/request-body.adoc[]
+
+===== Response Body
+
+include::{snippets}/lesson/add-new-lesson/response-body.adoc[]
+
+
+
+
+
+==== Delete Lesson By Id
+
+Deletes a specific lesson by its unique identifier.
+
+===== Sample Request
+
+include::{snippets}/lesson/delete-lesson-by-id/http-request.adoc[]
+
+===== Sample Response
+
+include::{snippets}/lesson/delete-lesson-by-id/http-response.adoc[]
+
+===== CURL sample
+
+include::{snippets}/lesson/delete-lesson-by-id/curl-request.adoc[]
+
+===== Response Body
+
+include::{snippets}/lesson/delete-lesson-by-id/response-body.adoc[]
+
+=====  Path Parameters
+
+include::{snippets}/lesson/delete-lesson-by-id/path-parameters.adoc[]
+
+
+
+==== Get All Lessons
+
+Obtains all the lessons.
+
+===== HTTP Request
+
+include::{snippets}/lesson/get-all-lessons/http-request.adoc[]
+
+===== HTTP Response
+
+include::{snippets}/lesson/get-all-lessons/http-response.adoc[]
+
+===== CURL Request
+
+include::{snippets}/lesson/get-all-lessons/curl-request.adoc[]
+
+===== Response Body
+
+include::{snippets}/lesson/get-all-lessons/response-body.adoc[]
+
+
+
+==== Update Lesson
+
+Changes the state of the lesson.
+
+===== HTTP Request
+
+include::{snippets}/lesson/update-lesson/http-request.adoc[]
+
+===== HTTP Response
+
+include::{snippets}/lesson/update-lesson/http-response.adoc[]
+
+===== CURL Request
+
+include::{snippets}/lesson/update-lesson/curl-request.adoc[]
+
+===== Request Body
+
+include::{snippets}/lesson/update-lesson/request-body.adoc[]
+
+===== Response Body
+
+include::{snippets}/lesson/update-lesson/response-body.adoc[]
