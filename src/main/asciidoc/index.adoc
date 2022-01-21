@@ -824,3 +824,129 @@ include::{snippets}/lesson-step/update-lesson-step/response-body.adoc[]
 
 
 
+=== Question
+
+include::{snippets}/question/get-question-by-id-response-field-documentation/response-fields.adoc[]
+
+==== Get Question By Id
+
+Obtains a specific Question by its unique identifier.
+
+===== HTTP Request
+
+include::{snippets}/question/get-question-by-id/http-request.adoc[]
+
+===== HTTP Response
+
+include::{snippets}/question/get-question-by-id/http-response.adoc[]
+
+===== CURL Request
+
+include::{snippets}/question/get-question-by-id/curl-request.adoc[]
+
+===== Response Body
+
+include::{snippets}/question/get-question-by-id/response-body.adoc[]
+
+=====  Path Parameters
+
+include::{snippets}/question/get-question-by-id/path-parameters.adoc[]
+
+
+
+
+==== Add Question
+
+Adds a new Question for the request body.
+
+===== HTTP Request
+
+include::{snippets}/question/add-new-question/http-request.adoc[]
+
+===== HTTP Response
+
+include::{snippets}/question/add-new-question/http-response.adoc[]
+
+===== CURL Request
+
+include::{snippets}/question/add-new-question/curl-request.adoc[]
+
+===== Request Body
+
+include::{snippets}/question/add-new-question/request-body.adoc[]
+
+===== Response Body
+
+include::{snippets}/question/add-new-question/response-body.adoc[]
+
+
+
+
+
+==== Delete Question By Id
+
+Deletes a specific Question Step by its unique identifier.
+
+===== Sample Request
+
+include::{snippets}/question/delete-question-by-id/http-request.adoc[]
+
+===== Sample Response
+
+include::{snippets}/question/delete-question-by-id/http-response.adoc[]
+
+===== CURL sample
+
+include::{snippets}/question/delete-question-by-id/curl-request.adoc[]
+
+===== Path Parameters
+
+include::{snippets}/question/delete-question-by-id/path-parameters.adoc[]
+
+
+
+==== Get All Questions
+
+Obtains all the Questions.
+
+===== HTTP Request
+
+include::{snippets}/question/get-all-questions/http-request.adoc[]
+
+===== HTTP Response
+
+include::{snippets}/question/get-all-questions/http-response.adoc[]
+
+===== CURL Request
+
+include::{snippets}/question/get-all-questions/curl-request.adoc[]
+
+===== Response Body
+
+include::{snippets}/question/get-all-questions/response-body.adoc[]
+
+
+
+==== Update Question
+
+Changes the state of the Question.
+
+===== HTTP Request
+
+include::{snippets}/question/update-question/http-request.adoc[]
+
+===== HTTP Response
+
+include::{snippets}/question/update-question/http-response.adoc[]
+
+===== CURL Request
+
+include::{snippets}/question/update-question/curl-request.adoc[]
+
+===== Request Body
+
+include::{snippets}/question/update-question/request-body.adoc[]
+
+===== Response Body
+
+include::{snippets}/question/update-question/response-body.adoc[]
