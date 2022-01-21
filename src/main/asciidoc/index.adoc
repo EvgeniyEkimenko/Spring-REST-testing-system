@@ -1308,3 +1308,152 @@ include::{snippets}/test-result/finish/response-body.adoc[]
 include::{snippets}/test-result/finish/path-parameters.adoc[]
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=== Theoretical Step
+
+include::{snippets}/theoretical-step/get-theoretical-step-by-id-response-field-documentation/response-fields.adoc[]
+
+==== Get Theoretical Step By Id
+
+Obtains a specific Theoretical Step by its unique identifier.
+
+===== HTTP Request
+
+include::{snippets}/theoretical-step/get-theoretical-step-by-id/http-request.adoc[]
+
+===== HTTP Response
+
+include::{snippets}/theoretical-step/get-theoretical-step-by-id/http-response.adoc[]
+
+===== CURL Request
+
+include::{snippets}/theoretical-step/get-theoretical-step-by-id/curl-request.adoc[]
+
+===== Response Body
+
+include::{snippets}/theoretical-step/get-theoretical-step-by-id/response-body.adoc[]
+
+=====  Path Parameters
+
+include::{snippets}/theoretical-step/get-theoretical-step-by-id/path-parameters.adoc[]
+
+
+
+
+==== Add Theoretical Step
+
+Adds a new Theoretical Step for the request body.
+
+===== HTTP Request
+
+include::{snippets}/theoretical-step/add-new-theoretical-step/http-request.adoc[]
+
+===== HTTP Response
+
+include::{snippets}/theoretical-step/add-new-theoretical-step/http-response.adoc[]
+
+===== CURL Request
+
+include::{snippets}/theoretical-step/add-new-theoretical-step/curl-request.adoc[]
+
+===== Request Body
+
+include::{snippets}/theoretical-step/add-new-theoretical-step/request-body.adoc[]
+
+===== Response Body
+
+include::{snippets}/theoretical-step/add-new-theoretical-step/response-body.adoc[]
+
+
+
+
+
+==== Delete Theoretical Step By Id
+
+Deletes a specific Theoretical Step by its unique identifier.
+
+===== Sample Request
+
+include::{snippets}/theoretical-step/delete-theoretical-step-by-id/http-request.adoc[]
+
+===== Sample Response
+
+include::{snippets}/theoretical-step/delete-theoretical-step-by-id/http-response.adoc[]
+
+===== CURL sample
+
+include::{snippets}/theoretical-step/delete-theoretical-step-by-id/curl-request.adoc[]
+
+===== Path Parameters
+
+include::{snippets}/theoretical-step/delete-theoretical-step-by-id/path-parameters.adoc[]
+
+
+
+==== Get All Theoretical Steps
+
+Obtains all the Theoretical Steps.
+
+===== HTTP Request
+
+include::{snippets}/theoretical-step/get-theoretical-step-by-id/http-request.adoc[]
+
+===== HTTP Response
+
+include::{snippets}/theoretical-step/get-theoretical-step-by-id/http-response.adoc[]
+
+===== CURL Request
+
+include::{snippets}/theoretical-step/get-theoretical-step-by-id/curl-request.adoc[]
+
+===== Response Body
+
+include::{snippets}/theoretical-step/get-theoretical-step-by-id/response-body.adoc[]
+
+
+
+==== Update Theoretical Step
+
+Changes the state of the Theoretical Step.
+
+===== HTTP Request
+
+include::{snippets}/theoretical-step/update-theoretical-step/http-request.adoc[]
+
+===== HTTP Response
+
+include::{snippets}/theoretical-step/update-theoretical-step/http-response.adoc[]
+
+===== CURL Request
+
+include::{snippets}/theoretical-step/update-theoretical-step/curl-request.adoc[]
+
+===== Request Body
+
+include::{snippets}/theoretical-step/update-theoretical-step/request-body.adoc[]
+
+===== Response Body
+
+include::{snippets}/theoretical-step/update-theoretical-step/response-body.adoc[]
