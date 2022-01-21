@@ -138,10 +138,6 @@ include::{snippets}/answer-result/delete-answer-result-by-id/http-response.adoc[
 
 include::{snippets}/answer-result/delete-answer-result-by-id/curl-request.adoc[]
 
-===== Response Body
-
-include::{snippets}/answer-result/delete-answer-result-by-id/response-body.adoc[]
-
 =====  Path Parameters
 
 include::{snippets}/answer-result/delete-answer-result-by-id/path-parameters.adoc[]
@@ -306,9 +302,6 @@ include::{snippets}/answer-variant/delete-answer-variant-by-id/http-response.ado
 
 include::{snippets}/answer-variant/delete-answer-variant-by-id/curl-request.adoc[]
 
-===== Response Body
-
-include::{snippets}/answer-variant/delete-answer-variant-by-id/response-body.adoc[]
 
 =====  Path Parameters
 
@@ -450,9 +443,7 @@ include::{snippets}/course/delete-course-by-id/http-response.adoc[]
 
 include::{snippets}/course/delete-course-by-id/curl-request.adoc[]
 
-===== Response Body
 
-include::{snippets}/course/delete-course-by-id/response-body.adoc[]
 
 =====  Path Parameters
 
@@ -599,10 +590,6 @@ include::{snippets}/lesson/delete-lesson-by-id/http-response.adoc[]
 
 include::{snippets}/lesson/delete-lesson-by-id/curl-request.adoc[]
 
-===== Response Body
-
-include::{snippets}/lesson/delete-lesson-by-id/response-body.adoc[]
-
 =====  Path Parameters
 
 include::{snippets}/lesson/delete-lesson-by-id/path-parameters.adoc[]
@@ -654,3 +641,186 @@ include::{snippets}/lesson/update-lesson/request-body.adoc[]
 ===== Response Body
 
 include::{snippets}/lesson/update-lesson/response-body.adoc[]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=== Lesson Step
+
+include::{snippets}/lesson-step/get-lesson-step-by-id-response-field-documentation/response-fields.adoc[]
+
+==== Get Lesson Step By Id
+
+Obtains a specific Lesson Step by its unique identifier.
+
+===== HTTP Request
+
+include::{snippets}/lesson-step/get-lesson-step-by-id/http-request.adoc[]
+
+===== HTTP Response
+
+include::{snippets}/lesson-step/get-lesson-step-by-id/http-response.adoc[]
+
+===== CURL Request
+
+include::{snippets}/lesson-step/get-lesson-step-by-id/curl-request.adoc[]
+
+===== Response Body
+
+include::{snippets}/lesson-step/get-lesson-step-by-id/response-body.adoc[]
+
+=====  Path Parameters
+
+include::{snippets}/lesson-step/get-lesson-step-by-id/path-parameters.adoc[]
+
+
+
+
+==== Add Lesson Step
+
+Adds a new Lesson Step for the request body.
+
+===== HTTP Request
+
+include::{snippets}/lesson-step/add-new-lesson-step/http-request.adoc[]
+
+===== HTTP Response
+
+include::{snippets}/lesson-step/add-new-lesson-step/http-response.adoc[]
+
+===== CURL Request
+
+include::{snippets}/lesson-step/add-new-lesson-step/curl-request.adoc[]
+
+===== Request Body
+
+include::{snippets}/lesson-step/add-new-lesson-step/request-body.adoc[]
+
+===== Response Body
+
+include::{snippets}/lesson-step/add-new-lesson-step/response-body.adoc[]
+
+
+
+
+
+==== Delete Lesson Step By Id
+
+Deletes a specific Lesson Step by its unique identifier.
+
+===== Sample Request
+
+include::{snippets}/lesson-step/delete-lesson-step-by-id/http-request.adoc[]
+
+===== Sample Response
+
+include::{snippets}/lesson-step/delete-lesson-step-by-id/http-response.adoc[]
+
+===== CURL sample
+
+include::{snippets}/lesson-step/delete-lesson-step-by-id/curl-request.adoc[]
+
+=====  Path Parameters
+
+include::{snippets}/lesson-step/delete-lesson-step-by-id/path-parameters.adoc[]
+
+
+
+==== Get All Lesson Steps
+
+Obtains all the Lesson Steps.
+
+===== HTTP Request
+
+include::{snippets}/lesson-step/get-all-lesson-steps/http-request.adoc[]
+
+===== HTTP Response
+
+include::{snippets}/lesson-step/get-all-lesson-steps/http-response.adoc[]
+
+===== CURL Request
+
+include::{snippets}/lesson-step/get-all-lesson-steps/curl-request.adoc[]
+
+===== Response Body
+
+include::{snippets}/lesson-step/get-all-lesson-steps/response-body.adoc[]
+
+
+
+==== Update Lesson Step
+
+Changes the state of the Lesson Step.
+
+===== HTTP Request
+
+include::{snippets}/lesson-step/update-lesson-step/http-request.adoc[]
+
+===== HTTP Response
+
+include::{snippets}/lesson-step/update-lesson-step/http-response.adoc[]
+
+===== CURL Request
+
+include::{snippets}/lesson-step/update-lesson-step/curl-request.adoc[]
+
+===== Request Body
+
+include::{snippets}/lesson-step/update-lesson-step/request-body.adoc[]
+
+===== Response Body
+
+include::{snippets}/lesson-step/update-lesson-step/response-body.adoc[]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
