@@ -10,12 +10,6 @@
 
 = https://github.com/EvgeniyEkimenko/Spring-REST-testing-system/blob/master/src/main/asciidoc/index.adoc[Full documentation (Version 0.2)]
 
-[[overview]]
-= Overview
-
-[[overview-http-verbs]]
-== HTTP verbs
-
 RESTful notes tries to adhere as closely as possible to standard HTTP and REST conventions in its use of HTTP verbs.
 
 |===
