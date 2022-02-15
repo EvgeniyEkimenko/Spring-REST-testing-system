@@ -1,3 +1,13 @@
+= RESTful Web service for management online courses and examinations
+
+== Implemented:
+
+ 1. Spring applications with JWT authorization and access rights
+ 2. Data Access Object (DAO)
+ 3. Unit and integration tests for various layers of the application using Junit, Mockito, Spring BootTest, AssertJ
+ 4. Liquibase for database migration
+ 5. API documentation using Spring REST Docs and AsciiDoc
+
 = Documentation using Spring REST Doc API
 
 :doctype: book
